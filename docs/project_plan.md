@@ -143,8 +143,8 @@
 
 ## Contact and Collaboration
 
-- Repository: [GitHub URL placeholder]
-- Main contact: [Your Name / Email]
+- Repository: [https://github.com/Sahiladevi/health_track]
+- Main contact: [Sahiladevi Deenadayalu / sahiladevi2003@gmail.com]
 - Collaboration: Regular sync meetings, issue tracking on GitHub
 
 ---
