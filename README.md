@@ -64,64 +64,103 @@ Data from the **National Health and Nutrition Examination Survey (NHANES)**, a p
 - 📄 Documentation: [NHANES Data Documentation](https://wwwn.cdc.gov/nchs/nhanes/default.aspx)
 
 ---
+## Data Selection
 
-## 📁 Data Dictionary
-### 1. Demographics & Socioeconomic Variables
+This project uses a curated subset of variables from the NHANES 2021–2022 datasets. Only relevant columns were selected from each dataset to support our analysis of BMI, lifestyle, and chronic disease risk factors.
 
-| Variable      | Description                            | Dataset  | Notes                         |
-|---------------|----------------------------------------|----------|-------------------------------|
-| SEQN          | Participant ID (key)                   | DEMO_L   | Key for merging datasets      |
-| RIAGENDR      | Gender (1=Male, 2=Female)              | DEMO_L   | Used for subgroup analysis    |
-| RIDRETH3      | Race/Ethnicity                         | DEMO_L   | e.g., NH White, NH Black      |
-| DMDEDUC2      | Education Level (20+ yrs)              | DEMO_L   | Categorical                   |
-| INDFMPIR      | Poverty Income Ratio                   | DEMO_L   | Proxy for socioeconomic status|
+For example:
+- From `DEMO_L.XPT`, only demographic, education, income, and weight variables were extracted.
+- From `BMX_L.XPT`, only the `BMXBMI` (Body Mass Index) column was used.
+- All datasets were merged using the common participant identifier `SEQN`.
 
-### 2. Lifestyle Factors
+See `Data Dictionary` for full list of selected variables and their descriptions.
+---
+## 📘 NHANES 2021–2023 Data Dictionary with Definitions
 
-| Variable     | Description                                  | Dataset  | Notes                      |
-|--------------|----------------------------------------------|----------|----------------------------|
-| PAD680       | Sedentary minutes/day                        | PAQ_L    | Screen/sitting time        |
-| PAD790Q/U    | Physical activity frequency + unit           | PAQ_L    | Unit: day/week/month/year  |
-| PAD800       | Duration per activity session                | PAQ_L    | In minutes                 |
-| SLD012/13    | Sleep duration (weekday/weekend)             | SLQ_L    | Self-reported              |
-| DR1TKCAL     | Daily caloric intake                         | DR1TOT_L | 24-hr recall               |
-| DR1TSFAT     | Saturated fat intake (g)                     | DR1TOT_L | Optional dietary metric    |
+### 🔹 Step 1: Demographics + BMI
 
-### 3. Healthcare Access
+| Dataset | Variable     | Description                                   | Definition |
+|---------|--------------|-----------------------------------------------|------------|
+| DEMO_L  | SEQN         | Unique respondent ID                          | Participant’s unique survey identifier |
+|         | RIAGENDR     | Gender (1 = Male, 2 = Female)                 | Biological sex reported by participant |
+|         | RIDAGEYR     | Age in years                                  | Participant’s age at time of exam |
+|         | RIDRETH3     | Race/ethnicity                                | Race/ethnic group categories defined by NHANES |
+|         | DMDEDUC2     | Education level                               | Highest education completed (categories) |
+|         | INDFMPIR     | Income-to-poverty ratio                       | Ratio of family income to poverty threshold |
+|         | WTINT2YR     | Interview sample weight                       | Weight for interview data to represent US population |
+|         | WTMEC2YR     | MEC exam sample weight                        | Weight for physical exam and lab data |
+|         | SDMVSTRA     | Stratification variable for survey design     | Variable to account for survey design strata |
+|         | SDMVPSU      | PSU variable for survey design                | Variable to account for primary sampling units |
+| BMX_L   | BMXBMI       | Body Mass Index (kg/m²)                       | Weight (kg) / height (m)^2, indicator of body fat |
 
-| Variable    | Description                                      | Dataset   | Notes                        |
-|-------------|--------------------------------------------------|-----------|------------------------------|
-| HIQ011      | Insurance status (Yes/No)                        | HIQ_L     | Yes/No indicator             |
-| RXQ033      | Prescription medicine (past 30 days)             | RXQ_RX_L  | Medication usage             |
-| BPQ101D     | Taking meds to lower blood cholesterol           | BPQ_L     | Medication usage             |
+---
 
-### 4. Health Outcomes
+### 🔹 Step 2: Lifestyle Factors
 
-| Variable        | Description                         | Dataset       | Notes                      |
-|-----------------|-------------------------------------|---------------|----------------------------|
-| BMXBMI          | Body Mass Index                     | BMX_L         | Measured                   |
-| BPXOSY          | Blood pressure (systolic)           | BPXO_L        | 3 readings per participant |
-| BPXODI          | Blood pressure (diastolic)          | BPXO_L        | 3 readings per participant |
-| LBXTC           | Total cholesterol                   | TCHOL_L       | Lab results                |
-| LBXHDL          | HDL cholesterol                     | HDL_L         | Lab results                |
-| LBXGLU          | Glucose                             | GLU_L         | Metabolic indicators       |
-| LBXIN           | Insulin                             | INS_L         | Metabolic indicators       |
-| LBDGLUSI        | HOMA-IR (SI units)                  | GLU_L         | Metabolic indicators       |
-| DIQ010          | Diagnosed Diabetes (Yes/No)         | DIQ _L        | Chronic condition          |
-| BPQ020          | Diagnosed Hypertension              | BPQ_L         | Chronic condition          |
-| BPQ080          | Diagnosed high cholesterol          | BPQ_L         | Chronic condition          |
-| MCQ160B-E       | Cardiovascular conditions           | MCQ_L         | Heart disease types        |
+| Dataset  | Variable     | Description                                     | Definition |
+|----------|--------------|-------------------------------------------------|------------|
+| PAQ_L    | PAD680       | Minutes of moderate-intensity work activity/week| Self-reported weekly minutes of moderate physical activity |
+|          | PAD790Q      | Frequency of vigorous recreational activity     | How often participant engages in vigorous activities |
+|          | PAD790U      | Time unit for PAD790Q                           | Units for PAD790Q (e.g., times per week) |
+|          | PAD800       | Duration of vigorous activity                   | Average length of vigorous activity sessions |
+| SLQ_L    | SLD012       | Sleep hours on weekdays/workdays               | Self-reported average hours of sleep on workdays |
+|          | SLD013       | Sleep hours on weekends                        | Self-reported average hours of sleep on weekends |
+| DR1TOT_L | DR1TKCAL     | Total daily energy intake (kcal)               | Calories consumed on dietary recall day 1 |
+|          | DR1TSFAT     | Saturated fat intake (g)                       | Grams of saturated fat consumed day 1 |
+|          | DR1TSUGR     | Total sugars intake (g)                        | Grams of sugars consumed day 1 |
+|          | DR1TFIBE     | Total dietary fiber intake (g)                | Grams of fiber consumed day 1 |
+|          | WTDR2D       | Dietary Day 1 sample weight                   | Weight for dietary recall day 1 data |
+| SMQ_L    | SMQ020       | Smoked at least 100 cigarettes in life         | Ever smoked 100+ cigarettes (Yes/No) |
+|          | SMQ040       | Current smoking status                         | Currently smoke cigarettes (Yes/No) |
 
+---
 
-### 5. Survey Design Variables
+### 🔹 Step 3: Clinical Measures
 
-| Variable     | Description                         | Dataset  | Notes                    |
-|--------------|-------------------------------------|----------|--------------------------|
-| WTMEC2YR     | MEC sample weight                   | DEMO_L   | Lab and physical data    |
-| WTDR2D       | 2-day dietary recall weight         | DR1TOT_L | Use for dietary analyses |
-| SDMVSTRA     | Stratification variable             | DEMO_L   | Required for variance    |
-| SDMVPSU      | Primary Sampling Unit               | DEMO_L   | Cluster identifier       |
+| Dataset  | Variable     | Description                                   | Definition |
+|----------|--------------|-----------------------------------------------|------------|
+| BPXO_L   | BPXOSY1-3    | Systolic BP readings 1–3                      | Three systolic blood pressure measurements (mm Hg) |
+|          | BPXODI1-3    | Diastolic BP readings 1–3                     | Three diastolic blood pressure measurements (mm Hg) |
+| TCHOL_L  | LBXTC        | Total cholesterol (mg/dL)                     | Total blood cholesterol concentration |
+| HDL_L    | LBDHDD       | HDL cholesterol (mg/dL)                       | “Good” cholesterol level in blood |
+|          | LBDHDDSI     | HDL cholesterol (SI units)                    | HDL cholesterol in SI units (mmol/L) |
+|          | WTPH2YR      | Fasting sample weight for cholesterol         | Weight for fasting blood sample data |
+| GLU_L    | LBXGLU       | Fasting glucose (mg/dL)                       | Blood glucose concentration after fasting |
+|          | LBDGLUSI     | Glucose (SI units)                            | Glucose in SI units (mmol/L) |
+|          | WTSAF2YR     | Fasting sample weight                         | Weight for fasting blood sample data |
+| INS_L    | LBXIN        | Insulin (uU/mL)                               | Insulin concentration in blood |
+|          | LBDINLC      | Insulin (SI units)                            | Insulin in SI units (pmol/L) |
+|          | WTSAF2YR     | Fasting sample weight                         | Weight for fasting blood sample data |
+| DIQ_L    | DIQ010       | Ever been told you have diabetes?             | Self-reported doctor diagnosis of diabetes (Yes/No) |
+| MCQ_L    | MCQ160B      | Ever told had congestive heart failure        | Self-reported CHF diagnosis (Yes/No) |
+|          | MCQ160C      | Coronary heart disease                        | Self-reported CHD diagnosis (Yes/No) |
+|          | MCQ160D      | Angina/angina pectoris                        | Self-reported angina diagnosis (Yes/No) |
+|          | MCQ160E      | Heart attack                                  | Self-reported heart attack diagnosis (Yes/No) |
 
+---
+
+### 🔹 Step 4: Socioeconomic & Healthcare Access
+
+| Dataset   | Variable     | Description                                     | Definition |
+|-----------|--------------|-------------------------------------------------|------------|
+| DEMO_L    | DMDEDUC2     | Education level                                 | Highest education attained |
+|           | INDFMPIR     | Income-to-poverty ratio                         | Family income divided by poverty level |
+| HIQ_L     | HIQ011       | Covered by health insurance                     | Has any health insurance coverage (Yes/No) |
+| RXQ_RX_L  | RXQ033       | Taken prescription medicine in the past month  | Used prescribed medication in last 30 days (Yes/No) |
+
+---
+
+### 🔹 Step 5: Modeling & Survey Design
+
+| Dataset    | Variable      | Description                                           | Definition |
+|------------|---------------|-------------------------------------------------------|------------|
+| DEMO_L     | WTINT2YR      | Interview weight (used for questionnaire data)        | Weight to produce nationally representative estimates for interview data |
+|            | WTMEC2YR      | MEC exam weight (used for physical/lab data)          | Weight to produce nationally representative estimates for exam data |
+|            | SDMVSTRA      | Stratification variable                               | Used to account for survey design strata in analysis |
+|            | SDMVPSU       | PSU variable                                          | Primary sampling units to account for clustering in survey design |
+| DR1TOT_L   | WTDR2D        | Dietary recall Day 1 weight                           | Weight for Day 1 dietary recall data |
+| GLU_L, INS_L | WTSAF2YR    | Fasting subsample weight                              | Weight for fasting subsample lab data |
+| HDL_L      | WTPH2YR       | Fasting weight for cholesterol & HDL                  | Weight for fasting lab subsample |
 ---
 ## 🎨 Visualizations
 
