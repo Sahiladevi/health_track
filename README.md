@@ -66,7 +66,7 @@ Data from the **National Health and Nutrition Examination Survey (NHANES)**, a p
 ---
 ## Data Selection
 
-This project uses a curated subset of variables from the NHANES 2021–2022 datasets. Only relevant columns were selected from each dataset to support our analysis of BMI, lifestyle, and chronic disease risk factors.
+This project uses a curated subset of variables from the NHANES 2021–2023 datasets. Only relevant columns were selected from each dataset to support our analysis of BMI, lifestyle, and chronic disease risk factors.
 
 For example:
 - From `DEMO_L.XPT`, only demographic, education, income, and weight variables were extracted.
