@@ -1,12 +1,12 @@
-# 🧪 Analyzing the Impact of Lifestyle, Socioeconomic Status, and Healthcare Access on Chronic Health Conditions Among U.S. Adults
+# Analyzing the Impact of Lifestyle, Socioeconomic Status, and Healthcare Access on Chronic Health Conditions Among U.S. Adults
 
-## 📊 NHANES 2021–2023 Data Analysis Project - health_track
+##  NHANES 2021–2023 Data Analysis Project - health_track
 
 ---
 
-## 🎯 Project Objective
+##  Project Objective
 
-This project investigates how **lifestyle behaviors**, **socioeconomic factors**, and **healthcare access** influence chronic health conditions among U.S. adults using the **NHANES 2021–2023 dataset**. We focus on chronic conditions such as:
+This project investigates how **lifestyle behaviors**, **socioeconomic factors**, and **healthcare access** influence chronic health conditions among U.S. adults using the **NHANES 2021–2023 dataset**. The focus is on chronic conditions such as:
 
 - Obesity (BMI)
 - Hypertension
@@ -22,25 +22,25 @@ The key goals are to:
 
 ---
 
-## 📋 Project Overview
+##  Project Overview
 
-Using nationally representative NHANES data, this analysis merges demographic, dietary, physical activity, laboratory, and questionnaire data. By applying both traditional statistical and exploratory visualization techniques, we aim to uncover key relationships between risk factors and health outcomes in U.S. adults.
-
----
-
-## ⚙️ Features
-
-- ✅ Data ingestion from local NHANES `.XPT` files and conversion to `.CSV`
-- ✅ Full data cleaning and merging using **Pandas**
-- ✅ Survey-weighted analysis using **statsmodels**
-- ✅ Visualizations via **Seaborn**, **Matplotlib**, and **Plotly**
-- ✅ SQLite database creation for querying cleaned dataset
-- ✅ (Optional) Machine learning clustering and regression
-- ✅ (Optional) Streamlit app for interactive visualization
+Using nationally representative NHANES data, this analysis merges demographic, dietary, physical activity, laboratory, and questionnaire data. Traditional statistical methods and exploratory visualization techniques are applied to uncover key relationships between risk factors and health outcomes in U.S. adults.
 
 ---
 
-## 🛠 Technology Stack
+## Features
+
+-  Data ingestion from local NHANES `.XPT` files and conversion to `.CSV`
+-  Full data cleaning and merging using **Pandas**
+-  Survey-weighted analysis using **statsmodels**
+-  Visualizations via **Seaborn**, **Matplotlib**, and **Plotly**
+-  SQLite database creation for querying cleaned dataset
+-  (Optional) Machine learning clustering and regression
+-  (Optional) Streamlit app for interactive visualization
+
+---
+
+## Technology Stack
 
 | Component          | Tool / Library                          |
 |-------------------|------------------------------------------|
@@ -56,7 +56,7 @@ Using nationally representative NHANES data, this analysis merges demographic, d
 
 ---
 
-## 📚 Data Source
+## Data Source
 
 Data from the **National Health and Nutrition Examination Survey (NHANES)**, a program of studies designed to assess the health and nutritional status of adults and children in the United States.
 
@@ -66,7 +66,7 @@ Data from the **National Health and Nutrition Examination Survey (NHANES)**, a p
 ---
 ## Data Selection
 
-This project uses a curated subset of variables from the NHANES 2021–2023 datasets. Only relevant columns were selected from each dataset to support our analysis of BMI, lifestyle, and chronic disease risk factors.
+This project uses a curated subset of variables from the NHANES 2021–2023 datasets. Only the relevant columns were selected from each dataset to support the analysis of BMI, lifestyle factors, and chronic disease risk.
 
 For example:
 - From `DEMO_L.XPT`, only demographic, education, income, and weight variables were extracted.
@@ -75,9 +75,9 @@ For example:
 
 See `Data Dictionary` for full list of selected variables and their descriptions.
 ---
-## 📘 NHANES 2021–2023 Data Dictionary with Definitions
+## NHANES 2021–2023 Data Dictionary with Definitions
 
-### 🔹 Step 1: Demographics + BMI
+### Step 1: Demographics + BMI
 
 | Dataset | Variable     | Description                                   | Definition |
 |---------|--------------|-----------------------------------------------|------------|
@@ -95,7 +95,7 @@ See `Data Dictionary` for full list of selected variables and their descriptions
 
 ---
 
-### 🔹 Step 2: Lifestyle Factors
+### Step 2: Lifestyle Factors
 
 | Dataset  | Variable     | Description                                     | Definition |
 |----------|--------------|-------------------------------------------------|------------|
@@ -115,7 +115,7 @@ See `Data Dictionary` for full list of selected variables and their descriptions
 
 ---
 
-### 🔹 Step 3: Clinical Measures
+### Step 3: Clinical Measures
 
 | Dataset  | Variable     | Description                                   | Definition |
 |----------|--------------|-----------------------------------------------|------------|
@@ -139,7 +139,7 @@ See `Data Dictionary` for full list of selected variables and their descriptions
 
 ---
 
-### 🔹 Step 4: Socioeconomic & Healthcare Access
+### Step 4: Socioeconomic & Healthcare Access
 
 | Dataset   | Variable     | Description                                     | Definition |
 |-----------|--------------|-------------------------------------------------|------------|
@@ -150,7 +150,7 @@ See `Data Dictionary` for full list of selected variables and their descriptions
 
 ---
 
-### 🔹 Step 5: Modeling & Survey Design
+###  Step 5: Modeling & Survey Design
 
 | Dataset    | Variable      | Description                                           | Definition |
 |------------|---------------|-------------------------------------------------------|------------|
@@ -162,7 +162,7 @@ See `Data Dictionary` for full list of selected variables and their descriptions
 | GLU_L, INS_L | WTSAF2YR    | Fasting subsample weight                              | Weight for fasting subsample lab data |
 | HDL_L      | WTPH2YR       | Fasting weight for cholesterol & HDL                  | Weight for fasting lab subsample |
 ---
-## 🎨 Visualizations
+## Visualizations
 
 - Boxplots and histograms of BMI, glucose, cholesterol
 - Grouped bar plots by gender, income, or race
@@ -172,7 +172,7 @@ See `Data Dictionary` for full list of selected variables and their descriptions
 
 ---
 
-## 🔍 Example Research Questions
+##  Example Research Questions
 
 1. Do low-income individuals have a higher prevalence of diabetes?
 2. Does poor diet (e.g., high saturated fat) increase BMI more significantly in women than men?
@@ -193,9 +193,7 @@ Using weights ensures results generalize to the **entire U.S. population**.
 
 ---
 
-## 📂 Project Folder Structure
-
-_📌 Fill this out based on your final organization:_
+## Project Folder Structure
 
 ```
 project-root/
@@ -211,7 +209,7 @@ project-root/
 
 ---
 
-## 🧪 Setup Instructions
+## Setup Instructions
 
 ### 1. Clone This Repository
 
@@ -247,7 +245,7 @@ jupyter notebook
 
 ---
 
-## 📦 Requirements
+## Requirements
 
 Contents of `requirements.txt`:
 
@@ -266,25 +264,25 @@ jupyter
 
 ---
 
-## 🧪 Testing & Validation
+##  Testing & Validation
 
-- ✅ All code blocks run successfully in a clean environment
-- ✅ Notebooks structured and annotated clearly
-- ✅ Survey weights applied appropriately
-- ✅ SQLite queries tested with sample SQL statements
-
----
-
-## 🔁 Version Control
-
-- ✅ Tracked using **Git CLI**
-- ✅ Minimum 10 commits
-- ✅ No files uploaded via GitHub UI
-- ✅ `.gitignore` includes temporary and output files
+-  All code blocks run successfully in a clean environment
+-  Notebooks structured and annotated clearly
+-  Survey weights applied appropriately
+-  SQLite queries tested with sample SQL statements
 
 ---
 
-## 🧠 Risk Mitigation
+##  Version Control
+
+- Tracked using the Git command line interface.
+- Minimum 10 commits
+- No files were uploaded through the GitHub web interface
+- The .gitignore file includes the venv folder.
+
+---
+
+##  Risk Mitigation
 
 | Risk                                | Mitigation Strategy                             |
 |-------------------------------------|-------------------------------------------------|
@@ -295,9 +293,9 @@ jupyter
 
 ---
 
-## 📢 Contributing
+## Contributing
 
-We welcome collaboration!
+If you want to help out, here’s how:
 
 1. Fork the repo
 2. Create a feature branch
@@ -306,14 +304,14 @@ We welcome collaboration!
 
 ---
 
-## 🙌 Acknowledgements
+## Acknowledgements
 
 Thanks to the **CDC/NCHS** for the NHANES dataset and documentation.  
 Gratitude to open-source contributors of **Pandas**, **Seaborn**, and **Plotly**.
 
 ---
 
-## 📬 Contact
+## Contact
 
 **Sahiladevi Deenadayalu**  
-📧 [sahiladevi2003@gmail.com](mailto:sahiladevi2003@gmail.com)
+[sahiladevi2003@gmail.com](mailto:sahiladevi2003@gmail.com)
