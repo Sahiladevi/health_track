@@ -1,11 +1,7 @@
 # Analyzing the Impact of Lifestyle, Socioeconomic Status, and Healthcare Access on Chronic Health Conditions Among U.S. Adults
-
 ##  NHANES 2021–2023 Data Analysis Project - health_track
-
 ---
-
 ##  Project Objective
-
 This project investigates how **lifestyle behaviors**, **socioeconomic factors**, and **healthcare access** influence chronic health conditions among U.S. adults using the **NHANES 2021–2023 dataset**. The focus is on chronic conditions such as:
 
 - Obesity (BMI)
@@ -14,25 +10,20 @@ This project investigates how **lifestyle behaviors**, **socioeconomic factors**
 - High cholesterol
 
 The key goals are to:
-
 - Understand the role of **diet, physical activity, and sleep** in chronic disease
 - Examine how **income, education, and insurance status** affect health
 - Identify **gender- and race-based disparities**
 - Support **data-driven public health policies**
 
 ---
-
 ##  Project Overview
-
 Using nationally representative NHANES data, this analysis merges demographic, dietary, physical activity, laboratory, and questionnaire data. Traditional statistical methods and exploratory visualization techniques are applied to uncover key relationships between risk factors and health outcomes in U.S. adults.
 
 ---
-
 ## Features
-
 -  Data ingestion from local NHANES `.XPT` files and conversion to `.CSV`
 -  Full data cleaning and merging using **Pandas**
--  Survey-weighted analysis using **statsmodels**
+-  Survey-weighted analysis using **statsmodels** or **using scikit-learn** or **numpy**
 -  Visualizations via **Seaborn**, **Matplotlib**, and **Plotly**
 -  SQLite database creation for querying cleaned dataset
 -  (Optional) Machine learning clustering and regression
@@ -41,7 +32,6 @@ Using nationally representative NHANES data, this analysis merges demographic, d
 ---
 
 ## Technology Stack
-
 | Component          | Tool / Library                          |
 |-------------------|------------------------------------------|
 | Programming       | Python (3.9+)                            |
@@ -55,9 +45,7 @@ Using nationally representative NHANES data, this analysis merges demographic, d
 | Deployment        | (Optional) Streamlit                     |
 
 ---
-
 ## Data Source
-
 Data from the **National Health and Nutrition Examination Survey (NHANES)**, a program of studies designed to assess the health and nutritional status of adults and children in the United States.
 
 - [NHANES 2021–2023](https://wwwn.cdc.gov/nchs/nhanes/continuousnhanes/default.aspx?Cycle=2021-2023)
@@ -65,15 +53,14 @@ Data from the **National Health and Nutrition Examination Survey (NHANES)**, a p
 
 ---
 ## Data Selection
+- For this project, I used a smaller, more focused selection of variables from the NHANES 2021–2023 datasets. I only kept the columns that were actually needed to explore things like BMI, lifestyle habits, and chronic disease risk.
 
-This project uses a curated subset of variables from the NHANES 2021–2023 datasets. Only the relevant columns were selected from each dataset to support the analysis of BMI, lifestyle factors, and chronic disease risk.
+- Here’s how the data was handled:
+From DEMO_L.XPT, I pulled just the basics—demographics, education level, income, and weight.
+From BMX_L.XPT, I only used the BMI (BMXBMI) column since that’s all I needed from there.
+All the datasets were then joined together using the SEQN ID, which links each participant across files.
+You can check the Data Dictionary section below for a full list of the variables I used and what each one means.
 
-For example:
-- From `DEMO_L.XPT`, only demographic, education, income, and weight variables were extracted.
-- From `BMX_L.XPT`, only the `BMXBMI` (Body Mass Index) column was used.
-- All datasets were merged using the common participant identifier `SEQN`.
-
-See `Data Dictionary` for full list of selected variables and their descriptions.
 ---
 ## NHANES 2021–2023 Data Dictionary with Definitions
 
@@ -171,28 +158,31 @@ See `Data Dictionary` for full list of selected variables and their descriptions
 - Survey-weighted means with confidence intervals
 
 ---
-
 ##  Example Research Questions
+1. How do everyday habits like exercise, what people eat, and how much they sleep affect things like BMI, blood pressure, and blood sugar in adults across the U.S.?
 
-1. Do low-income individuals have a higher prevalence of diabetes?
-2. Does poor diet (e.g., high saturated fat) increase BMI more significantly in women than men?
-3. Are physical activity and sleep protective against hypertension?
-4. Is access to healthcare associated with better blood pressure control?
+2. Does a person’s income, education, or whether they have health insurance change their chances of having conditions like obesity or diabetes or high blood pressure?
 
+3. Are there differences between men and women when it comes to how lifestyle and money affect their health?
+
+4. How do race and ethnicity influence the connection between lifestyle, access to healthcare, and chronic health problems?
+
+5. Do unhealthy habits together—like not exercising and eating poorly—make health problems worse than just one of those habits alone?
+
+6. Which groups seem to be at the highest risk for chronic diseases, and how can this info help create better health programs?
 ---
-
 ## Why Use Survey Weights?
+Since NHANES uses a complex, multistage sampling design, we can’t just analyze the raw numbers like in a simple random sample because that would lead to biased or misleading results. To deal with this, NHANES provides survey weights that we have to use in our analysis. These weights help adjust for a few important things:
 
-NHANES uses **complex, multistage sampling**, so it's **not valid** to analyze it using raw frequencies. Survey weights correct for:
+- Not everyone has the same chance of being picked
 
-- Unequal probability of selection
-- Oversampling of minorities
-- Nonresponse bias
+- Some groups, like minorities, are intentionally oversampled
 
-Using weights ensures results generalize to the **entire U.S. population**.
+- Some people don’t respond, which could mess with the data
+
+By using these weights properly, our results better represent the whole U.S. population, not just the people who actually took part in the survey.
 
 ---
-
 ## Project Folder Structure
 
 ```
@@ -212,7 +202,6 @@ project-root/
 ```
 
 ---
-
 ## Setup Instructions
 
 ### 1. Clone This Repository
@@ -267,7 +256,6 @@ jupyter
 > Only the necessary libraries are included to keep things clean and lightweight. A virtual environment was used to avoid any conflicts and keep the setup isolated from the rest of the system.
 
 ---
-
 ##  Testing & Validation
 
 - All the code runs smoothly in a clean environment without any errors. 
@@ -275,7 +263,6 @@ jupyter
 - Survey weights were applied correctly during analysis to make sure results are nationally representative. 
 - I also tested the SQLite database with a few sample SQL queries to make sure everything was working as expected.
 ---
-
 ##  Version Control
 
 - Tracked using the Git command line interface.
@@ -293,7 +280,6 @@ jupyter
 ---
 
 ## Contributing
-
 If you want to help out, here’s how:
 
 1. Fork the repo
