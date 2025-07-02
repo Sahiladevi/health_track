@@ -1,7 +1,9 @@
 # Analyzing the Impact of Lifestyle, Socioeconomic Status, and Healthcare Access on Chronic Health Conditions Among U.S. Adults
+
 ##  NHANES 2021–2023 Data Analysis Project - health_track
 ---
 ##  Project Objective
+
 This project investigates how **lifestyle behaviors**, **socioeconomic factors**, and **healthcare access** influence chronic health conditions among U.S. adults using the **NHANES 2021–2023 dataset**. The focus is on chronic conditions such as:
 
 - Obesity (BMI)
@@ -17,10 +19,12 @@ The key goals are to:
 
 ---
 ##  Project Overview
+
 Using nationally representative NHANES data, this analysis merges demographic, dietary, physical activity, laboratory, and questionnaire data. Traditional statistical methods and exploratory visualization techniques are applied to uncover key relationships between risk factors and health outcomes in U.S. adults.
 
 ---
 ## Features
+
 -  Data ingestion from local NHANES `.XPT` files and conversion to `.CSV`
 -  Full data cleaning and merging using **Pandas**
 -  Survey-weighted analysis using **statsmodels** or **using scikit-learn** or **numpy**
@@ -46,6 +50,7 @@ Using nationally representative NHANES data, this analysis merges demographic, d
 
 ---
 ## Data Source
+
 Data from the **National Health and Nutrition Examination Survey (NHANES)**, a program of studies designed to assess the health and nutritional status of adults and children in the United States.
 
 - [NHANES 2021–2023](https://wwwn.cdc.gov/nchs/nhanes/continuousnhanes/default.aspx?Cycle=2021-2023)
@@ -53,6 +58,7 @@ Data from the **National Health and Nutrition Examination Survey (NHANES)**, a p
 
 ---
 ## Data Selection
+
 - For this project, I used a smaller, more focused selection of variables from the NHANES 2021–2023 datasets. I only kept the columns that were actually needed to explore things like BMI, lifestyle habits, and chronic disease risk.
 
 - Here’s how the data was handled:
@@ -159,6 +165,7 @@ You can check the Data Dictionary section below for a full list of the variables
 
 ---
 ##  Example Research Questions
+
 1. How do everyday habits like exercise, what people eat, and how much they sleep affect things like BMI, blood pressure, and blood sugar in adults across the U.S.?
 
 2. Does a person’s income, education, or whether they have health insurance change their chances of having conditions like obesity or diabetes or high blood pressure?
@@ -172,6 +179,7 @@ You can check the Data Dictionary section below for a full list of the variables
 6. Which groups seem to be at the highest risk for chronic diseases, and how can this info help create better health programs?
 ---
 ## Why Use Survey Weights?
+
 Since NHANES uses a complex, multistage sampling design, we can’t just analyze the raw numbers like in a simple random sample because that would lead to biased or misleading results. To deal with this, NHANES provides survey weights that we have to use in our analysis. These weights help adjust for a few important things:
 
 - Not everyone has the same chance of being picked
@@ -271,15 +279,19 @@ jupyter
 - The .gitignore file includes the venv folder.
 
 ---
+## Risk Mitigation
+
 | **Potential Risk**              | **How I Plan to Handle It**      |
 |------------------------------------------------------------------------------------------------------------------|
 | **Large file sizes**            | If the files are too big to work with easily, I’ll either use a smaller subset of the data or convert them to a lighter format like SQLite. |
 | **Missing values**              | I’ll either fill in the missing data (impute) or remove the affected rows, depending on the situation. Whatever I do, I’ll make sure to clearly document the steps in my notebook. |
 | **Using weights incorrectly**   | I’ll carefully follow the official NHANES documentation to make sure I’m applying the sample weights properly. |
-| **Reproducibility issues**      | I’ll use a virtual environment and include a `requirements.txt` file so that everything can be re-run on another machine without issues. |
+| **Reproducibility issues**      | I’ll use a virtual environment and include a `requirements.txt` file so that everything can be re-run on another machine without issues. 
+
 ---
 
 ## Contributing
+
 If you want to help out, here’s how:
 
 1. Fork the repo
