@@ -41,7 +41,7 @@ All the data processing, modeling, and visualizations will be done using Python,
 ### Goal 1: Understand how lifestyle and social factors affect health
 - Describe how lifestyle habits, socioeconomic status, and insurance coverage vary among U.S. adults.
 
-- Measure how these factors relate to BMI, blood pressure, cholesterol, blood sugar, and chronic diseases like diabetes and hypertension.
+- Measure how these factors relate to BMI, blood pressure, cholesterol, blood sugar, and chronic diseases like diabetes, obesity and hypertension.
 
 - Look closely at specific links—for example, how sleep duration influences BMI.
 
@@ -59,24 +59,24 @@ All the data processing, modeling, and visualizations will be done using Python,
 ## Features
 
 ### Core
-- Cleaned and combined multiple NHANES datasets using Python and Pandas
+- Cleaned and merged multiple NHANES datasets using Python and Pandas
 
-- Stored processed data in an SQLite database for easy access and querying
+- Saved the processed data in an SQLite database for easy querying and reuse
 
-- Explored data through descriptive stats and visualizations
+- Explored the data through descriptive statistics and visualizations to find initial patterns
 
-- Ran survey-weighted regression models to adjust for complex sampling
+- Ran survey-weighted regression models to account for NHANES’s complex sampling design
 
-- Looked into interactions between variables and how different factors influence each other
+- Investigated interactions between variables to understand how different factors influence each other
 
-- Analyzed the combined impact of lifestyle behaviors on chronic conditions
+= Analyzed how lifestyle behaviors, taken together, relate to chronic health conditions
 
 ### Stretch
-- Tested out machine learning models to spot more complex patterns
+- Experimented with machine learning models to identify more complex patterns
 
-- Built interactive dashboards using Plotly Dash or Streamlit
+- Built interactive dashboards using Plotly Dash and/or Streamlit to share insights
 
-- Ran simple simulations to explore potential impacts of policy changes
+- Ran basic simulations to explore how policy changes might impact population health
 
 ---
 
