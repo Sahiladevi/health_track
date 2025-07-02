@@ -60,8 +60,8 @@ Using nationally representative NHANES data, this analysis merges demographic, d
 
 Data from the **National Health and Nutrition Examination Survey (NHANES)**, a program of studies designed to assess the health and nutritional status of adults and children in the United States.
 
-- 🔗 [NHANES 2021–2023](https://wwwn.cdc.gov/nchs/nhanes/continuousnhanes/default.aspx?Cycle=2021-2023)
-- 📄 Documentation: [NHANES Data Documentation](https://wwwn.cdc.gov/nchs/nhanes/default.aspx)
+- [NHANES 2021–2023](https://wwwn.cdc.gov/nchs/nhanes/continuousnhanes/default.aspx?Cycle=2021-2023)
+- Documentation: [NHANES Data Documentation](https://wwwn.cdc.gov/nchs/nhanes/default.aspx)
 
 ---
 ## Data Selection
@@ -181,7 +181,7 @@ See `Data Dictionary` for full list of selected variables and their descriptions
 
 ---
 
-## 📈 Why Use Survey Weights?
+## Why Use Survey Weights?
 
 NHANES uses **complex, multistage sampling**, so it's **not valid** to analyze it using raw frequencies. Survey weights correct for:
 
@@ -198,13 +198,17 @@ Using weights ensures results generalize to the **entire U.S. population**.
 ```
 project-root/
 │
-├── data/                  # Raw and cleaned NHANES data
+├── data/
+      ├── raw      # Raw NHANES dataset in XPT format (downloaded)
+      ├── interim  # NHANES dataset with selected columns in csv format
+      ├── clean    # cleaned datas
+      ├── processed  # merged and processed data             
 ├── notebooks/             # Jupyter Notebooks
 ├── outputs/               # Visualizations and tables
 ├── requirements.txt       # Python dependencies
-├── README.md              # Project readme (this file)
-├── <your_scripts_here>/   # Data cleaning and analysis scripts
-└── <others>/              # Add any other relevant folders
+├── README.md              # Project readme 
+├── scripts/               # Data loading and cleaning and analysis scripts
+└── docs /                 # related to project documents
 ```
 
 ---
@@ -214,8 +218,8 @@ project-root/
 ### 1. Clone This Repository
 
 ```bash
-git clone https://github.com/yourusername/nhanes-chronic-health.git
-cd nhanes-chronic-health
+git clone https://github.com/yourusername/project.git
+cd project
 ```
 
 ### 2. Create & Activate Virtual Environment
@@ -260,17 +264,16 @@ scikit-learn
 jupyter
 ```
 
-> Only required libraries are listed. Use a virtual environment for isolation.
+> Only the necessary libraries are included to keep things clean and lightweight. A virtual environment was used to avoid any conflicts and keep the setup isolated from the rest of the system.
 
 ---
 
 ##  Testing & Validation
 
--  All code blocks run successfully in a clean environment
--  Notebooks structured and annotated clearly
--  Survey weights applied appropriately
--  SQLite queries tested with sample SQL statements
-
+- All the code runs smoothly in a clean environment without any errors. 
+- The notebooks are well-organized, with clear comments explaining each step. 
+- Survey weights were applied correctly during analysis to make sure results are nationally representative. 
+- I also tested the SQLite database with a few sample SQL queries to make sure everything was working as expected.
 ---
 
 ##  Version Control
@@ -281,16 +284,12 @@ jupyter
 - The .gitignore file includes the venv folder.
 
 ---
-
-##  Risk Mitigation
-
-| Risk                                | Mitigation Strategy                             |
-|-------------------------------------|-------------------------------------------------|
-| Large file sizes                    | Process subset or convert to SQLite             |
-| Missing values                      | Imputation or exclusion, documented in notebook |
-| Incorrect weight usage              | Follow NHANES documentation strictly            |
-| Reproducibility                     | Use virtualenv + requirements.txt               |
-
+| **Potential Risk**              | **How I Plan to Handle It**      |
+|------------------------------------------------------------------------------------------------------------------|
+| **Large file sizes**            | If the files are too big to work with easily, I’ll either use a smaller subset of the data or convert them to a lighter format like SQLite. |
+| **Missing values**              | I’ll either fill in the missing data (impute) or remove the affected rows, depending on the situation. Whatever I do, I’ll make sure to clearly document the steps in my notebook. |
+| **Using weights incorrectly**   | I’ll carefully follow the official NHANES documentation to make sure I’m applying the sample weights properly. |
+| **Reproducibility issues**      | I’ll use a virtual environment and include a `requirements.txt` file so that everything can be re-run on another machine without issues. |
 ---
 
 ## Contributing
@@ -301,14 +300,6 @@ If you want to help out, here’s how:
 2. Create a feature branch
 3. Make your changes
 4. Push and open a pull request
-
----
-
-## Acknowledgements
-
-Thanks to the **CDC/NCHS** for the NHANES dataset and documentation.  
-Gratitude to open-source contributors of **Pandas**, **Seaborn**, and **Plotly**.
-
 ---
 
 ## Contact
