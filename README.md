@@ -4,48 +4,36 @@
 ---
 ##  Project Objective
 
-This project investigates how **lifestyle behaviors**, **socioeconomic factors**, and **healthcare access** influence chronic health conditions among U.S. adults using the **NHANES 2021–2023 dataset**. The focus is on chronic conditions such as:
-
-- Obesity (BMI)
-- Hypertension
-- Diabetes
-- High cholesterol
-
-The key goals are to:
-- Understand the role of **diet, physical activity, and sleep** in chronic disease
-- Examine how **income, education, and insurance status** affect health
-- Identify **gender- and race-based disparities**
-- Support **data-driven public health policies**
+This project looks at how lifestyle habits, socioeconomic status, and access to healthcare affect chronic health conditions in U.S. adults, using data from the 2021–2023 NHANES survey. It focuses on conditions like obesity, high blood pressure, diabetes, and high cholesterol. The main goals are to understand how behaviors like diet, exercise, and sleep relate to these diseases; to see how factors like income, education, and health insurance influence overall health; to explore health differences across gender and racial/ethnic groups; and to help inform smarter, evidence-based public health policies.
 
 ---
 ##  Project Overview
 
-Using nationally representative NHANES data, this analysis merges demographic, dietary, physical activity, laboratory, and questionnaire data. Traditional statistical methods and exploratory visualization techniques are applied to uncover key relationships between risk factors and health outcomes in U.S. adults.
-
+This analysis uses nationally representative NHANES data, combining information from demographics, diet, physical activity, lab results, and questionnaires. I used a mix of traditional statistical methods and exploratory visualizations to explore how different lifestyle and socioeconomic factors relate to health outcomes among U.S. adults.
 ---
 ## Features
 
--  Data ingestion from local NHANES `.XPT` files and conversion to `.CSV`
--  Full data cleaning and merging using **Pandas**
--  Survey-weighted analysis using **statsmodels** or **using scikit-learn** or **numpy**
--  Visualizations via **Seaborn**, **Matplotlib**, and **Plotly**
--  SQLite database creation for querying cleaned dataset
--  (Optional) Machine learning clustering and regression
--  (Optional) Streamlit app for interactive visualization
+- I started by importing NHANES data from local .XPT files and converted them to .CSV for easier handling.
+- Then, I cleaned and merged all the datasets using Pandas to prepare them for analysis.
+- To make sure the findings represent the U.S. population accurately, I used survey-weighted regression models with NHANES sample weights. I ran these models using Python’s statsmodels library—mostly WLS (Weighted Least Squares) and GLM—because they’re more appropriate for survey data than tools like scikit-learn or numpy, which don’t directly handle sample weights.
+- For visualizations, I used Seaborn, Matplotlib, and Plotly to bring out key patterns in the data.
+- I also created an SQLite database so I could query the cleaned dataset efficiently.
+- (Optional) I experimented with machine learning techniques like clustering and regression to explore deeper patterns.
+- (Optional) I built a basic Streamlit app to make the visualizations interactive and easier to explore.
 
 ---
 
 ## Technology Stack
 | Component          | Tool / Library                          |
 |-------------------|------------------------------------------|
-| Programming       | Python (3.9+)                            |
+| Programming       | Python (3.13.1)                            |
 | Data Handling     | Pandas, NumPy                            |
 | Visualization     | Seaborn, Matplotlib, Plotly              |
-| Statistical Models| Statsmodels (with survey weights)        |
+| Statistical Models| Statsmodels (Model based)                |
 | Database          | SQLite                                   |
 | Notebooks         | Jupyter                                  |
 | Optional ML       | scikit-learn                             |
-| Environment       | Virtualenv or Conda                      |
+| Environment       | Virtualenv                               |
 | Deployment        | (Optional) Streamlit                     |
 
 ---
@@ -59,9 +47,8 @@ Data from the **National Health and Nutrition Examination Survey (NHANES)**, a p
 ---
 ## Data Selection
 
-- For this project, I used a smaller, more focused selection of variables from the NHANES 2021–2023 datasets. I only kept the columns that were actually needed to explore things like BMI, lifestyle habits, and chronic disease risk.
+For this project, I used a smaller, more focused selection of variables from the NHANES 2021–2023 datasets. I only kept the columns that were actually needed to explore things like BMI, lifestyle habits, and chronic disease risk.
 
-- Here’s how the data was handled:
 From DEMO_L.XPT, I pulled just the basics—demographics, education level, income, and weight.
 From BMX_L.XPT, I only used the BMI (BMXBMI) column since that’s all I needed from there.
 All the datasets were then joined together using the SEQN ID, which links each participant across files.
@@ -70,7 +57,7 @@ You can check the Data Dictionary section below for a full list of the variables
 ---
 ## NHANES 2021–2023 Data Dictionary with Definitions
 
-### Step 1: Demographics + BMI
+### Step 1: lifestyle behaviors (physical activity, sleep duration, diet quality) and socioeconomic indicators (income, education, health insurance coverage)
 
 | Dataset | Variable     | Description                                   | Definition |
 |---------|--------------|-----------------------------------------------|------------|
@@ -84,14 +71,6 @@ You can check the Data Dictionary section below for a full list of the variables
 |         | WTMEC2YR     | MEC exam sample weight                        | Weight for physical exam and lab data |
 |         | SDMVSTRA     | Stratification variable for survey design     | Variable to account for survey design strata |
 |         | SDMVPSU      | PSU variable for survey design                | Variable to account for primary sampling units |
-| BMX_L   | BMXBMI       | Body Mass Index (kg/m²)                       | Weight (kg) / height (m)^2, indicator of body fat |
-
----
-
-### Step 2: Lifestyle Factors
-
-| Dataset  | Variable     | Description                                     | Definition |
-|----------|--------------|-------------------------------------------------|------------|
 | PAQ_L    | PAD680       | Minutes of moderate-intensity work activity/week| Self-reported weekly minutes of moderate physical activity |
 |          | PAD790Q      | Frequency of vigorous recreational activity     | How often participant engages in vigorous activities |
 |          | PAD790U      | Time unit for PAD790Q                           | Units for PAD790Q (e.g., times per week) |
@@ -101,28 +80,20 @@ You can check the Data Dictionary section below for a full list of the variables
 | DR1TOT_L | DR1TKCAL     | Total daily energy intake (kcal)               | Calories consumed on dietary recall day 1 |
 |          | DR1TSFAT     | Saturated fat intake (g)                       | Grams of saturated fat consumed day 1 |
 |          | DR1TSUGR     | Total sugars intake (g)                        | Grams of sugars consumed day 1 |
-|          | DR1TFIBE     | Total dietary fiber intake (g)                | Grams of fiber consumed day 1 |
-|          | WTDR2D       | Dietary Day 1 sample weight                   | Weight for dietary recall day 1 data |
-| SMQ_L    | SMQ020       | Smoked at least 100 cigarettes in life         | Ever smoked 100+ cigarettes (Yes/No) |
-|          | SMQ040       | Current smoking status                         | Currently smoke cigarettes (Yes/No) |
-
+|          | DR1TFIBE     | Total dietary fiber intake (g)                 | Grams of fiber consumed day 1 |
+|          | WTDR2D       | Dietary Day 1 sample weight                    | Weight for dietary recall day 1 data |
+| HIQ_L    | HIQ011       | Covered by health insurance                    | Has any health insurance coverage (Yes/No) |
 ---
-
-### Step 3: Clinical Measures
+### Step 2: Health outcomes (BMI, BP, cholesterol, glucose, chronic disease)
 
 | Dataset  | Variable     | Description                                   | Definition |
 |----------|--------------|-----------------------------------------------|------------|
+| BMX_L   | BMXBMI       | Body Mass Index (kg/m²)                        |  indicator of body fat |
 | BPXO_L   | BPXOSY1-3    | Systolic BP readings 1–3                      | Three systolic blood pressure measurements (mm Hg) |
 |          | BPXODI1-3    | Diastolic BP readings 1–3                     | Three diastolic blood pressure measurements (mm Hg) |
 | TCHOL_L  | LBXTC        | Total cholesterol (mg/dL)                     | Total blood cholesterol concentration |
-| HDL_L    | LBDHDD       | HDL cholesterol (mg/dL)                       | “Good” cholesterol level in blood |
-|          | LBDHDDSI     | HDL cholesterol (SI units)                    | HDL cholesterol in SI units (mmol/L) |
-|          | WTPH2YR      | Fasting sample weight for cholesterol         | Weight for fasting blood sample data |
 | GLU_L    | LBXGLU       | Fasting glucose (mg/dL)                       | Blood glucose concentration after fasting |
 |          | LBDGLUSI     | Glucose (SI units)                            | Glucose in SI units (mmol/L) |
-|          | WTSAF2YR     | Fasting sample weight                         | Weight for fasting blood sample data |
-| INS_L    | LBXIN        | Insulin (uU/mL)                               | Insulin concentration in blood |
-|          | LBDINLC      | Insulin (SI units)                            | Insulin in SI units (pmol/L) |
 |          | WTSAF2YR     | Fasting sample weight                         | Weight for fasting blood sample data |
 | DIQ_L    | DIQ010       | Ever been told you have diabetes?             | Self-reported doctor diagnosis of diabetes (Yes/No) |
 | MCQ_L    | MCQ160B      | Ever told had congestive heart failure        | Self-reported CHF diagnosis (Yes/No) |
@@ -131,19 +102,7 @@ You can check the Data Dictionary section below for a full list of the variables
 |          | MCQ160E      | Heart attack                                  | Self-reported heart attack diagnosis (Yes/No) |
 
 ---
-
-### Step 4: Socioeconomic & Healthcare Access
-
-| Dataset   | Variable     | Description                                     | Definition |
-|-----------|--------------|-------------------------------------------------|------------|
-| DEMO_L    | DMDEDUC2     | Education level                                 | Highest education attained |
-|           | INDFMPIR     | Income-to-poverty ratio                         | Family income divided by poverty level |
-| HIQ_L     | HIQ011       | Covered by health insurance                     | Has any health insurance coverage (Yes/No) |
-| RXQ_RX_L  | RXQ033       | Taken prescription medicine in the past month  | Used prescribed medication in last 30 days (Yes/No) |
-
----
-
-###  Step 5: Modeling & Survey Design
+###  Step 3: Modeling & Survey Design
 
 | Dataset    | Variable      | Description                                           | Definition |
 |------------|---------------|-------------------------------------------------------|------------|
@@ -152,30 +111,20 @@ You can check the Data Dictionary section below for a full list of the variables
 |            | SDMVSTRA      | Stratification variable                               | Used to account for survey design strata in analysis |
 |            | SDMVPSU       | PSU variable                                          | Primary sampling units to account for clustering in survey design |
 | DR1TOT_L   | WTDR2D        | Dietary recall Day 1 weight                           | Weight for Day 1 dietary recall data |
-| GLU_L, INS_L | WTSAF2YR    | Fasting subsample weight                              | Weight for fasting subsample lab data |
-| HDL_L      | WTPH2YR       | Fasting weight for cholesterol & HDL                  | Weight for fasting lab subsample |
+| GLU_L | WTSAF2YR    | Fasting subsample weight                              | Weight for fasting subsample lab data |
 ---
 ## Visualizations
 
 - Boxplots and histograms of BMI, glucose, cholesterol
 - Grouped bar plots by gender, income, or race
-- Scatter plots of calorie intake vs BMI
-- Heatmaps of correlation matrices
-- Survey-weighted means with confidence intervals
-
 ---
 ##  Example Research Questions
 
 1. How do everyday habits like exercise, what people eat, and how much they sleep affect things like BMI, blood pressure, and blood sugar in adults across the U.S.?
-
 2. Does a person’s income, education, or whether they have health insurance change their chances of having conditions like obesity or diabetes or high blood pressure?
-
 3. Are there differences between men and women when it comes to how lifestyle and money affect their health?
-
 4. How do race and ethnicity influence the connection between lifestyle, access to healthcare, and chronic health problems?
-
 5. Do unhealthy habits together—like not exercising and eating poorly—make health problems worse than just one of those habits alone?
-
 6. Which groups seem to be at the highest risk for chronic diseases, and how can this info help create better health programs?
 ---
 ## Why Use Survey Weights?
@@ -204,8 +153,14 @@ project-root/
 ├── notebooks/             # Jupyter Notebooks
 ├── outputs/               # Visualizations and tables
 ├── requirements.txt       # Python dependencies
-├── README.md              # Project readme 
-├── scripts/               # Data loading and cleaning and analysis scripts
+├── README.md
+├── .env              # Project readme 
+├── scripts/          # Data loading and cleaning and analysis scripts
+      ├──config.py
+      ├──utils.py 
+      ├──data_loading.py
+      ├──data_cleaning.py
+      ├── all individual data cleaning script           
 └── docs /                 # related to project documents
 ```
 
@@ -268,7 +223,7 @@ jupyter
 
 - All the code runs smoothly in a clean environment without any errors. 
 - The notebooks are well-organized, with clear comments explaining each step. 
-- Survey weights were applied correctly during analysis to make sure results are nationally representative. 
+- Model based weights were applied correctly during analysis to make sure results are nationally representative. 
 - I also tested the SQLite database with a few sample SQL queries to make sure everything was working as expected.
 ---
 ##  Version Control
@@ -289,17 +244,6 @@ jupyter
 | **Reproducibility issues**      | I’ll use a virtual environment and include a `requirements.txt` file so that everything can be re-run on another machine without issues. 
 
 ---
-
-## Contributing
-
-If you want to help out, here’s how:
-
-1. Fork the repo
-2. Create a feature branch
-3. Make your changes
-4. Push and open a pull request
----
-
 ## Contact
 
 **Sahiladevi Deenadayalu**  
