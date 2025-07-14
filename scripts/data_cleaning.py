@@ -1,0 +1,80 @@
+"""
+cleaning.py
+
+Cleans raw NHANES datasets using specific functions tailored for each dataset type.
+1. Applies the appropriate cleaning function to each raw dataset.
+2. Returns a dictionary of all cleaned datasets.
+3. Explores the cleaned datasets using the shared explore_data utility.
+"""
+
+from clean_demo import clean_demo
+from clean_clinical_exam import clean_bmi, clean_bp, clean_total_cholesterol, clean_glucose
+from clean_sleep import clean_sleep
+from clean_physical import clean_physical_activity
+from clean_diet import clean_diet
+from clean_healthcare_access import clean_insurance_coverage
+from clean_chronic_disease import clean_diq, clean_mcq
+
+import pandas as pd
+from typing import Dict
+from utils import explore_data
+
+
+def clean_datasets(raw_dfs: Dict[str, pd.DataFrame]) -> Dict[str, pd.DataFrame]:
+    """
+    Cleans each dataset using the appropriate cleaning function.
+
+    Args:
+        raw_dfs (Dict[str, pd.DataFrame]): Raw datasets keyed by dataset name.
+
+    Returns:
+        Dict[str, pd.DataFrame]: Cleaned datasets keyed by dataset name.
+    """
+    cleaning_functions = {
+        "DEMO_L": clean_demo,
+        "SLQ_L": clean_sleep,
+        "PAQ_L": clean_physical_activity,
+        "DR1TOT_L": clean_diet,
+        "HIQ_L": clean_insurance_coverage,
+        "BMX_L": clean_bmi,
+        "BPXO_L": clean_bp,
+        "TCHOL_L": clean_total_cholesterol,
+        "GLU_L": clean_glucose,
+        "DIQ_L": clean_diq,
+        "MCQ_L": clean_mcq,
+    }
+
+    cleaned_data: Dict[str, pd.DataFrame] = {}
+
+    for name, func in cleaning_functions.items():
+        if name in raw_dfs:
+            print(f"Cleaning dataset: {name}")
+            try:
+                cleaned_data[name] = func(raw_dfs[name])
+            except Exception as e:
+                print(f"Error cleaning dataset '{name}': {e}")
+        else:
+            print(f"Warning: Dataset '{name}' missing from input raw datasets.")
+
+    return cleaned_data
+
+
+def main(raw_dfs: Dict[str, pd.DataFrame]) -> Dict[str, pd.DataFrame]:
+    """
+    Run the cleaning process and explore cleaned datasets.
+
+    Args:
+        raw_dfs (Dict[str, pd.DataFrame]): Raw input datasets.
+
+    Returns:
+        Dict[str, pd.DataFrame]: Cleaned datasets.
+    """
+    print("Starting cleaning process...\n")
+    cleaned = clean_datasets(raw_dfs)
+    print("\nCleaning complete. Exploring cleaned datasets:\n")
+    explore_data(cleaned) 
+    return cleaned
+
+
+if __name__ == "__main__":
+    pass
