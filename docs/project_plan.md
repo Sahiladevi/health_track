@@ -2,6 +2,7 @@
 # Project Plan
 
 ## Project Title
+
 **Analyzing the Impact of Lifestyle, Socioeconomic Status, and Healthcare Access on Chronic Health Conditions Among U.S. Adults: Insights from NHANES 2021–2023**
 
 ---
