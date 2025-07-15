@@ -8,7 +8,6 @@ including BMI, blood pressure, cholesterol, glucose,
 
 import pandas as pd
 import numpy as np
-from pathlib import Path
 from config import CLEAN_DATA_DIR, datasets
 from data_loading import load_dataset
 from typing import Optional
