@@ -166,27 +166,31 @@ def replace_close_values_with_nan(
     return df
 
 
+from typing import Union, Dict, Optional
+import pandas as pd
+
 def explore_data(
     data: Union[pd.DataFrame, Dict[str, pd.DataFrame]],
     name: Optional[str] = None
 ) -> None:
     """
-    Print a comprehensive summary of the dataset or datasets.
+    Print a comprehensive summary of a DataFrame or a dictionary of DataFrames.
 
     Args:
         data: A single DataFrame or a dictionary of DataFrames to explore.
         name: Optional dataset name (used if data is a single DataFrame).
     """
+    
     def explore_single_df(df: pd.DataFrame, dataset_name: str) -> None:
         if df is None or df.empty:
             print(f"No data to explore for {dataset_name}")
             return
         print(f"\n--- Exploring {dataset_name} ---")
         print(f"Shape: {df.shape}")
-        print("First 5 rows:")
+        print("\nFirst 5 rows:")
         print(df.head())
         print("\nInfo:")
-        print(df.info())
+        df.info()
         print("\nData types:")
         print(df.dtypes)
         print("\nSummary statistics (including categorical):")
@@ -198,6 +202,7 @@ def explore_data(
         print("\nUnique values per column:")
         print(df.nunique())
         print(f"\nDuplicated rows count: {df.duplicated().sum()}")
+        
         cat_cols = df.select_dtypes(include=['object', 'category']).columns.tolist()
         num_cols = df.select_dtypes(include=['number']).columns.tolist()
         print("\nCategorical columns:", cat_cols)
@@ -206,8 +211,17 @@ def explore_data(
 
     if isinstance(data, dict):
         for dataset_name, df in data.items():
-            explore_single_df(df, dataset_name)
+            print(f"\nExploring {dataset_name}...")
+            if not isinstance(df, pd.DataFrame):
+                print(f"{dataset_name} is not a DataFrame. Skipping...")
+                continue
+            try:
+                explore_single_df(df, dataset_name)
+            except Exception as e:
+                print(f"Error exploring {dataset_name}: {e}")
     else:
-        if not name:
-            name = "Dataset"
-        explore_single_df(data, name)
+        dataset_name = name or "Dataset"
+        try:
+            explore_single_df(data, dataset_name)
+        except Exception as e:
+            print(f"Error exploring {dataset_name}: {e}")
