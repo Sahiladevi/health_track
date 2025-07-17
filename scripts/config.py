@@ -15,11 +15,15 @@ load_dotenv()
 # Use BASE_PATH from .env if available, otherwise default to parent of scripts/
 BASE_PATH = Path(os.getenv("BASE_PATH", Path(__file__).resolve().parents[1]))
 
-# Define directory paths
+# directory paths
 RAW_DATA_DIR = BASE_PATH / 'data' / 'raw'
 INTERIM_DATA_DIR = BASE_PATH / 'data' / 'interim'
 CLEAN_DATA_DIR = BASE_PATH / 'data' / 'clean'
 PROCESSED_DATA_DIR = BASE_PATH / 'data' / 'processed'
+FINAL_DATA_DIR =  BASE_PATH / 'data' / 'final'
+# Path to SQLite database
+DATABASE_PATH = BASE_PATH / "database" / "nhanes_2021_2023.db"
+
 
 OUTPUTS_DIR = BASE_PATH / 'outputs'
 PLOTS_DIR = OUTPUTS_DIR / 'plots'
@@ -81,11 +85,17 @@ datasets = {
     },    
 }
 
-def ensure_output_dirs():
-    """Create output directories if they don't exist."""
-    for directory in [OUTPUTS_DIR, PLOTS_DIR, SUMMARY_DIR]:
+def ensure_directories():
+    """Create all required directories if they don't exist."""
+    for directory in [
+        RAW_DATA_DIR, INTERIM_DATA_DIR, CLEAN_DATA_DIR,
+        PROCESSED_DATA_DIR, FINAL_DATA_DIR,
+        DATABASE_PATH.parent,  
+        OUTPUTS_DIR, PLOTS_DIR, SUMMARY_DIR
+    ]:
         directory.mkdir(parents=True, exist_ok=True)
-    print(f"Output directories ready: {OUTPUTS_DIR}, {PLOTS_DIR}, {SUMMARY_DIR}")
+    print("All required directories are ready.")
+
 
 # Automatically ensure output dirs when this module is imported/run
-ensure_output_dirs()
+ensure_directories()
