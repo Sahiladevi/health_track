@@ -72,7 +72,9 @@ def clean_sleep(df: pd.DataFrame) -> pd.DataFrame:
         "SLD013": "sleep_weekend_hr"
     }
     df = rename_columns(df, new_names)
-
+    df['participant_id'] = df['participant_id'].apply(
+    lambda x: str(int(x)) if pd.notnull(x) else np.nan
+    )
     # Convert sleep hour columns to numeric (in case they’re stored as strings)
     sleep_cols = ["sleep_weekday_hr", "sleep_weekend_hr"]
     for col in sleep_cols:
