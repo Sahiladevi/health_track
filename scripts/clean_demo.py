@@ -82,7 +82,10 @@ def clean_demo(df: pd.DataFrame) -> pd.DataFrame:
         "SDMVSTRA": "strata",
         "SDMVPSU": "psu"
     }
-    df = rename_columns(df, new_names)    
+    df = rename_columns(df, new_names) 
+    df['participant_id'] = df['participant_id'].apply(
+    lambda x: str(int(x)) if pd.notnull(x) else np.nan
+    )
 
     # Ensure key columns are numeric
     numeric_cols = ["age", "poverty_income_ratio", "exam_sample_weight", 
@@ -114,6 +117,9 @@ def clean_demo(df: pd.DataFrame) -> pd.DataFrame:
     float_cols = ["age", "poverty_income_ratio", "exam_sample_weight", 
                   "interview_sample_weight", "strata", "psu"]
     df = replace_close_values_with_nan(df, weird_val, tolerance, float_cols)
+
+    # Convert age to integer after cleaning float artifacts
+    df["age"] = df["age"].round().astype("Int64")
 
    # Impute missing PIR values safely
     print("Imputing missing poverty_income_ratio (PIR) within education_level + race_ethnicity groups...")
@@ -170,7 +176,7 @@ def main() -> None:
         return
 
     print("Dataset loaded. Cleaning now...")
-    cleaned_df = clean_demo(df)
+    cleaned_df = clean_demo(df)    
     print("Cleaning complete.")
 
 
