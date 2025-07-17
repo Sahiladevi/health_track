@@ -24,7 +24,6 @@ def clean_bmi(df: Optional[pd.DataFrame]) -> pd.DataFrame:
     """
     Clean the BMI dataset.
 
-    This function:
     - Renames relevant columns for clarity.
     - Converts BMI values to numeric and removes any unrealistic values.
     - Drops rows with missing BMI values.
@@ -43,6 +42,10 @@ def clean_bmi(df: Optional[pd.DataFrame]) -> pd.DataFrame:
     print("Dataframe rows and columns size before cleaning:", df.shape)    
 
     df = rename_columns(df, {'SEQN': 'participant_id', 'BMXBMI': 'bmi'})
+    df['participant_id'] = df['participant_id'].apply(
+    lambda x: str(int(x)) if pd.notnull(x) else np.nan
+    )
+
     df['bmi'] = pd.to_numeric(df['bmi'], errors='coerce')
     df = df[(df['bmi'] >= 11.1) & (df['bmi'] <= 74.8)]
 
@@ -65,8 +68,7 @@ def clean_bp(df: Optional[pd.DataFrame]) -> pd.DataFrame:
     Clean blood pressure data by:
     - Renaming columns.
     - Removing outliers outside plausible systolic and diastolic ranges.
-    - Calculating the average systolic and diastolic values.
-    - Categorizing blood pressure levels (Normal, Elevated, etc.).
+    - Calculating the average systolic and diastolic values.    
     - Saving the cleaned and summarized data.
 
     Args:
@@ -91,7 +93,9 @@ def clean_bp(df: Optional[pd.DataFrame]) -> pd.DataFrame:
         'BPXODI2': 'diastolic_2',
         'BPXODI3': 'diastolic_3',
     })
-
+    df['participant_id'] = df['participant_id'].apply(
+    lambda x: str(int(x)) if pd.notnull(x) else np.nan
+    )
     show_missing(df, "BP - Before Cleaning")
 
     systolic_cols = ['systolic_1', 'systolic_2', 'systolic_3']
@@ -144,6 +148,10 @@ def clean_total_cholesterol(df: Optional[pd.DataFrame]) -> pd.DataFrame:
     print("Dataframe rows and columns size before cleaning:", df.shape)
 
     df = rename_columns(df, {'SEQN': 'participant_id', 'LBXTC': 'total_cholesterol'})
+    df['participant_id'] = df['participant_id'].apply(
+    lambda x: str(int(x)) if pd.notnull(x) else np.nan
+    )
+
     show_missing(df, "Cholesterol - Before Cleaning")
     df = drop_missing(df, ['total_cholesterol'])
     df = remove_outliers(df, 'total_cholesterol', 62, 438)
@@ -183,6 +191,10 @@ def clean_glucose(df: Optional[pd.DataFrame]) -> pd.DataFrame:
         'LBXGLU': 'fasting_glucose_mg_dl',
         'LBDGLUSI': 'fasting_glucose_mmol_l'
     })
+    #df['participant_id'] = df['participant_id'].astype(float).astype(int).astype(str)
+    df['participant_id'] = df['participant_id'].apply(
+    lambda x: str(int(x)) if pd.notnull(x) else np.nan
+    )
 
     df['fasting_subsample_weight'] = pd.to_numeric(df['fasting_subsample_weight'], errors='coerce')
 
