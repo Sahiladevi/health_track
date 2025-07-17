@@ -49,11 +49,10 @@ def clean_diet(df: pd.DataFrame, do_impute: bool = True) -> pd.DataFrame:
     """
     Clean and preprocess the NHANES dietary data.
 
-    This includes:
     - Renaming columns for readability
     - Converting types and handling zero values
     - Flagging missing values
-    - Optional imputation
+    - imputation
     - Removing rows with invalid weights
     - Saving cleaned data to csv file
 
@@ -81,6 +80,9 @@ def clean_diet(df: pd.DataFrame, do_impute: bool = True) -> pd.DataFrame:
         "WTDR2D": "diet_weight"
     }
     df = rename_columns(df, rename_map)
+    df['participant_id'] = df['participant_id'].apply(
+    lambda x: str(int(x)) if pd.notnull(x) else np.nan
+    )
 
     # Replace weird float values
     print("Replacing weird tiny float values (e.g., 5.39e-79) in diet data with NaN...")
@@ -133,10 +135,10 @@ def main() -> None:
     """
     Load and clean the DR1TOT_L dietary dataset.
 
-    This function handles:
+    This function handles
     - Fetching config for the DR1TOT_L dataset
     - Loading the raw data from file
-    - Running the cleaning pipeline
+    - Running the cleaning function
     """
     print("Loading DR1TOT_L dataset")
     label = "DR1TOT_L"
