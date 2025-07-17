@@ -1,7 +1,7 @@
 """
 clean_chronic.py
 
-This script cleans chronic disease data from NHANES:
+This script cleans chronic disease data from NHANES.
 - Diabetes (DIQ)
 - Cardiovascular Conditions (MCQ)
 - saves the cleaned versions as CSV files.
@@ -28,7 +28,7 @@ def clean_diq(df: pd.DataFrame, label: str = "DIQ_L") -> pd.DataFrame:
     """
     Clean the Diabetes Questionnaire dataset.
 
-    Recode diagnosis and medication columns, handle missing/unknown values,
+    Map codes to diagnosis and medication columns, handle missing/unknown values,
   
     Args:
         df: Raw DIQ dataset as a DataFrame.
@@ -38,10 +38,14 @@ def clean_diq(df: pd.DataFrame, label: str = "DIQ_L") -> pd.DataFrame:
         Cleaned DataFrame with selected columns and saved CSV file.
     """
     if df.empty:
-        print(f"{label}: The dataset is empty. Skipping...")
+        print(f"{label}: The dataset is empty.")
         return df
 
     df = df.rename(columns={"SEQN": "participant_id"})
+    df['participant_id'] = df['participant_id'].apply(
+    lambda x: str(int(x)) if pd.notnull(x) else np.nan
+    )
+
     df['diabetes_dx'] = df['DIQ010'].replace({3: np.nan, 7: np.nan, 9: np.nan}).map(DIABETES_MAP)
     df['diabetes_meds'] = df['DIQ070'].replace({7: np.nan, 9: np.nan}).map(YES_NO_MAP)
 
@@ -74,6 +78,9 @@ def clean_mcq(df: pd.DataFrame, label: str = "MCQ_L") -> pd.DataFrame:
         return df
 
     df = df.rename(columns={"SEQN": "participant_id"})
+    df['participant_id'] = df['participant_id'].apply(
+    lambda x: str(int(x)) if pd.notnull(x) else np.nan
+    )
 
     for col, new_col in MCQ_CONDITIONS.items():
         df[new_col] = df[col].replace({7: np.nan, 9: np.nan}).map(YES_NO_MAP)
