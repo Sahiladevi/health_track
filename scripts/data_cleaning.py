@@ -52,9 +52,9 @@ def clean_datasets(raw_dfs: Dict[str, pd.DataFrame]) -> Dict[str, pd.DataFrame]:
             try:
                 cleaned_data[name] = func(raw_dfs[name])
             except Exception as e:
-                print(f"Error cleaning dataset '{name}': {e}")
+                print(f"cleaning dataset '{name}': {e}")
         else:
-            print(f"Warning: Dataset '{name}' missing from input raw datasets.")
+            print(f"Dataset '{name}' missing from input raw datasets.")
 
     return cleaned_data
 
