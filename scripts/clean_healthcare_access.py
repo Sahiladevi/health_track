@@ -1,7 +1,5 @@
 import pandas as pd
-from pathlib import Path
-from typing import Optional
-
+import numpy as np
 from config import CLEAN_DATA_DIR, datasets
 from data_loading import load_dataset
 from utils import rename_columns, show_missing, drop_missing
@@ -11,7 +9,6 @@ def clean_insurance_coverage(df: pd.DataFrame) -> pd.DataFrame:
     """
     Cleans the HIQ_L dataset, which contains information about health insurance coverage.
 
-    This function:
     - Renames columns for readability.
     - Replaces invalid responses (e.g., 'Refused', 'Don't know') with NaN.
     - Drops rows where the insurance status is missing.
@@ -30,6 +27,10 @@ def clean_insurance_coverage(df: pd.DataFrame) -> pd.DataFrame:
     
     # Rename Columns
     df = rename_columns(df, {"SEQN": "participant_id", "HIQ011": "has_health_insurance"})
+    df['participant_id'] = df['participant_id'].apply(
+    lambda x: str(int(x)) if pd.notnull(x) else np.nan
+    )
+
     df["has_health_insurance"] = df["has_health_insurance"].replace([7, 9, "."], pd.NA)
 
     show_missing(df, label + " before dropping missing")
@@ -41,7 +42,7 @@ def clean_insurance_coverage(df: pd.DataFrame) -> pd.DataFrame:
     df["has_health_insurance"] = df["has_health_insurance"].map({1: "Yes", 2: "No"})
 
     print(f"Unique values in 'has_health_insurance':", df["has_health_insurance"].unique())
-    print("Insurance dataset rows and columns size after cleaning:", df.shape)
+    print("Health insurance dataset rows and columns size after cleaning:", df.shape)
 
     CLEAN_DATA_DIR.mkdir(parents=True, exist_ok=True)
     output_file = CLEAN_DATA_DIR / f"{label.lower()}_clean.csv"
@@ -55,7 +56,6 @@ def main() -> None:
     Main function to load, clean, and save both the HIQ_L (insurance)
     and RXQ_RX_L (medication use) datasets.
 
-    It handles:
     - Data loading via config
     - Validity checks
     - Delegation to the appropriate cleaning function
