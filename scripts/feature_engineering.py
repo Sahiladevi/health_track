@@ -2,13 +2,14 @@ import pandas as pd
 import numpy as np
 from typing import Optional
 
+
 # 1. Categorizes the poverty-income ratio
-def get_pir_category(pir: float) -> str:
+def get_pir_category(pir: Optional[float]) -> str:
     """
     Categorizes the poverty-income ratio into bands.
 
     Args:
-        pir (float): The original poverty-income ratio value.
+        pir (Optional[float]): The original poverty-income ratio value.
 
     Returns:
         str: Category label ('Low', 'Mid', 'High', 'Very High', or 'Missing').
@@ -24,19 +25,20 @@ def get_pir_category(pir: float) -> str:
     else:
         return "Very High"
 
+
 # 2. Physical Activity Level Categorization
-def categorize_activity_level(total_weekly_min: float) -> str:
+def categorize_activity_level(total_weekly_min: Optional[float]) -> str:
     """
     Categorizes physical activity level based on total weekly minutes.
 
     Args:
-        total_weekly_min (float): Total weekly minutes of physical activity.
+        total_weekly_min (Optional[float]): Total weekly minutes of physical activity.
 
     Returns:
-        str: Activity level ('Low active', 'Moderately active', 'Highly active', or NaN).
+        str: Activity level ('Low active', 'Moderately active', 'Highly active', or 'Missing').
     """
     if pd.isna(total_weekly_min):
-        return np.nan
+        return "Missing"
     elif total_weekly_min < 150:
         return "Low active"
     elif total_weekly_min < 300:
@@ -44,41 +46,57 @@ def categorize_activity_level(total_weekly_min: float) -> str:
     else:
         return "Highly active"
 
+
 # 3. Diet Score Calculation
 def compute_diet_score(row: pd.Series) -> float:
     """
-    Compute a basic diet score based on fiber, sugar, and saturated fat.
+    Compute a simplified diet quality score using NHANES dietary fields.
 
     Args:
-        row (pd.Series): A row containing 'fiber_g', 'sugar_g', and 'sat_fat_g' fields.
+        row (pd.Series): A row from NHANES dietary recall with relevant nutrients:
+                         'DR1TFIBE', 'DR1TSUGR', 'DR1TSFAT'.
 
     Returns:
-        float: A composite diet quality score (higher = better).
+        float: A basic diet score (higher = better).
     """
-    score = 0
-    if row['fiber_g'] > 25:
+    required_cols = ['fiber_g', 'sugar_g', 'sat_fat_g']
+    if not all(col in row for col in required_cols):
+        return 0.0
+
+    fiber = row['fiber_g']
+    sugar = row['sugar_g']
+    sat_fat = row['sat_fat_g']
+
+    if pd.isna(fiber) or pd.isna(sugar) or pd.isna(sat_fat):
+        return 0.0
+
+    score = 0.0
+    if fiber > 25:
         score += 2
-    elif row['fiber_g'] >= 15:
+    elif fiber >= 15:
         score += 1
 
-    if row['sugar_g'] < 50:
+    if sugar < 50:
         score += 1
-    if row['sat_fat_g'] < 20:
+    if sat_fat < 20:
         score += 1
 
     return score
 
+
 # 4. Diet Score Labeling
-def label_diet_score(score: float) -> str:
+def label_diet_score(score: Optional[float]) -> str:
     """
     Label diet score into categories.
 
     Args:
-        score (float): The computed diet score.
+        score (Optional[float]): The computed diet score.
 
     Returns:
         str: Diet category ('Healthy', 'Moderate', or 'Unhealthy').
     """
+    if score is None or pd.isna(score):
+        return "Unhealthy"
     if score >= 3:
         return "Healthy"
     elif score == 2:
@@ -86,19 +104,20 @@ def label_diet_score(score: float) -> str:
     else:
         return "Unhealthy"
 
+
 # 5. Sleep Duration Categorization
-def categorize_sleep(sleep_avg_hr: float) -> str:
+def categorize_sleep(sleep_avg_hr: Optional[float]) -> str:
     """
     Categorize sleep duration into quality bands.
 
     Args:
-        sleep_avg_hr (float): Average sleep duration in hours.
+        sleep_avg_hr (Optional[float]): Average sleep duration in hours.
 
     Returns:
         str: Sleep category ('Short Sleep', 'Normal Sleep', 'Long Sleep', or 'Missing').
     """
     if pd.isna(sleep_avg_hr):
-        return 'Missing'
+        return "Missing"
     elif sleep_avg_hr < 6:
         return "Short Sleep"
     elif 6 <= sleep_avg_hr <= 9:
@@ -106,32 +125,36 @@ def categorize_sleep(sleep_avg_hr: float) -> str:
     else:
         return "Long Sleep"
 
+
 # 6. Obesity Flag
-def flag_obesity(bmi: float) -> bool:
+def flag_obesity(bmi: Optional[float]) -> bool:
     """
     Determine whether a participant is obese based on BMI.
 
     Args:
-        bmi (float): Body Mass Index.
+        bmi (Optional[float]): Body Mass Index.
 
     Returns:
-        bool: True if BMI >= 30, False otherwise.
+        bool: True if BMI >= 30, False otherwise or missing.
     """
-    return bmi >= 30 if not pd.isna(bmi) else False
+    if pd.isna(bmi):
+        return False
+    return bmi >= 30
+
 
 # 7. BMI Categorization
-def categorize_bmi(bmi: float) -> str:
+def categorize_bmi(bmi: Optional[float]) -> str:
     """
     Categorize Body Mass Index into standard weight classes.
 
     Args:
-        bmi (float): Body Mass Index.
+        bmi (Optional[float]): Body Mass Index.
 
     Returns:
-        str: BMI category ('Underweight', 'Normal', 'Overweight', 'Obese').
+        str: BMI category ('Underweight', 'Normal', 'Overweight', 'Obese', or 'Missing').
     """
     if pd.isna(bmi):
-        return 'Missing'
+        return "Missing"
     elif bmi < 18.5:
         return "Underweight"
     elif bmi < 25:
@@ -141,126 +164,167 @@ def categorize_bmi(bmi: float) -> str:
     else:
         return "Obese"
 
+
 # 8. Blood Pressure Categorization
-def categorize_bp(systolic: float, diastolic: float) -> str:
+def categorize_bp(systolic: Optional[float], diastolic: Optional[float]) -> str:
     """
     Categorize blood pressure based on systolic and diastolic values.
 
     Args:
-        systolic (float): Systolic blood pressure.
-        diastolic (float): Diastolic blood pressure.
+        systolic (Optional[float]): Systolic blood pressure.
+        diastolic (Optional[float]): Diastolic blood pressure.
 
     Returns:
         str: Blood pressure category.
     """
     if pd.isna(systolic) or pd.isna(diastolic):
-        return 'Unknown'
+        return "Unknown"
     if systolic >= 180 or diastolic >= 120:
-        return 'Hypertensive Crisis'
+        return "Hypertensive Crisis"
     elif systolic >= 140 or diastolic >= 90:
-        return 'Hypertension Stage 2'
+        return "Hypertension Stage 2"
     elif 130 <= systolic < 140 or 80 <= diastolic < 90:
-        return 'Hypertension Stage 1'
+        return "Hypertension Stage 1"
     elif 120 <= systolic < 130 and diastolic < 80:
-        return 'Elevated'
+        return "Elevated"
     elif systolic < 120 and diastolic < 80:
-        return 'Normal'
+        return "Normal"
     else:
-        return 'Unknown'
+        return "Unknown"
+
 
 # 9. Cholesterol Categorization
-def cholesterol_category(value: float) -> str:
+def cholesterol_category(value: Optional[float]) -> str:
     """
     Categorize total cholesterol levels.
 
     Args:
-        value (float): Total cholesterol in mg/dL.
+        value (Optional[float]): Total cholesterol in mg/dL.
 
     Returns:
-        str: Category ('Desirable', 'Borderline high', 'High').
+        str: Category ('Desirable', 'Borderline high', 'High', or 'Missing').
     """
     if pd.isna(value):
-        return 'Missing'
+        return "Missing"
     elif value < 200:
-        return 'Desirable'
+        return "Desirable"
     elif value < 240:
-        return 'Borderline high'
+        return "Borderline high"
     else:
-        return 'High'
+        return "High"
+
 
 # 10. Fasting Glucose Categorization
-def glucose_category(value: float) -> str:
+def glucose_category(value: Optional[float]) -> str:
     """
     Categorize fasting blood glucose levels.
 
     Args:
-        value (float): Fasting glucose in mg/dL.
+        value (Optional[float]): Fasting glucose in mg/dL.
 
     Returns:
-        str: Glucose category ('Normal', 'Prediabetes', 'Diabetes').
+        str: Glucose category ('Normal', 'Prediabetes', 'Diabetes', or 'Missing').
     """
     if pd.isna(value):
-        return 'Missing'
+        return "Missing"
     elif value < 100:
-        return 'Normal'
+        return "Normal"
     elif value < 126:
-        return 'Prediabetes'
+        return "Prediabetes"
     else:
-        return 'Diabetes'
+        return "Diabetes"
+
 
 # 11. Glucose Abnormal Flags
-def glucose_flags(value: float) -> pd.Series:
+def glucose_flags(value: Optional[float]) -> pd.Series:
     """
     Flags hypo- and hyperglycemia based on fasting glucose levels.
 
     Args:
-        value (float): Fasting glucose level.
+        value (Optional[float]): Fasting glucose level.
 
     Returns:
         pd.Series: Two binary flags — 'hypoglycemia_flag' and 'hyperglycemia_flag'.
     """
-    hypo = 1 if value < 70 else 0
-    hyper = 1 if value > 140 else 0
+    if pd.isna(value):
+        hypo = 0
+        hyper = 0
+    else:
+        hypo = 1 if value < 70 else 0
+        hyper = 1 if value > 140 else 0
     return pd.Series({'hypoglycemia_flag': hypo, 'hyperglycemia_flag': hyper})
 
-# 12. medication 
+
+# 12. Medication Labeling
 def label_meds(val: Optional[int]) -> str:
+    """
+    Label medication status.
+
+    Args:
+        val (Optional[int]): Medication flag (1, 0, or missing).
+
+    Returns:
+        str: Medication status label.
+    """
     if val == 1:
-        return 'Taking meds'
+        return "Taking meds"
     elif val == 0:
-        return 'Not taking meds'
+        return "Not taking meds"
     else:
-        return 'Unknown'
-    
-# 13.Diabetes
+        return "Unknown"
+
+
+# 13. Diabetes Feature Engineering
 def engineer_diq_features(df: pd.DataFrame) -> pd.DataFrame:
+    """
+    Engineer diabetes-related features from diagnosis and medication indicators.
+
+    Args:
+        df (pd.DataFrame): Input dataframe containing 'diabetes_dx' and 'diabetes_meds' columns.
+
+    Returns:
+        pd.DataFrame: DataFrame with added 'diabetes_meds_cat' and 'diabetes_status' columns.
+    """
     if df.empty:
         print("DIQ features: Input dataframe empty. Skipping...")
         return df
 
+    if not {'diabetes_dx', 'diabetes_meds'}.issubset(df.columns):
+        raise KeyError("Input DataFrame must contain 'diabetes_dx' and 'diabetes_meds' columns.")
+
     df['diabetes_meds_cat'] = df['diabetes_meds'].apply(label_meds)
 
-    dx_1 = df['diabetes_dx'] == 1
-    meds_1 = df['diabetes_meds'] == 1
-    dx_0 = df['diabetes_dx'] == 0
-    meds_0 = df['diabetes_meds'] == 0
-
-    dx_1 = dx_1.fillna(False)
-    meds_1 = meds_1.fillna(False)
-    dx_0 = dx_0.fillna(False)
-    meds_0 = meds_0.fillna(False)
+    dx_1 = df['diabetes_dx'].fillna(0) == 1
+    meds_1 = df['diabetes_meds'].fillna(0) == 1
+    dx_0 = df['diabetes_dx'].fillna(0) == 0
+    meds_0 = df['diabetes_meds'].fillna(0) == 0
 
     df['diabetes_status'] = np.where(dx_1 | meds_1, 1, np.where(dx_0 & meds_0, 0, np.nan))
     return df
 
-# 14. CVD
+
+# 14. Cardiovascular Disease Feature Engineering
 def engineer_mcq_features(df: pd.DataFrame) -> pd.DataFrame:
+    """
+    Engineer cardiovascular disease indicator from multiple condition flags.
+
+    Args:
+        df (pd.DataFrame): Input dataframe containing condition indicator columns.
+
+    Returns:
+        pd.DataFrame: DataFrame with added 'any_cvd' column.
+    """
     if df.empty:
         print("MCQ features: Input dataframe empty. Skipping...")
         return df
 
-    # Create combined indicator: any cardiovascular condition
-    df_conditions_filled = df.drop(columns=['participant_id']).fillna(0)
-    df['any_cvd'] = df_conditions_filled.max(axis=1)
+    # Exclude non-condition columns if present
+    exclude_cols = ['participant_id']
+    condition_cols = [col for col in df.columns if col not in exclude_cols]
+
+    # Check if all condition columns are numeric or boolean, else coerce or fillna
+    cond_df = df[condition_cols].fillna(0)
+
+    df['any_cvd'] = cond_df.max(axis=1)
 
     return df
