@@ -57,6 +57,9 @@ def clean_physical_activity(df: pd.DataFrame) -> pd.DataFrame:
         'PAD680': 'sedentary_min_per_day'
     }
     df = rename_columns(df, rename_map)
+    df['participant_id'] = df['participant_id'].apply(
+    lambda x: str(int(x)) if pd.notnull(x) else np.nan
+    )
 
     # Convert columns to numeric, coercing errors to NaN
     for col in ['freq', 'duration_min', 'sedentary_min_per_day']:
