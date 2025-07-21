@@ -1,5 +1,5 @@
 """
-clean_clinical_exam.py
+scripts\\clean_clinical_exam.py
 
 Contains functions to clean various clinical exam datasets,
 including BMI, blood pressure, cholesterol, glucose, 
@@ -16,7 +16,8 @@ from utils import (
     rename_columns,
     drop_missing,
     remove_outliers, 
-    replace_close_values_with_nan   
+    replace_close_values_with_nan,
+    pretty_path  
 )
 
 # 1. BMI
@@ -58,7 +59,7 @@ def clean_bmi(df: Optional[pd.DataFrame]) -> pd.DataFrame:
     CLEAN_DATA_DIR.mkdir(parents=True, exist_ok=True)
     output_path = CLEAN_DATA_DIR / "bmx_l_clean.csv"
     df.to_csv(output_path, index=False)
-    print(f"Saved cleaned BMI data to {output_path}")
+    print(f"Saved cleaned BMI data to {pretty_path(output_path)}")
 
     return df
 
@@ -119,7 +120,7 @@ def clean_bp(df: Optional[pd.DataFrame]) -> pd.DataFrame:
     output_path = CLEAN_DATA_DIR / "bpxo_l_clean.csv"
     df_to_save = df[['participant_id', 'systolic_avg', 'diastolic_avg']]
     df_to_save.to_csv(output_path, index=False)
-    print(f"Saved cleaned Blood Pressure data to {output_path}")
+    print(f"Saved cleaned Blood Pressure data to {pretty_path(output_path)}")
 
     return df_to_save
 
@@ -162,7 +163,7 @@ def clean_total_cholesterol(df: Optional[pd.DataFrame]) -> pd.DataFrame:
     CLEAN_DATA_DIR.mkdir(parents=True, exist_ok=True)
     output_path = CLEAN_DATA_DIR / "tchol_l_clean.csv"
     df.to_csv(output_path, index=False)
-    print(f"Saved cleaned Total Cholesterol data to {output_path}")
+    print(f"Saved cleaned Total Cholesterol data to {pretty_path(output_path)}")
 
     return df
 
@@ -191,7 +192,7 @@ def clean_glucose(df: Optional[pd.DataFrame]) -> pd.DataFrame:
         'LBXGLU': 'fasting_glucose_mg_dl',
         'LBDGLUSI': 'fasting_glucose_mmol_l'
     })
-    #df['participant_id'] = df['participant_id'].astype(float).astype(int).astype(str)
+    
     df['participant_id'] = df['participant_id'].apply(
     lambda x: str(int(x)) if pd.notnull(x) else np.nan
     )
@@ -222,7 +223,7 @@ def clean_glucose(df: Optional[pd.DataFrame]) -> pd.DataFrame:
     CLEAN_DATA_DIR.mkdir(parents=True, exist_ok=True)
     output_path = CLEAN_DATA_DIR / "glu_l_clean.csv"
     df.to_csv(output_path, index=False)
-    print(f"Saved cleaned Glucose data to {output_path}")
+    print(f"Saved cleaned Glucose data to {pretty_path(output_path)}")
 
     return df
 

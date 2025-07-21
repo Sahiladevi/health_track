@@ -1,8 +1,8 @@
 """
-config.py
+scripts\\config.py
 
 Defines filesystem paths for raw, interim, clean, and processed data,
-and the mapping of dataset names to their file paths and columns.
+and the mapping of dataset names to their file paths and columns
 """
 
 import os
@@ -12,8 +12,9 @@ from dotenv import load_dotenv
 # Load environment variables from .env file in project root
 load_dotenv()
 
-# Use BASE_PATH from .env if available, otherwise default to parent of scripts/
-BASE_PATH = Path(os.getenv("BASE_PATH", Path(__file__).resolve().parents[1]))
+# Relative to the location of config.py
+base_path_env = os.getenv("BASE_PATH", "..")
+BASE_PATH = Path(__file__).parent / base_path_env
 
 # directory paths
 RAW_DATA_DIR = BASE_PATH / 'data' / 'raw'
@@ -85,17 +86,26 @@ datasets = {
     },    
 }
 
-def ensure_directories():
-    """Create all required directories if they don't exist."""
+from pathlib import Path
+
+def ensure_directories() -> None:
+    """
+    Make sure all the important folders for the project exist.
+    
+    This goes through a list of directories we need (like for raw data,
+    processed data, outputs, etc.) and creates them if they aren't already there.
+    It also prints out where the main project folder is, relative to where
+    you're running the script — or gives the full path if it can't figure that out.
+    """
     for directory in [
         RAW_DATA_DIR, INTERIM_DATA_DIR, CLEAN_DATA_DIR,
         PROCESSED_DATA_DIR, FINAL_DATA_DIR,
-        DATABASE_PATH.parent,  
+        DATABASE_PATH.parent,
         OUTPUTS_DIR, PLOTS_DIR, SUMMARY_DIR
     ]:
+        # Create the directory if it doesn't exist (and create any parent folders too)
         directory.mkdir(parents=True, exist_ok=True)
-    print("All required directories are ready.")
+
+    print("Project directories are ready.")
 
 
-# Automatically ensure output dirs when this module is imported/run
-ensure_directories()

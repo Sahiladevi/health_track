@@ -1,5 +1,5 @@
 """
-clean_diet.py
+scripts\\clean_diet.py
 
 This script processes the NHANES DR1TOT_L dietary dataset:
 - Renames and standardizes key variables.
@@ -22,7 +22,8 @@ from utils import (
     show_missing,
     replace_zeros_with_nan,
     drop_invalid_weight,
-    replace_close_values_with_nan
+    replace_close_values_with_nan,
+    pretty_path
 )
 
 
@@ -126,7 +127,8 @@ def clean_diet(df: pd.DataFrame, do_impute: bool = True) -> pd.DataFrame:
     CLEAN_DATA_DIR.mkdir(parents=True, exist_ok=True)
     output_path = CLEAN_DATA_DIR / "dr1tot_l_clean.csv"
     df.to_csv(output_path, index=False)
-    print("Saved cleaned data to:", output_path)
+    print("Saved cleaned data to:", pretty_path(output_path))
+
 
     return df
 
@@ -147,8 +149,9 @@ def main() -> None:
     if diet_info is None:
         print(f"{label} not found in datasets config.")
         return
-
+    
     file_path = diet_info["file_path"]
+    print("Loading data from:", pretty_path(file_path))
     columns = diet_info.get("columns")
     df = load_dataset(file_path, columns)
 

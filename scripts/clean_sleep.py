@@ -1,5 +1,5 @@
 """
-scripts/clean_sleep.py
+scripts\\clean_sleep.py
 
 This script processes and cleans the NHANES SLQ_L dataset, which includes sleep duration data.
 - Renames confusing column names to something more readable.
@@ -19,7 +19,8 @@ from data_loading import load_dataset
 from utils import (
     rename_columns,
     show_missing,
-    replace_close_values_with_nan
+    replace_close_values_with_nan,
+    pretty_path
 )
 
 def clean_sleep_hours(x: float | None) -> float | None:
@@ -114,7 +115,7 @@ def clean_sleep(df: pd.DataFrame) -> pd.DataFrame:
         CLEAN_DATA_DIR.mkdir(parents=True, exist_ok=True)
         output_path = CLEAN_DATA_DIR / "slq_l_clean.csv"
         df.to_csv(output_path, index=False)
-        print(f"Saved cleaned data to: {output_path}")
+        print(f"Saved cleaned data to: {pretty_path(output_path)}")
     except Exception as e:
         print(f"Error: Failed to save cleaned data: {e}")
 

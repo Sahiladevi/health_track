@@ -1,5 +1,5 @@
 """
-cleaning.py
+scripts\\cleaning.py
 
 Cleans raw NHANES datasets using specific functions tailored for each dataset type.
 1. Applies the appropriate cleaning function to each raw dataset.
@@ -77,4 +77,7 @@ def main(raw_dfs: Dict[str, pd.DataFrame]) -> Dict[str, pd.DataFrame]:
 
 
 if __name__ == "__main__":
-    pass
+    from data_loading import load_raw_datasets
+
+    raw_data = load_raw_datasets()
+    cleaned_data = main(raw_data)

@@ -1,5 +1,5 @@
 """
-clean_chronic.py
+scripts\\clean_chronic.py
 
 This script cleans chronic disease data from NHANES.
 - Diabetes (DIQ)
@@ -12,6 +12,7 @@ from config import CLEAN_DATA_DIR
 from data_loading import load_dataset  
 from config import datasets 
 from typing import Optional, Dict
+from utils import pretty_path
 
 # Mapping codes to binary Yes/No
 YES_NO_MAP = {1: 1, 2: 0}  # 1 = Yes, 2 = No
@@ -55,7 +56,7 @@ def clean_diq(df: pd.DataFrame, label: str = "DIQ_L") -> pd.DataFrame:
     CLEAN_DATA_DIR.mkdir(parents=True, exist_ok=True)
     out_path = CLEAN_DATA_DIR / f"{label.lower()}_clean.csv"
     df_clean.to_csv(out_path, index=False)
-    print(f"{label}: Saved basic cleaned data to {out_path}")
+    print(f"{label}: Saved basic cleaned data to {pretty_path(out_path)}")
     print(f"{label}: Final shape: {df_clean.shape}")
     return df_clean
 
@@ -91,7 +92,7 @@ def clean_mcq(df: pd.DataFrame, label: str = "MCQ_L") -> pd.DataFrame:
     CLEAN_DATA_DIR.mkdir(parents=True, exist_ok=True)
     out_path = CLEAN_DATA_DIR / f"{label.lower()}_clean.csv"
     df_clean.to_csv(out_path, index=False)
-    print(f"{label}: Saved basic cleaned data to {out_path}")
+    print(f"{label}: Saved basic cleaned data to {pretty_path(out_path)}")
     print(f"{label}: Final shape: {df_clean.shape}")
     return df_clean
 

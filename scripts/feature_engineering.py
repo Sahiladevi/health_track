@@ -1,3 +1,19 @@
+"""
+scripts/feature_engineering.py
+
+This script contains functions to create new features or categorize existing variables
+from NHANES health survey data. These features help simplify complex measurements into
+meaningful categories (e.g., BMI groups, sleep quality, diabetes status) that are easier
+to analyze and interpret.
+
+Key functionalities include:
+- Categorizing poverty-income ratio, physical activity, sleep, BMI, blood pressure, cholesterol, and glucose levels.
+- Computing diet quality scores and labeling diet categories.
+- Creating flags and labels for diabetes and cardiovascular disease status.
+- Adding binary indicators and categorical labels to improve data usability for analysis.
+
+"""
+
 import pandas as pd
 import numpy as np
 from typing import Optional

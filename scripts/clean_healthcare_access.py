@@ -1,8 +1,13 @@
+"""
+scripts\\clean_healthcare_access.py
+Cleans the HIQ_L dataset, which contains information about health insurance coverage.
+
+"""
 import pandas as pd
 import numpy as np
 from config import CLEAN_DATA_DIR, datasets
 from data_loading import load_dataset
-from utils import rename_columns, show_missing, drop_missing
+from utils import rename_columns, show_missing, drop_missing, pretty_path
 
 
 def clean_insurance_coverage(df: pd.DataFrame) -> pd.DataFrame:
@@ -47,7 +52,8 @@ def clean_insurance_coverage(df: pd.DataFrame) -> pd.DataFrame:
     CLEAN_DATA_DIR.mkdir(parents=True, exist_ok=True)
     output_file = CLEAN_DATA_DIR / f"{label.lower()}_clean.csv"
     df.to_csv(output_file, index=False)
-    print(f"Saved cleaned data to: {output_file}\n")
+    print(f"Saved cleaned data to: {pretty_path(output_file)}")
+
 
     return df
 
@@ -58,7 +64,6 @@ def main() -> None:
 
     - Data loading via config
     - Validity checks
-    - Delegation to the appropriate cleaning function
     """
     hiq_info = datasets.get("HIQ_L")
     if hiq_info:

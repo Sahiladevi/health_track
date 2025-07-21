@@ -1,5 +1,5 @@
 """
-scripts/clean_physical.py
+scripts\\clean_physical.py
 
 This script cleans the NHANES PAQ_L physical activity dataset, which includes data 
 on physical and sedentary behaviors.
@@ -14,10 +14,9 @@ on physical and sedentary behaviors.
 
 import pandas as pd
 import numpy as np
-from pathlib import Path
 from config import CLEAN_DATA_DIR, datasets
 from data_loading import load_dataset
-from utils import rename_columns, show_missing, drop_missing
+from utils import rename_columns, show_missing, drop_missing, pretty_path
 
 # Max plausible frequencies per unit
 FREQ_LIMITS = {'D': 4, 'W': 28, 'M': 31, 'Y': 365}
@@ -114,7 +113,7 @@ def clean_physical_activity(df: pd.DataFrame) -> pd.DataFrame:
     output_file = CLEAN_DATA_DIR / "paq_l_clean.csv"
     df.to_csv(output_file, index=False)
     print("Dataframe rows and columns size after cleaning:", df.shape)
-    print(f"[PAQ_L] Cleaned data saved to: {output_file}")
+    print(f"[PAQ_L] Cleaned data saved to: {pretty_path(output_file)}")
 
     return df
 

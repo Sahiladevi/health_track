@@ -1,5 +1,5 @@
 """
-scripts/clean_demo.py
+scripts\\clean_demo.py
 
 This script cleans the NHANES DEMO_L dataset, which includes demographics data.
 
@@ -22,7 +22,8 @@ from utils import (
     drop_missing,
     remove_outliers,
     drop_invalid_weight,
-    replace_close_values_with_nan
+    replace_close_values_with_nan,
+    pretty_path
 )
 
 # Mapping dictionaries for converting numeric codes to readable labels
@@ -151,7 +152,8 @@ def clean_demo(df: pd.DataFrame) -> pd.DataFrame:
     CLEAN_DATA_DIR.mkdir(parents=True, exist_ok=True)
     output_path = CLEAN_DATA_DIR / "demo_l_clean.csv"
     df.to_csv(output_path, index=False)
-    print("Saved cleaned data to:", output_path)
+    print("Saved cleaned data to:", pretty_path(output_path))
+
 
     return df
 

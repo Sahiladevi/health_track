@@ -1,8 +1,9 @@
 """
-data_loading.py
+scripts\\data_loading.py
 
-Loads raw NHANES datasets, validates files, saves interim CSVs,
-and calls exploration utilities from utils.py.
+This script handles loading the raw NHANES data files with the required columns/fields,
+checks if they're valid, saves cleaned-up versions to interim CSVs,
+and then runs some quick exploration using helper functions.
 """
 
 from pathlib import Path
@@ -11,23 +12,27 @@ import pandas as pd
 import pyreadstat
 
 from config import datasets, INTERIM_DATA_DIR
-from utils import validate_xpt_files, explore_data
+from utils import validate_xpt_files, explore_data, pretty_path
 
-
+# 1. function for load_file_as_dataframe 
 def load_dataset(file_path: Union[str, Path], columns: Optional[List[str]] = None) -> Optional[pd.DataFrame]:
     """
-    Load data from a file into a pandas DataFrame.
+    Loads a dataset from a file into a pandas DataFrame.
+
+    You can optionally tell it which columns you care about. 
+    If anything goes wrong (like the file doesn't exist, 
+    or it's missing columns you asked for), it'll just return None.
 
     Args:
-        file_path: Path to the data file.
-        columns: Optional list of columns to keep; if None, keep all columns.
+        file_path: Where the file is located (CSV, Excel, XPT, etc.).
+        columns: A list of columns you want to keep (optional).
 
     Returns:
-        Loaded DataFrame, or None if loading failed or columns missing.
+        A DataFrame if it loads correctly, otherwise None.
     """
     path = Path(file_path)
     if not path.exists():
-        print(f"File not found: {path}")
+        print(f"File not found: {pretty_path(path)}")
         return None
 
     ext = path.suffix.lower()
@@ -49,52 +54,63 @@ def load_dataset(file_path: Union[str, Path], columns: Optional[List[str]] = Non
             print(f"Unsupported file type: {ext}")
             return None
     except Exception as e:
-        print(f"Error loading {path.name}: {e}")
+        print(f"Error loading {pretty_path(path)}: {e}")
         return None
 
+    # If you only want certain columns, check that they exist first
     if columns:
         missing_cols = [col for col in columns if col not in df.columns]
         if missing_cols:
-            print(f"Missing columns {missing_cols} in {path.name}")
+            print(f"Missing columns {missing_cols} in {pretty_path(path)}")
             return None
         df = df[columns]
 
     return df
 
-
+# 2. function for save_dataframe_to_interim_csv
 def save_interim_csv(df: Optional[pd.DataFrame], name: str) -> None:
     """
-    Save a DataFrame as CSV to the interim data directory.
+    Saves a DataFrame as a CSV file in the interim data folder.
+
+    Just make sure the DataFrame isn't empty before trying to save.
 
     Args:
-        df: DataFrame to save.
-        name: Dataset name, used for the file name.
+        df: The data you want to save.
+        name: A short name for the dataset (used for the filename).
     """
     if df is None or df.empty:
         print(f"No data to save for {name}")
         return
 
+    # Make sure the folder exists first
     INTERIM_DATA_DIR.mkdir(parents=True, exist_ok=True)
     out_file = INTERIM_DATA_DIR / f"{name.lower()}_interim.csv"
+
     try:
         df.to_csv(out_file, index=False)
-        print(f"Saved interim CSV for {name} to {out_file}")
+        print(f"Saved interim CSV for {name} to {pretty_path(out_file)}")
     except Exception as e:
         print(f"Failed to save CSV for {name}: {e}")
 
 
+# 3. function for validate_and_prepare_datasets
 def process_datasets(dataset_config: Dict[str, dict] = datasets) -> Dict[str, pd.DataFrame]:
     """
-    Validate, load, and save all datasets as defined in the config.
+    Goes through all datasets in the config:
+    - validates them,
+    - loads the data,
+    - saves interim versions,
+    - and collects everything into a dictionary.
 
     Args:
-        dataset_config: Dictionary of dataset metadata with file paths and optional columns.
+        dataset_config: Info about all the datasets — paths, columns to keep, etc.
 
     Returns:
-        Dictionary of loaded DataFrames keyed by dataset name.
+        A dictionary of the loaded DataFrames, keyed by their names.
     """
     print("Starting dataset validation...")
     failed = validate_xpt_files(dataset_config)
+    
     if failed:
         print("\nValidation failed for these datasets:")
         for name, reason in failed.items():
@@ -115,13 +131,25 @@ def process_datasets(dataset_config: Dict[str, dict] = datasets) -> Dict[str, pd
 
     return loaded_dfs
 
+# 4. function for load_validated_datasets_from_config
+def load_raw_datasets() -> Dict[str, pd.DataFrame]:
+    """
+    Loads and returns raw NHANES datasets from config.
+
+    This function is designed for reuse across scripts.
+    """
+    return process_datasets()
+
 
 def main() -> Dict[str, pd.DataFrame]:
     """
-    Main entry point: load and save NHANES datasets, then explore them.
+    Main function that kicks off everything:
+    - Loads all datasets
+    - Saves interim versions
+    - Runs some basic exploration on each
 
     Returns:
-        Dictionary of loaded DataFrames.
+        A dictionary of all the loaded DataFrames.
     """
     print("=== NHANES Data Loading ===")
     all_data = process_datasets()

@@ -1,19 +1,36 @@
 """
-utils.py
+scripts\\utils.py
 
 Common utility functions for NHANES project:
 - Validation of SAS transport files (.xpt)
 - Data exploration summaries
 - Data cleaning helpers.
+- format path for display while printing the file_path
 """
 import pandas as pd
 import numpy as np
 from pathlib import Path
 import pyreadstat
+from config import BASE_PATH  
 from typing import Dict, List, Optional, Union
 
-
+# 1. function for validate_and_read_xpt_files
 def validate_xpt_files(datasets: Dict[str, Dict[str, str]]) -> Dict[str, str]:
+    """
+    For each dataset, this function looks for the file at the specified path.
+    If the file exists, it tries to read it first with pandas, and if that fails,
+    it tries with pyreadstat. If both fail, or the file is missing, the dataset name
+    and error message are recorded.
+
+    Args:
+        datasets (dict): A dictionary where keys are dataset names and values are
+                         dictionaries containing at least a 'file_path' key with the
+                         file location as a string.
+
+    Returns:
+        dict: A dictionary with dataset names as keys and error messages as values
+              for files that are missing or couldn't be read.
+    """
     failed_files = {}
     for name, info in datasets.items():
         file_path = Path(info["file_path"])
@@ -35,6 +52,22 @@ def validate_xpt_files(datasets: Dict[str, Dict[str, str]]) -> Dict[str, str]:
             failed_files[name] = "File missing"
     return failed_files
 
+# 2. function for format_path
+
+def pretty_path(path: Path) -> str:
+    """
+    Returns the path relative to the BASE_PATH (project root).
+    Falls back to absolute path if it's not within BASE_PATH.
+    """
+    path = Path(path).resolve()
+    base = BASE_PATH.resolve()
+
+    try:
+        return str(path.relative_to(base))
+    except ValueError:
+        return str(path)
+    
+# 3. function for missing values
 def show_missing(df: pd.DataFrame, name: str) -> None:
     """
     Print the number of missing values for each column in a dataframe.
@@ -46,7 +79,7 @@ def show_missing(df: pd.DataFrame, name: str) -> None:
     print(f"Missing values in dataset: {name}")
     print(df.isnull().sum())
 
-
+# 4. function for rename the columns
 def rename_columns(df: pd.DataFrame, new_names: Dict[str, str]) -> pd.DataFrame:
     """
     Rename columns in the dataframe using the provided mapping.
@@ -60,7 +93,7 @@ def rename_columns(df: pd.DataFrame, new_names: Dict[str, str]) -> pd.DataFrame:
     """
     return df.rename(columns=new_names)
 
-
+# 5. function for dropping rows
 def drop_missing(df: pd.DataFrame, columns: List[str]) -> pd.DataFrame:
     """
     Drop rows from the dataframe if they have missing values in any of the specified columns.
@@ -74,7 +107,7 @@ def drop_missing(df: pd.DataFrame, columns: List[str]) -> pd.DataFrame:
     """
     return df.dropna(subset=columns)
 
-
+# 6. function for removing outliers
 def remove_outliers(df: pd.DataFrame, column: str, min_value: float, max_value: float) -> pd.DataFrame:
     """
     Remove rows where the values in a specific column fall outside a defined range.
@@ -90,7 +123,7 @@ def remove_outliers(df: pd.DataFrame, column: str, min_value: float, max_value: 
     """
     return df[(df[column] >= min_value) & (df[column] <= max_value)]
 
-
+# 7. function for dropping invalid weight
 def drop_invalid_weight(
     df: pd.DataFrame,
     weight_column: str,
@@ -116,7 +149,7 @@ def drop_invalid_weight(
     ]
     return cleaned_df
 
-
+# 8. function for replacing zeros with nans
 def replace_zeros_with_nan(df: pd.DataFrame, columns: List[str]) -> pd.DataFrame:
     """
     Replace zeros with NaNs in selected columns.
@@ -133,7 +166,7 @@ def replace_zeros_with_nan(df: pd.DataFrame, columns: List[str]) -> pd.DataFrame
         df[col] = df[col].replace(0, np.nan)
     return df
 
-
+# 9. function for removing 5.39e-79
 def replace_close_values_with_nan(
     df: pd.DataFrame,
     target: float,
@@ -165,10 +198,7 @@ def replace_close_values_with_nan(
             print(f"Column '{col}' not found in dataframe.")
     return df
 
-
-from typing import Union, Dict, Optional
-import pandas as pd
-
+# 10. function for exploring the data (DataFrame or a dictionary of DataFrames)
 def explore_data(
     data: Union[pd.DataFrame, Dict[str, pd.DataFrame]],
     name: Optional[str] = None
@@ -210,8 +240,7 @@ def explore_data(
         print("-" * 40)
 
     if isinstance(data, dict):
-        for dataset_name, df in data.items():
-            print(f"\nExploring {dataset_name}...")
+        for dataset_name, df in data.items():            
             if not isinstance(df, pd.DataFrame):
                 print(f"{dataset_name} is not a DataFrame. Skipping...")
                 continue
