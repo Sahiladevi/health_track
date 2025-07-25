@@ -103,9 +103,10 @@ NHANES_TABLE_SCHEMAS = {
     "diet": """
         CREATE TABLE IF NOT EXISTS diet (
             participant_id TEXT PRIMARY KEY,
-            diet_weight REAL,
-            diet_score REAL,
-            diet_category TEXT
+            total_diet_weight REAL,
+            food_item_weight REAL,
+            hei_score REAL,
+            diet_score_category TEXT
         );
     """,
     "bmi": """
@@ -127,7 +128,9 @@ NHANES_TABLE_SCHEMAS = {
         CREATE TABLE IF NOT EXISTS total_cholestrol (
             participant_id TEXT PRIMARY KEY,
             total_cholesterol REAL,
+            blood_drawn_sample_weight REAL,
             cholesterol_category TEXT
+           
         );
     """,
     "glucose": """
