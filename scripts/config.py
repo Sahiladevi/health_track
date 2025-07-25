@@ -51,11 +51,18 @@ datasets = {
     "SLQ_L": {
         "file_path": RAW_DATA_DIR / "SLQ_L.xpt",
         "columns": ["SEQN", "SLD012", "SLD013"],
-    },
+    },  
+    
     "DR1TOT_L": {
         "file_path": RAW_DATA_DIR / "DR1TOT_L.xpt",
-        "columns": ["SEQN", "DR1TKCAL", "DR1TSFAT", "DR1TSUGR", "DR1TFIBE", "WTDR2D"],
+        "columns": ["SEQN", "DR1TKCAL", "DR1TSFAT", "DR1TSODI","WTDRD1"],
     },
+
+    "DR1IFF_L": {
+        "file_path": RAW_DATA_DIR / "DR1IFF_L.xpt",
+        "columns": ["SEQN", "DR1IGRMS", "DR1IKCAL", "WTDRD1", "DR1IFDCD"] ,   
+    },
+
     "HIQ_L": {
         "file_path": RAW_DATA_DIR / "HIQ_L.xpt",
         "columns": ["SEQN", "HIQ011"],
@@ -70,7 +77,7 @@ datasets = {
     },
     "TCHOL_L": {
         "file_path": RAW_DATA_DIR / "TCHOL_L.xpt",
-        "columns": ["SEQN", "LBXTC"],
+        "columns": ["SEQN", "LBXTC","WTPH2YR"],
     },  
     "GLU_L": {
         "file_path": RAW_DATA_DIR / "GLU_L.xpt",
