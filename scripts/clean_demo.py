@@ -153,8 +153,6 @@ def clean_demo(df: pd.DataFrame) -> pd.DataFrame:
     output_path = CLEAN_DATA_DIR / "demo_l_clean.csv"
     df.to_csv(output_path, index=False)
     print("Saved cleaned data to:", pretty_path(output_path))
-
-
     return df
 
 
