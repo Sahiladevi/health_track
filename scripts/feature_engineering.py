@@ -3,12 +3,11 @@ scripts/feature_engineering.py
 
 This script contains functions to create new features or categorize existing variables
 from NHANES health survey data. These features help simplify complex measurements into
-meaningful categories (e.g., BMI groups, sleep quality, diabetes status) that are easier
+meaningful categories (e.g., BMI groups, sleep quality) that are easier
 to analyze and interpret.
 
 Key functionalities include:
 - Categorizing poverty-income ratio, physical activity, sleep, BMI, blood pressure, cholesterol, and glucose levels.
-- Computing diet quality scores and labeling diet categories.
 - Creating flags and labels for diabetes and cardiovascular disease status.
 - Adding binary indicators and categorical labels to improve data usability for analysis.
 
@@ -62,66 +61,7 @@ def categorize_activity_level(total_weekly_min: Optional[float]) -> str:
     else:
         return "Highly active"
 
-
-# 3. Diet Score Calculation
-def compute_diet_score(row: pd.Series) -> float:
-    """
-    Compute a simplified diet quality score using NHANES dietary fields.
-
-    Args:
-        row (pd.Series): A row from NHANES dietary recall with relevant nutrients:
-                         'DR1TFIBE', 'DR1TSUGR', 'DR1TSFAT'.
-
-    Returns:
-        float: A basic diet score (higher = better).
-    """
-    required_cols = ['fiber_g', 'sugar_g', 'sat_fat_g']
-    if not all(col in row for col in required_cols):
-        return 0.0
-
-    fiber = row['fiber_g']
-    sugar = row['sugar_g']
-    sat_fat = row['sat_fat_g']
-
-    if pd.isna(fiber) or pd.isna(sugar) or pd.isna(sat_fat):
-        return 0.0
-
-    score = 0.0
-    if fiber > 25:
-        score += 2
-    elif fiber >= 15:
-        score += 1
-
-    if sugar < 50:
-        score += 1
-    if sat_fat < 20:
-        score += 1
-
-    return score
-
-
-# 4. Diet Score Labeling
-def label_diet_score(score: Optional[float]) -> str:
-    """
-    Label diet score into categories.
-
-    Args:
-        score (Optional[float]): The computed diet score.
-
-    Returns:
-        str: Diet category ('Healthy', 'Moderate', or 'Unhealthy').
-    """
-    if score is None or pd.isna(score):
-        return "Unhealthy"
-    if score >= 3:
-        return "Healthy"
-    elif score == 2:
-        return "Moderate"
-    else:
-        return "Unhealthy"
-
-
-# 5. Sleep Duration Categorization
+# 3. Sleep Duration Categorization
 def categorize_sleep(sleep_avg_hr: Optional[float]) -> str:
     """
     Categorize sleep duration into quality bands.
@@ -142,7 +82,7 @@ def categorize_sleep(sleep_avg_hr: Optional[float]) -> str:
         return "Long Sleep"
 
 
-# 6. Obesity Flag
+# 4. Obesity Flag
 def flag_obesity(bmi: Optional[float]) -> bool:
     """
     Determine whether a participant is obese based on BMI.
@@ -158,7 +98,7 @@ def flag_obesity(bmi: Optional[float]) -> bool:
     return bmi >= 30
 
 
-# 7. BMI Categorization
+# 5. BMI Categorization
 def categorize_bmi(bmi: Optional[float]) -> str:
     """
     Categorize Body Mass Index into standard weight classes.
@@ -181,7 +121,7 @@ def categorize_bmi(bmi: Optional[float]) -> str:
         return "Obese"
 
 
-# 8. Blood Pressure Categorization
+# 6. Blood Pressure Categorization
 def categorize_bp(systolic: Optional[float], diastolic: Optional[float]) -> str:
     """
     Categorize blood pressure based on systolic and diastolic values.
@@ -209,7 +149,7 @@ def categorize_bp(systolic: Optional[float], diastolic: Optional[float]) -> str:
         return "Unknown"
 
 
-# 9. Cholesterol Categorization
+# 7. Cholesterol Categorization
 def cholesterol_category(value: Optional[float]) -> str:
     """
     Categorize total cholesterol levels.
@@ -230,7 +170,7 @@ def cholesterol_category(value: Optional[float]) -> str:
         return "High"
 
 
-# 10. Fasting Glucose Categorization
+# 8. Fasting Glucose Categorization
 def glucose_category(value: Optional[float]) -> str:
     """
     Categorize fasting blood glucose levels.
@@ -251,7 +191,7 @@ def glucose_category(value: Optional[float]) -> str:
         return "Diabetes"
 
 
-# 11. Glucose Abnormal Flags
+# 9. Glucose Abnormal Flags
 def glucose_flags(value: Optional[float]) -> pd.Series:
     """
     Flags hypo- and hyperglycemia based on fasting glucose levels.
@@ -271,7 +211,7 @@ def glucose_flags(value: Optional[float]) -> pd.Series:
     return pd.Series({'hypoglycemia_flag': hypo, 'hyperglycemia_flag': hyper})
 
 
-# 12. Medication Labeling
+# 10. Medication Labeling
 def label_meds(val: Optional[int]) -> str:
     """
     Label medication status.
@@ -290,7 +230,7 @@ def label_meds(val: Optional[int]) -> str:
         return "Unknown"
 
 
-# 13. Diabetes Feature Engineering
+# 11. Diabetes Feature Engineering
 def engineer_diq_features(df: pd.DataFrame) -> pd.DataFrame:
     """
     Engineer diabetes-related features from diagnosis and medication indicators.
@@ -319,7 +259,7 @@ def engineer_diq_features(df: pd.DataFrame) -> pd.DataFrame:
     return df
 
 
-# 14. Cardiovascular Disease Feature Engineering
+# 12. Cardiovascular Disease Feature Engineering
 def engineer_mcq_features(df: pd.DataFrame) -> pd.DataFrame:
     """
     Engineer cardiovascular disease indicator from multiple condition flags.
