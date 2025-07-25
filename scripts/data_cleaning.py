@@ -11,7 +11,7 @@ from clean_demo import clean_demo
 from clean_clinical_exam import clean_bmi, clean_bp, clean_total_cholesterol, clean_glucose
 from clean_sleep import clean_sleep
 from clean_physical import clean_physical_activity
-from clean_diet import clean_diet
+from clean_diet import clean_individual_diet,clean_total_diet
 from clean_healthcare_access import clean_insurance_coverage
 from clean_chronic_disease import clean_diq, clean_mcq
 
@@ -34,7 +34,8 @@ def clean_datasets(raw_dfs: Dict[str, pd.DataFrame]) -> Dict[str, pd.DataFrame]:
         "DEMO_L": clean_demo,
         "SLQ_L": clean_sleep,
         "PAQ_L": clean_physical_activity,
-        "DR1TOT_L": clean_diet,
+        "DR1TOT_L": clean_total_diet,
+        "DR1IFF_L": clean_individual_diet,
         "HIQ_L": clean_insurance_coverage,
         "BMX_L": clean_bmi,
         "BPXO_L": clean_bp,
