@@ -17,6 +17,7 @@ from utils import (
     drop_missing,
     remove_outliers, 
     replace_close_values_with_nan,
+    drop_invalid_weight,
     pretty_path  
 )
 
@@ -123,12 +124,10 @@ def clean_bp(df: Optional[pd.DataFrame]) -> pd.DataFrame:
     print(f"Saved cleaned Blood Pressure data to {pretty_path(output_path)}")
 
     return df_to_save
-
-# 3. Total Cholesterol
 def clean_total_cholesterol(df: Optional[pd.DataFrame]) -> pd.DataFrame:
     """
     Clean total cholesterol data by renaming columns, removing missing values,
-    removing outliers, and saving cleaned data.
+    replacing invalid weights, removing outliers, and saving cleaned data.
 
     Args:
         df: Raw cholesterol DataFrame or None.
@@ -139,27 +138,53 @@ def clean_total_cholesterol(df: Optional[pd.DataFrame]) -> pd.DataFrame:
     if df is None or df.empty:
         print("Total cholesterol dataframe is empty.")
         return pd.DataFrame()
-    
-    required_cols = ['SEQN', 'LBXTC']
+
+    required_cols = ['SEQN', 'LBXTC', 'WTPH2YR']
     for col in required_cols:
         if col not in df.columns:
             raise ValueError(f"Missing required column: {col}")
-    
+
     print("Cleaning Total Cholesterol data")
     print("Dataframe rows and columns size before cleaning:", df.shape)
 
-    df = rename_columns(df, {'SEQN': 'participant_id', 'LBXTC': 'total_cholesterol'})
+    # Rename columns for consistency
+    df = rename_columns(df, {
+        'SEQN': 'participant_id',
+        'LBXTC': 'total_cholesterol',
+        'WTPH2YR': 'blood_drawn_sample_weight'
+    })
+
+    # Ensure participant_id is string
     df['participant_id'] = df['participant_id'].apply(
-    lambda x: str(int(x)) if pd.notnull(x) else np.nan
+        lambda x: str(int(x)) if pd.notnull(x) else np.nan
     )
 
+    # Show missing before cleaning
     show_missing(df, "Cholesterol - Before Cleaning")
+
+    # Replace weird near-zero values in weights with NaN
+    df = replace_close_values_with_nan(
+        df,
+        target=5.39760534693402e-79,
+        tolerance=1e-78,
+        columns=['blood_drawn_sample_weight']
+    )
+
+    # Drop rows with missing or invalid weights
+    df = drop_invalid_weight(df, 'blood_drawn_sample_weight', min_valid=0.01)
+
+    # Drop rows with missing total cholesterol
     df = drop_missing(df, ['total_cholesterol'])
+
+    # Remove outliers in cholesterol (typical clinical range: 62–438 mg/dL)
     df = remove_outliers(df, 'total_cholesterol', 62, 438)
+
+    # Show missing after cleaning
     show_missing(df, "Cholesterol - After Cleaning")
 
     print("Dataframe rows and columns size after cleaning:", df.shape)
 
+    # Save cleaned data
     CLEAN_DATA_DIR.mkdir(parents=True, exist_ok=True)
     output_path = CLEAN_DATA_DIR / "tchol_l_clean.csv"
     df.to_csv(output_path, index=False)
