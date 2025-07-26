@@ -1,0 +1,85 @@
+Systolic BP Model:
+                            WLS Regression Results                            
+==============================================================================
+Dep. Variable:           systolic_avg   R-squared:                       0.205
+Model:                            WLS   Adj. R-squared:                  0.201
+Method:                 Least Squares   F-statistic:                     43.16
+Date:                Fri, 25 Jul 2025   Prob (F-statistic):          9.36e-131
+Time:                        22:45:47   Log-Likelihood:                -14620.
+No. Observations:                3478   AIC:                         2.928e+04
+Df Residuals:                    3460   BIC:                         2.939e+04
+Df Model:                          17                                         
+Covariance Type:                  HC3                                         
+===================================================================================================================
+                                                      coef    std err          z      P>|z|      [0.025      0.975]
+-------------------------------------------------------------------------------------------------------------------
+Intercept                                          99.9546      3.022     33.078      0.000      94.032     105.877
+C(gender)[T.Male]                                   5.6230      0.570      9.860      0.000       4.505       6.741
+C(education_level)[T.<9th grade]                    3.0489      2.410      1.265      0.206      -1.674       7.772
+C(education_level)[T.College graduate or above]    -3.2470      1.535     -2.115      0.034      -6.256      -0.238
+C(education_level)[T.High school/GED]              -0.8926      1.527     -0.585      0.559      -3.885       2.100
+C(education_level)[T.Some college/AA degree]       -2.0610      1.476     -1.396      0.163      -4.954       0.832
+C(activity_level)[T.Low active]                    -0.0322      0.692     -0.047      0.963      -1.388       1.323
+C(activity_level)[T.Moderately active]             -0.4166      0.803     -0.519      0.604      -1.991       1.158
+C(has_health_insurance)[T.Yes]                     -0.3877      1.190     -0.326      0.745      -2.720       1.945
+C(race_ethnicity)[T.Non-Hispanic Asian]             0.4489      1.416      0.317      0.751      -2.327       3.225
+C(race_ethnicity)[T.Non-Hispanic Black]             5.9774      1.408      4.246      0.000       3.218       8.737
+C(race_ethnicity)[T.Non-Hispanic White]             1.5087      1.085      1.391      0.164      -0.617       3.635
+C(race_ethnicity)[T.Other Hispanic]                 0.5381      1.336      0.403      0.687      -2.080       3.156
+C(race_ethnicity)[T.Other/Multi-Racial]             1.4536      1.525      0.953      0.341      -1.536       4.443
+age                                                 0.3856      0.018     22.010      0.000       0.351       0.420
+sleep_avg_hr                                        0.2447      0.251      0.974      0.330      -0.248       0.737
+hei_score                                          -0.0349      0.021     -1.643      0.100      -0.077       0.007
+poverty_income_ratio                               -0.1492      0.236     -0.633      0.527      -0.611       0.313
+==============================================================================
+Omnibus:                      475.919   Durbin-Watson:                   1.985
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):             1281.238
+Skew:                           0.747   Prob(JB):                    6.06e-279
+Kurtosis:                       5.571   Cond. No.                         925.
+==============================================================================
+
+Notes:
+[1] Standard Errors are heteroscedasticity robust (HC3)
+
+Diastolic BP Model:
+                            WLS Regression Results                            
+==============================================================================
+Dep. Variable:          diastolic_avg   R-squared:                       0.041
+Model:                            WLS   Adj. R-squared:                  0.036
+Method:                 Least Squares   F-statistic:                     5.214
+Date:                Fri, 25 Jul 2025   Prob (F-statistic):           1.59e-11
+Time:                        22:45:47   Log-Likelihood:                -13345.
+No. Observations:                3478   AIC:                         2.673e+04
+Df Residuals:                    3460   BIC:                         2.684e+04
+Df Model:                          17                                         
+Covariance Type:                  HC3                                         
+===================================================================================================================
+                                                      coef    std err          z      P>|z|      [0.025      0.975]
+-------------------------------------------------------------------------------------------------------------------
+Intercept                                          78.1275      2.157     36.213      0.000      73.899      82.356
+C(gender)[T.Male]                                   1.8465      0.419      4.405      0.000       1.025       2.668
+C(education_level)[T.<9th grade]                    0.4479      1.450      0.309      0.757      -2.394       3.290
+C(education_level)[T.College graduate or above]    -1.4434      1.194     -1.209      0.227      -3.783       0.896
+C(education_level)[T.High school/GED]              -1.0734      1.179     -0.911      0.363      -3.384       1.237
+C(education_level)[T.Some college/AA degree]       -0.2371      1.159     -0.205      0.838      -2.509       2.035
+C(activity_level)[T.Low active]                     1.3570      0.512      2.648      0.008       0.353       2.361
+C(activity_level)[T.Moderately active]              0.2025      0.583      0.347      0.728      -0.940       1.345
+C(has_health_insurance)[T.Yes]                     -1.5498      0.969     -1.599      0.110      -3.450       0.350
+C(race_ethnicity)[T.Non-Hispanic Asian]             1.3620      1.158      1.176      0.240      -0.907       3.631
+C(race_ethnicity)[T.Non-Hispanic Black]             4.5277      1.115      4.059      0.000       2.342       6.714
+C(race_ethnicity)[T.Non-Hispanic White]             0.7866      0.888      0.886      0.376      -0.954       2.528
+C(race_ethnicity)[T.Other Hispanic]                 0.7315      1.030      0.710      0.478      -1.288       2.751
+C(race_ethnicity)[T.Other/Multi-Racial]             1.2365      1.121      1.103      0.270      -0.961       3.434
+age                                                 0.0201      0.013      1.573      0.116      -0.005       0.045
+sleep_avg_hr                                       -0.3992      0.170     -2.348      0.019      -0.732      -0.066
+hei_score                                          -0.0645      0.016     -4.129      0.000      -0.095      -0.034
+poverty_income_ratio                                0.3356      0.170      1.977      0.048       0.003       0.668
+==============================================================================
+Omnibus:                      232.287   Durbin-Watson:                   1.984
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):              535.684
+Skew:                           0.415   Prob(JB):                    4.76e-117
+Kurtosis:                       4.734   Cond. No.                         925.
+==============================================================================
+
+Notes:
+[1] Standard Errors are heteroscedasticity robust (HC3)

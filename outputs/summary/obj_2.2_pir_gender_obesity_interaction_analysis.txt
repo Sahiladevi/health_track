@@ -1,0 +1,23 @@
+                 Generalized Linear Model Regression Results                  
+==============================================================================
+Dep. Variable:                  obese   No. Observations:                 5970
+Model:                            GLM   Df Residuals:             241937104.31
+Model Family:                Binomial   Df Model:                            7
+Link Function:                  Logit   Scale:                          1.0000
+Method:                          IRLS   Log-Likelihood:            -1.6190e+08
+Date:                Fri, 25 Jul 2025   Deviance:                   3.2381e+08
+Time:                        23:02:35   Pearson chi2:                 2.42e+08
+No. Iterations:                     5   Pseudo R-squ. (CS):              1.000
+Covariance Type:                  HC3                                         
+==================================================================================================================
+                                                     coef    std err          z      P>|z|      [0.025      0.975]
+------------------------------------------------------------------------------------------------------------------
+Intercept                                         -0.3513      0.000  -1231.382      0.000      -0.352      -0.351
+C(pir_category)[T.Low]                             0.3708      0.001    641.755      0.000       0.370       0.372
+C(pir_category)[T.Mid]                             0.2006      0.000    425.672      0.000       0.200       0.202
+C(pir_category)[T.Very High]                      -0.4306      0.000   -878.613      0.000      -0.432      -0.430
+C(gender)[T.Male]                                  0.0073      0.000     18.054      0.000       0.007       0.008
+C(pir_category)[T.Low]:C(gender)[T.Male]          -0.5079      0.001   -571.608      0.000      -0.510      -0.506
+C(pir_category)[T.Mid]:C(gender)[T.Male]          -0.3161      0.001   -453.680      0.000      -0.317      -0.315
+C(pir_category)[T.Very High]:C(gender)[T.Male]     0.2243      0.001    333.520      0.000       0.223       0.226
+==================================================================================================================

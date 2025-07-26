@@ -1,0 +1,25 @@
+                            WLS Regression Results                            
+==============================================================================
+Dep. Variable:          diastolic_avg   R-squared:                       0.006
+Model:                            WLS   Adj. R-squared:                  0.006
+Method:                 Least Squares   F-statistic:                     23.07
+Date:                Fri, 25 Jul 2025   Prob (F-statistic):           1.60e-06
+Time:                        22:47:49   Log-Likelihood:                -22406.
+No. Observations:                5735   AIC:                         4.482e+04
+Df Residuals:                    5733   BIC:                         4.483e+04
+Df Model:                           1                                         
+Covariance Type:                  HC3                                         
+================================================================================
+                   coef    std err          z      P>|z|      [0.025      0.975]
+--------------------------------------------------------------------------------
+Intercept       79.5469      1.022     77.805      0.000      77.543      81.551
+sleep_avg_hr    -0.6147      0.128     -4.803      0.000      -0.866      -0.364
+==============================================================================
+Omnibus:                      611.219   Durbin-Watson:                   2.015
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):             1899.573
+Skew:                           0.553   Prob(JB):                         0.00
+Kurtosis:                       5.593   Cond. No.                         46.6
+==============================================================================
+
+Notes:
+[1] Standard Errors are heteroscedasticity robust (HC3)

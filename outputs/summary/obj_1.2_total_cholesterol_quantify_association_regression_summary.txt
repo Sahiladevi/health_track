@@ -1,0 +1,41 @@
+                            WLS Regression Results                            
+==============================================================================
+Dep. Variable:      total_cholesterol   R-squared:                       0.033
+Model:                            WLS   Adj. R-squared:                  0.028
+Method:                 Least Squares   F-statistic:                     4.693
+Date:                Fri, 25 Jul 2025   Prob (F-statistic):           5.76e-10
+Time:                        22:45:49   Log-Likelihood:                -17191.
+No. Observations:                3285   AIC:                         3.442e+04
+Df Residuals:                    3267   BIC:                         3.453e+04
+Df Model:                          17                                         
+Covariance Type:                  HC3                                         
+===================================================================================================================
+                                                      coef    std err          z      P>|z|      [0.025      0.975]
+-------------------------------------------------------------------------------------------------------------------
+Intercept                                         188.3457      8.438     22.321      0.000     171.807     204.884
+C(activity_level)[T.Low active]                     4.1047      2.131      1.926      0.054      -0.073       8.282
+C(activity_level)[T.Moderately active]              0.3171      2.569      0.123      0.902      -4.718       5.352
+C(education_level)[T.<9th grade]                   -2.0658      7.677     -0.269      0.788     -17.113      12.981
+C(education_level)[T.College graduate or above]     4.4631      4.776      0.934      0.350      -4.898      13.825
+C(education_level)[T.High school/GED]               0.8957      4.582      0.195      0.845      -8.084       9.876
+C(education_level)[T.Some college/AA degree]        2.0170      4.461      0.452      0.651      -6.726      10.760
+C(has_health_insurance)[T.Yes]                     -5.0903      3.849     -1.322      0.186     -12.635       2.454
+C(gender)[T.Male]                                  -9.3411      1.859     -5.026      0.000     -12.984      -5.698
+C(race_ethnicity)[T.Non-Hispanic Asian]            -3.3267      5.680     -0.586      0.558     -14.460       7.807
+C(race_ethnicity)[T.Non-Hispanic Black]            -9.9163      4.346     -2.282      0.022     -18.434      -1.399
+C(race_ethnicity)[T.Non-Hispanic White]             0.7979      3.663      0.218      0.828      -6.382       7.978
+C(race_ethnicity)[T.Other Hispanic]                -3.3382      4.544     -0.735      0.463     -12.245       5.569
+C(race_ethnicity)[T.Other/Multi-Racial]             1.9741      5.169      0.382      0.703      -8.157      12.105
+sleep_avg_hr                                       -0.5103      0.671     -0.761      0.447      -1.825       0.804
+hei_score                                           0.0123      0.065      0.190      0.849      -0.114       0.139
+poverty_income_ratio                                1.8966      0.745      2.546      0.011       0.437       3.357
+age                                                 0.0824      0.054      1.519      0.129      -0.024       0.189
+==============================================================================
+Omnibus:                      601.326   Durbin-Watson:                   1.994
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):             2476.822
+Skew:                           0.844   Prob(JB):                         0.00
+Kurtosis:                       6.904   Cond. No.                         939.
+==============================================================================
+
+Notes:
+[1] Standard Errors are heteroscedasticity robust (HC3)

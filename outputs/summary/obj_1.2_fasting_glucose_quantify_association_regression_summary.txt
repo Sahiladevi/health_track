@@ -1,0 +1,41 @@
+                              WLS Regression Results                             
+=================================================================================
+Dep. Variable:     fasting_glucose_mg_dl   R-squared:                       0.103
+Model:                               WLS   Adj. R-squared:                  0.094
+Method:                    Least Squares   F-statistic:                     10.30
+Date:                   Fri, 25 Jul 2025   Prob (F-statistic):           7.79e-27
+Time:                           22:45:51   Log-Likelihood:                -9131.7
+No. Observations:                   1830   AIC:                         1.830e+04
+Df Residuals:                       1812   BIC:                         1.840e+04
+Df Model:                             17                                         
+Covariance Type:                     HC3                                         
+===================================================================================================================
+                                                      coef    std err          z      P>|z|      [0.025      0.975]
+-------------------------------------------------------------------------------------------------------------------
+Intercept                                          96.9853     13.991      6.932      0.000      69.563     124.407
+C(activity_level)[T.Low active]                     3.1935      1.952      1.636      0.102      -0.633       7.020
+C(activity_level)[T.Moderately active]              7.1159      3.879      1.834      0.067      -0.487      14.719
+C(education_level)[T.<9th grade]                   19.6248     14.960      1.312      0.190      -9.696      48.946
+C(education_level)[T.College graduate or above]    -4.0559      5.037     -0.805      0.421     -13.929       5.817
+C(education_level)[T.High school/GED]               3.2363      6.596      0.491      0.624      -9.692      16.165
+C(education_level)[T.Some college/AA degree]        2.6020      4.892      0.532      0.595      -6.986      12.190
+C(has_health_insurance)[T.Yes]                      2.5594      4.469      0.573      0.567      -6.200      11.319
+C(gender)[T.Male]                                   9.4925      2.565      3.701      0.000       4.465      14.520
+C(race_ethnicity)[T.Non-Hispanic Asian]           -14.4288      5.710     -2.527      0.012     -25.621      -3.236
+C(race_ethnicity)[T.Non-Hispanic Black]            -4.9671     10.725     -0.463      0.643     -25.987      16.053
+C(race_ethnicity)[T.Non-Hispanic White]           -17.4584      5.520     -3.163      0.002     -28.277      -6.640
+C(race_ethnicity)[T.Other Hispanic]               -16.0292      5.999     -2.672      0.008     -27.786      -4.272
+C(race_ethnicity)[T.Other/Multi-Racial]           -14.9816      6.101     -2.456      0.014     -26.939      -3.024
+sleep_avg_hr                                        1.0273      1.306      0.786      0.432      -1.533       3.587
+hei_score                                          -0.1634      0.062     -2.634      0.008      -0.285      -0.042
+poverty_income_ratio                               -0.4093      0.794     -0.516      0.606      -1.965       1.146
+age                                                 0.3256      0.081      4.000      0.000       0.166       0.485
+==============================================================================
+Omnibus:                     2463.116   Durbin-Watson:                   2.000
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):           780178.091
+Skew:                           7.292   Prob(JB):                         0.00
+Kurtosis:                     103.096   Cond. No.                         957.
+==============================================================================
+
+Notes:
+[1] Standard Errors are heteroscedasticity robust (HC3)

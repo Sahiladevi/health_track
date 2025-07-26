@@ -1,0 +1,24 @@
+                 Generalized Linear Model Regression Results                  
+==============================================================================
+Dep. Variable:        diabetes_status   No. Observations:                 5983
+Model:                            GLM   Df Residuals:             186757909.40
+Model Family:                Binomial   Df Model:                            8
+Link Function:                  Logit   Scale:                          1.0000
+Method:                          IRLS   Log-Likelihood:            -6.9824e+07
+Date:                Fri, 25 Jul 2025   Deviance:                   1.3965e+08
+Time:                        22:47:53   Pearson chi2:                 1.87e+08
+No. Iterations:                     6   Pseudo R-squ. (CS):              1.000
+Covariance Type:                  HC3                                         
+===================================================================================================================
+                                                      coef    std err          z      P>|z|      [0.025      0.975]
+-------------------------------------------------------------------------------------------------------------------
+Intercept                                          -1.4339      0.002   -917.031      0.000      -1.437      -1.431
+C(pir_category)[T.Low]                              0.0977      0.001    138.214      0.000       0.096       0.099
+C(pir_category)[T.Mid]                              0.0550      0.001     94.224      0.000       0.054       0.056
+C(pir_category)[T.Very High]                       -0.2367      0.001   -361.885      0.000      -0.238      -0.235
+C(education_level)[T.<9th grade]                    0.0235      0.001     19.581      0.000       0.021       0.026
+C(education_level)[T.College graduate or above]    -0.9391      0.001  -1005.446      0.000      -0.941      -0.937
+C(education_level)[T.High school/GED]              -0.3933      0.001   -461.721      0.000      -0.395      -0.392
+C(education_level)[T.Some college/AA degree]       -0.5191      0.001   -605.711      0.000      -0.521      -0.517
+sleep_avg_hr                                        0.0117      0.000     68.736      0.000       0.011       0.012
+===================================================================================================================

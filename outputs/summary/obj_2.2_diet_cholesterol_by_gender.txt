@@ -1,0 +1,27 @@
+                            WLS Regression Results                            
+==============================================================================
+Dep. Variable:      total_cholesterol   R-squared:                       0.011
+Model:                            WLS   Adj. R-squared:                  0.011
+Method:                 Least Squares   F-statistic:                     10.47
+Date:                Fri, 25 Jul 2025   Prob (F-statistic):           7.37e-07
+Time:                        23:02:38   Log-Likelihood:                -23106.
+No. Observations:                4394   AIC:                         4.622e+04
+Df Residuals:                    4390   BIC:                         4.625e+04
+Df Model:                           3                                         
+Covariance Type:                  HC3                                         
+=================================================================================================
+                                    coef    std err          z      P>|z|      [0.025      0.975]
+-------------------------------------------------------------------------------------------------
+Intercept                       193.0586      1.002    192.605      0.000     191.094     195.023
+C(gender)[T.Male]                -8.1421      1.582     -5.146      0.000     -11.243      -5.041
+hei_score_c                       0.1151      0.075      1.536      0.124      -0.032       0.262
+hei_score_c:C(gender)[T.Male]     0.0083      0.110      0.076      0.939      -0.207       0.224
+==============================================================================
+Omnibus:                      692.630   Durbin-Watson:                   1.973
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):             2730.809
+Skew:                           0.738   Prob(JB):                         0.00
+Kurtosis:                       6.569   Cond. No.                         34.2
+==============================================================================
+
+Notes:
+[1] Standard Errors are heteroscedasticity robust (HC3)

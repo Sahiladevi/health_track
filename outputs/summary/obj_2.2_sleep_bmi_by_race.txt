@@ -1,0 +1,35 @@
+                            WLS Regression Results                            
+==============================================================================
+Dep. Variable:                    bmi   R-squared:                       0.038
+Model:                            WLS   Adj. R-squared:                  0.037
+Method:                 Least Squares   F-statistic:                     26.54
+Date:                Fri, 25 Jul 2025   Prob (F-statistic):           1.20e-54
+Time:                        23:02:36   Log-Likelihood:                -20611.
+No. Observations:                5897   AIC:                         4.125e+04
+Df Residuals:                    5885   BIC:                         4.133e+04
+Df Model:                          11                                         
+Covariance Type:                  HC3                                         
+==========================================================================================================================
+                                                             coef    std err          z      P>|z|      [0.025      0.975]
+--------------------------------------------------------------------------------------------------------------------------
+Intercept                                                 30.6351      0.453     67.672      0.000      29.748      31.522
+C(race_ethnicity)[T.Non-Hispanic Asian]                   -5.6832      0.539    -10.546      0.000      -6.739      -4.627
+C(race_ethnicity)[T.Non-Hispanic Black]                    0.8822      0.593      1.488      0.137      -0.280       2.044
+C(race_ethnicity)[T.Non-Hispanic White]                   -1.0373      0.476     -2.179      0.029      -1.970      -0.104
+C(race_ethnicity)[T.Other Hispanic]                       -0.7966      0.576     -1.382      0.167      -1.926       0.333
+C(race_ethnicity)[T.Other/Multi-Racial]                   -0.3174      0.692     -0.459      0.646      -1.673       1.038
+sleep_avg_hr_c                                            -0.3167      0.462     -0.686      0.493      -1.222       0.588
+sleep_avg_hr_c:C(race_ethnicity)[T.Non-Hispanic Asian]    -0.4054      0.498     -0.815      0.415      -1.381       0.570
+sleep_avg_hr_c:C(race_ethnicity)[T.Non-Hispanic Black]    -0.1116      0.513     -0.217      0.828      -1.118       0.895
+sleep_avg_hr_c:C(race_ethnicity)[T.Non-Hispanic White]     0.1594      0.480      0.332      0.740      -0.781       1.100
+sleep_avg_hr_c:C(race_ethnicity)[T.Other Hispanic]         0.0333      0.527      0.063      0.950      -0.999       1.066
+sleep_avg_hr_c:C(race_ethnicity)[T.Other/Multi-Racial]    -0.2295      0.555     -0.414      0.679      -1.317       0.858
+==============================================================================
+Omnibus:                     1504.343   Durbin-Watson:                   1.978
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):             5324.787
+Skew:                           1.252   Prob(JB):                         0.00
+Kurtosis:                       6.924   Cond. No.                         15.6
+==============================================================================
+
+Notes:
+[1] Standard Errors are heteroscedasticity robust (HC3)

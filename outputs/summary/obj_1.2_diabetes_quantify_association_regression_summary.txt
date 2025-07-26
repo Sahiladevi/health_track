@@ -1,0 +1,33 @@
+                 Generalized Linear Model Regression Results                  
+==============================================================================
+Dep. Variable:            diabetes_dx   No. Observations:                 3426
+Model:                            GLM   Df Residuals:             108035789.96
+Model Family:                Binomial   Df Model:                           17
+Link Function:                  Logit   Scale:                          1.0000
+Method:                          IRLS   Log-Likelihood:            -3.0986e+07
+Date:                Fri, 25 Jul 2025   Deviance:                   6.1973e+07
+Time:                        22:45:53   Pearson chi2:                 9.37e+07
+No. Iterations:                     7   Pseudo R-squ. (CS):              1.000
+Covariance Type:                  HC3                                         
+===================================================================================================================
+                                                      coef    std err          z      P>|z|      [0.025      0.975]
+-------------------------------------------------------------------------------------------------------------------
+Intercept                                          -4.3166      0.003  -1297.836      0.000      -4.323      -4.310
+C(activity_level)[T.Low active]                     0.5433      0.001    612.828      0.000       0.542       0.545
+C(activity_level)[T.Moderately active]              0.2769      0.001    264.258      0.000       0.275       0.279
+C(education_level)[T.<9th grade]                    0.1618      0.002     71.202      0.000       0.157       0.166
+C(education_level)[T.College graduate or above]    -0.8375      0.002   -530.359      0.000      -0.841      -0.834
+C(education_level)[T.High school/GED]              -0.4327      0.002   -284.851      0.000      -0.436      -0.430
+C(education_level)[T.Some college/AA degree]       -0.4029      0.001   -269.234      0.000      -0.406      -0.400
+C(has_health_insurance)[T.Yes]                      0.7290      0.002    413.504      0.000       0.726       0.732
+C(gender)[T.Male]                                   0.5309      0.001    770.517      0.000       0.530       0.532
+C(race_ethnicity)[T.Non-Hispanic Asian]            -0.6390      0.002   -318.510      0.000      -0.643      -0.635
+C(race_ethnicity)[T.Non-Hispanic Black]             0.0324      0.002     21.216      0.000       0.029       0.035
+C(race_ethnicity)[T.Non-Hispanic White]            -1.0130      0.001   -748.984      0.000      -1.016      -1.010
+C(race_ethnicity)[T.Other Hispanic]                -0.2383      0.002   -148.250      0.000      -0.241      -0.235
+C(race_ethnicity)[T.Other/Multi-Racial]            -0.4788      0.002   -275.196      0.000      -0.482      -0.475
+sleep_avg_hr                                        0.0625      0.000    237.561      0.000       0.062       0.063
+hei_score                                          -0.0200   2.76e-05   -723.120      0.000      -0.020      -0.020
+poverty_income_ratio                               -0.0973      0.000   -372.021      0.000      -0.098      -0.097
+age                                                 0.0525   2.06e-05   2553.905      0.000       0.052       0.053
+===================================================================================================================

@@ -1,0 +1,25 @@
+                            WLS Regression Results                            
+==============================================================================
+Dep. Variable:                    bmi   R-squared:                       0.003
+Model:                            WLS   Adj. R-squared:                  0.003
+Method:                 Least Squares   F-statistic:                     10.02
+Date:                Fri, 25 Jul 2025   Prob (F-statistic):            0.00155
+Time:                        22:47:49   Log-Likelihood:                -19982.
+No. Observations:                5735   AIC:                         3.997e+04
+Df Residuals:                    5733   BIC:                         3.998e+04
+Df Model:                           1                                         
+Covariance Type:                  HC3                                         
+================================================================================
+                   coef    std err          z      P>|z|      [0.025      0.975]
+--------------------------------------------------------------------------------
+Intercept       31.9139      0.736     43.356      0.000      30.471      33.357
+sleep_avg_hr    -0.2955      0.093     -3.166      0.002      -0.478      -0.113
+==============================================================================
+Omnibus:                     1270.846   Durbin-Watson:                   1.985
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):             3669.683
+Skew:                           1.155   Prob(JB):                         0.00
+Kurtosis:                       6.166   Cond. No.                         46.6
+==============================================================================
+
+Notes:
+[1] Standard Errors are heteroscedasticity robust (HC3)

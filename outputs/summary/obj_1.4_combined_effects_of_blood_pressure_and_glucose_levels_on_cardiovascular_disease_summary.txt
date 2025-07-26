@@ -1,0 +1,42 @@
+                 Generalized Linear Model Regression Results                  
+==============================================================================
+Dep. Variable:                any_cvd   No. Observations:                 1803
+Model:                            GLM   Df Residuals:             145597909.78
+Model Family:                Binomial   Df Model:                           25
+Link Function:                  Logit   Scale:                          1.0000
+Method:                          IRLS   Log-Likelihood:            -2.5533e+07
+Date:                Fri, 25 Jul 2025   Deviance:                   5.1066e+07
+Time:                        22:48:45   Pearson chi2:                 1.79e+08
+No. Iterations:                     8   Pseudo R-squ. (CS):              1.000
+Covariance Type:                  HC3                                         
+=============================================================================================================================================
+                                                                                coef    std err          z      P>|z|      [0.025      0.975]
+---------------------------------------------------------------------------------------------------------------------------------------------
+Intercept                                                                   -12.3702      0.008  -1608.428      0.000     -12.385     -12.355
+C(bp_category)[T.Hypertension Stage 1]                                        0.5876      0.002    265.022      0.000       0.583       0.592
+C(bp_category)[T.Hypertension Stage 2]                                        0.2447      0.002    105.434      0.000       0.240       0.249
+C(bp_category)[T.Hypertensive Crisis]                                         0.2654   1.39e+05   1.91e-06      1.000   -2.72e+05    2.72e+05
+C(bp_category)[T.Normal]                                                      0.2569      0.002    128.155      0.000       0.253       0.261
+C(glucose_category)[T.Normal]                                                -0.9297      0.002   -394.747      0.000      -0.934      -0.925
+C(glucose_category)[T.Prediabetes]                                           -1.0989      0.002   -539.678      0.000      -1.103      -1.095
+C(gender)[T.Male]                                                             0.7872      0.001    975.724      0.000       0.786       0.789
+C(race_ethnicity)[T.Non-Hispanic Asian]                                       0.0357      0.003     12.298      0.000       0.030       0.041
+C(race_ethnicity)[T.Non-Hispanic Black]                                       0.1676      0.002     75.477      0.000       0.163       0.172
+C(race_ethnicity)[T.Non-Hispanic White]                                       0.6049      0.002    327.392      0.000       0.601       0.609
+C(race_ethnicity)[T.Other Hispanic]                                           0.1841      0.003     73.618      0.000       0.179       0.189
+C(race_ethnicity)[T.Other/Multi-Racial]                                      -0.3061      0.003   -119.236      0.000      -0.311      -0.301
+C(diet_score_category)[T.Needs Improvement]                                   2.4316      0.006    396.882      0.000       2.420       2.444
+C(diet_score_category)[T.Poor]                                                2.3281      0.006    381.811      0.000       2.316       2.340
+C(activity_level)[T.Low active]                                               0.1711      0.001    166.014      0.000       0.169       0.173
+C(activity_level)[T.Moderately active]                                        0.4040      0.001    350.324      0.000       0.402       0.406
+C(bp_category)[T.Hypertension Stage 1]:C(glucose_category)[T.Normal]         -1.5974      0.004   -431.884      0.000      -1.605      -1.590
+C(bp_category)[T.Hypertension Stage 2]:C(glucose_category)[T.Normal]         -0.3082      0.003    -93.025      0.000      -0.315      -0.302
+C(bp_category)[T.Hypertensive Crisis]:C(glucose_category)[T.Normal]          -0.5373        nan        nan        nan         nan         nan
+C(bp_category)[T.Normal]:C(glucose_category)[T.Normal]                        0.0018      0.003      0.609      0.542      -0.004       0.007
+C(bp_category)[T.Hypertension Stage 1]:C(glucose_category)[T.Prediabetes]    -0.6519      0.003   -233.335      0.000      -0.657      -0.646
+C(bp_category)[T.Hypertension Stage 2]:C(glucose_category)[T.Prediabetes]    -0.0128      0.003     -4.385      0.000      -0.018      -0.007
+C(bp_category)[T.Hypertensive Crisis]:C(glucose_category)[T.Prediabetes]      0.8028   1.36e+05   5.89e-06      1.000   -2.67e+05    2.67e+05
+C(bp_category)[T.Normal]:C(glucose_category)[T.Prediabetes]                   0.2918      0.003    114.079      0.000       0.287       0.297
+age                                                                           0.0920   3.67e-05   2504.495      0.000       0.092       0.092
+bmi                                                                           0.0492   6.57e-05    749.411      0.000       0.049       0.049
+=============================================================================================================================================

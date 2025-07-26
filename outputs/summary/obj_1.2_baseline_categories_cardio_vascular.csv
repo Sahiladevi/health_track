@@ -1,0 +1,11 @@
+Categorical Variable,Baseline Category
+gender,Female
+race_ethnicity,Mexican American
+education_level,9-11th grade
+pir_category,High
+sleep_category,Long Sleep
+activity_level,Highly active
+diet_score_category,Good
+bp_category,Elevated
+cholesterol_category,Borderline high
+glucose_category,Diabetes

@@ -1,0 +1,32 @@
+                            WLS Regression Results                            
+==============================================================================
+Dep. Variable:                    bmi   R-squared:                       0.029
+Model:                            WLS   Adj. R-squared:                  0.026
+Method:                 Least Squares   F-statistic:                     12.06
+Date:                Fri, 25 Jul 2025   Prob (F-statistic):           4.09e-17
+Time:                        22:48:43   Log-Likelihood:                -11139.
+No. Observations:                3232   AIC:                         2.230e+04
+Df Residuals:                    3223   BIC:                         2.235e+04
+Df Model:                           8                                         
+Covariance Type:                  HC3                                         
+======================================================================================================================================================
+                                                                                         coef    std err          z      P>|z|      [0.025      0.975]
+------------------------------------------------------------------------------------------------------------------------------------------------------
+Intercept                                                                             24.6324      0.795     30.972      0.000      23.074      26.191
+C(diet_score_category)[T.Needs Improvement]                                            3.2981      0.983      3.357      0.001       1.372       5.224
+C(diet_score_category)[T.Poor]                                                         3.8907      0.877      4.436      0.000       2.172       5.610
+C(activity_level)[T.Low active]                                                        2.4972      1.588      1.573      0.116      -0.614       5.609
+C(activity_level)[T.Moderately active]                                                 2.2153      1.260      1.758      0.079      -0.255       4.686
+C(diet_score_category)[T.Needs Improvement]:C(activity_level)[T.Low active]           -2.3547      1.734     -1.358      0.174      -5.753       1.044
+C(diet_score_category)[T.Poor]:C(activity_level)[T.Low active]                        -0.6768      1.647     -0.411      0.681      -3.905       2.551
+C(diet_score_category)[T.Needs Improvement]:C(activity_level)[T.Moderately active]    -3.3217      1.490     -2.229      0.026      -6.243      -0.401
+C(diet_score_category)[T.Poor]:C(activity_level)[T.Moderately active]                 -1.3619      1.367     -0.996      0.319      -4.042       1.318
+==============================================================================
+Omnibus:                      802.976   Durbin-Watson:                   1.992
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):             2862.948
+Skew:                           1.207   Prob(JB):                         0.00
+Kurtosis:                       6.928   Cond. No.                         73.6
+==============================================================================
+
+Notes:
+[1] Standard Errors are heteroscedasticity robust (HC3)
