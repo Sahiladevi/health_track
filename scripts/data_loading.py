@@ -12,7 +12,7 @@ import pandas as pd
 import pyreadstat
 
 from config import datasets, INTERIM_DATA_DIR
-from utils import validate_xpt_files, explore_data, pretty_path
+from utils import validate_xpt_and_excel_files, explore_data, pretty_path
 
 # 1. function for load_file_as_dataframe 
 def load_dataset(
@@ -22,10 +22,6 @@ def load_dataset(
 ) -> Optional[pd.DataFrame]:
     """
     Loads a dataset from a file into a pandas DataFrame.
-
-    You can optionally tell it which columns you care about. 
-    If anything goes wrong (like the file doesn't exist, 
-    or it's missing columns you asked for), it'll just return None.
 
     Args:
         file_path: Where the file is located (CSV, Excel, XPT, etc.).
@@ -123,7 +119,7 @@ def process_datasets(dataset_config: Dict[str, dict] = datasets) -> Dict[str, pd
         A dictionary of the loaded DataFrames, keyed by their names.
     """
     print("Starting dataset validation...")
-    failed = validate_xpt_files(dataset_config)
+    failed = validate_xpt_and_excel_files(dataset_config)
     
     if failed:
         print("\nValidation failed for these datasets:")
