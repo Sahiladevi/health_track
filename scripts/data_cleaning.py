@@ -14,6 +14,7 @@ from clean_physical import clean_physical_activity
 from clean_diet import clean_individual_diet,clean_total_diet
 from clean_healthcare_access import clean_insurance_coverage
 from clean_chronic_disease import clean_diq, clean_mcq
+from clean_fped import clean_fped
 
 import pandas as pd
 from typing import Dict
@@ -43,6 +44,7 @@ def clean_datasets(raw_dfs: Dict[str, pd.DataFrame]) -> Dict[str, pd.DataFrame]:
         "GLU_L": clean_glucose,
         "DIQ_L": clean_diq,
         "MCQ_L": clean_mcq,
+        "FPED_1720": clean_fped,
     }
 
     cleaned_data: Dict[str, pd.DataFrame] = {}
