@@ -2,7 +2,7 @@
 scripts\\utils.py
 
 Common utility functions for NHANES project:
-- Validation of SAS transport files (.xpt)
+- Validation of SAS transport files (.xpt) and Excel (.xls, .xlsx) files
 - Data exploration summaries
 - Data cleaning helpers.
 - format path for display while printing the file_path
@@ -14,18 +14,25 @@ import pyreadstat
 from config import BASE_PATH  
 from typing import Dict, List, Optional, Union
 
-# 1. function for validate_and_read_xpt_files
-def validate_xpt_files(datasets: Dict[str, Dict[str, str]]) -> Dict[str, str]:
+# 1. function for validate_and_read_xpt_and_xls/xlsx files
+def validate_xpt_and_excel_files(datasets: Dict[str, Dict[str, str]]) -> Dict[str, str]:
     """
-    Validates datasets by trying to read the files with appropriate readers
-    based on file extension.
+    Validates and attempts to read a collection of datasets from specified file paths.
+    Supports SAS Transport (.xpt) and Excel (.xls, .xlsx) formats.
+
+    For .xpt files, it first tries reading with pandas, and falls back to pyreadstat if needed.
+    For Excel files, it uses pandas to read the contents.
 
     Args:
-        datasets (dict): Dataset info with 'file_path' keys.
+        datasets (Dict[str, Dict[str, str]]): A dictionary where each key is a dataset name,
+            and the value is another dictionary containing at least the key 'file_path' with
+            the path to the dataset file.
 
     Returns:
-        dict: Mapping dataset names to error messages for failures.
+        Dict[str, str]: A dictionary mapping dataset names to error messages for any files
+        that failed to be read. If a file is successfully read, it will not appear in the result.
     """
+
     failed_files = {}
 
     for name, info in datasets.items():
@@ -41,7 +48,6 @@ def validate_xpt_files(datasets: Dict[str, Dict[str, str]]) -> Dict[str, str]:
 
         try:
             if ext == ".xpt":
-                # Try pandas first for .xpt files
                 try:
                     data = pd.read_sas(file_path, format="xport")
                     print(f"Successfully read {name} as .xpt with pandas. Rows: {len(data)}")
@@ -51,7 +57,6 @@ def validate_xpt_files(datasets: Dict[str, Dict[str, str]]) -> Dict[str, str]:
                     print(f"Successfully read {name} as .xpt with pyreadstat. Rows: {len(data)}")
 
             elif ext in [".xls", ".xlsx"]:
-                # Use pandas for Excel files
                 data = pd.read_excel(file_path)
                 print(f"Successfully read {name} as Excel file. Rows: {len(data)}")
 
