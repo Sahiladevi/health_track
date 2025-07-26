@@ -90,11 +90,19 @@ datasets = {
     "MCQ_L": {
         "file_path": RAW_DATA_DIR / "MCQ_L.xpt",
         "columns": ["SEQN", "MCQ160B", "MCQ160C", "MCQ160D", "MCQ160E"],
-    },    
+    }, 
+    "FPED_1720": {
+        "file_path": RAW_DATA_DIR / "FPED_1720.xls",
+        "columns": ['FOODCODE', 'DESCRIPTION', 'F_TOTAL (cup eq)', 'F_JUICE (cup eq)', 'F_CITMLB (cup eq)', 
+        'F_OTHER (cup eq)', 'V_TOTAL (cup eq)', 'V_DRKGR (cup eq)', 'V_LEGUMES (cup eq)',
+        'G_WHOLE (oz eq)', 'G_REFINED (oz eq)', 'D_TOTAL (cup eq)', 'D_MILK (cup eq)', 
+        'D_YOGURT (cup eq)', 'D_CHEESE (cup eq)', 'PF_TOTAL (oz eq)', 'PF_MPS_TOTAL (oz eq)',
+        'PF_SEAFD_HI (oz eq)', 'PF_SEAFD_LOW (oz eq)', 'SOLID_FATS (grams)', 'ADD_SUGARS (tsp eq)', 'OILS (grams)'],
+        "sheet_name": "FPED_1720_"  
+    },   
 }
 
-from pathlib import Path
-
+# function to ensure directory exists
 def ensure_directories() -> None:
     """
     Make sure all the important folders for the project exist.
