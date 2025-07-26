@@ -15,7 +15,11 @@ from config import datasets, INTERIM_DATA_DIR
 from utils import validate_xpt_files, explore_data, pretty_path
 
 # 1. function for load_file_as_dataframe 
-def load_dataset(file_path: Union[str, Path], columns: Optional[List[str]] = None) -> Optional[pd.DataFrame]:
+def load_dataset(
+    file_path: Union[str, Path], 
+    columns: Optional[List[str]] = None, 
+    sheet_name: Optional[str] = None
+) -> Optional[pd.DataFrame]:
     """
     Loads a dataset from a file into a pandas DataFrame.
 
@@ -41,7 +45,7 @@ def load_dataset(file_path: Union[str, Path], columns: Optional[List[str]] = Non
         if ext == ".csv":
             df = pd.read_csv(path)
         elif ext in [".xls", ".xlsx"]:
-            df = pd.read_excel(path)
+            df = pd.read_excel(path, sheet_name=sheet_name)
         elif ext == ".xpt":
             df = pd.read_sas(path, format="xport")
         elif ext == ".sas7bdat":
@@ -67,33 +71,43 @@ def load_dataset(file_path: Union[str, Path], columns: Optional[List[str]] = Non
 
     return df
 
-# 2. function for save_dataframe_to_interim_csv
-def save_interim_csv(df: Optional[pd.DataFrame], name: str) -> None:
+# 2. function for saving file in interim data folder
+def save_interim_file(df: Optional[pd.DataFrame], name: str, original_ext: str) -> None:
     """
-    Saves a DataFrame as a CSV file in the interim data folder.
-
-    Just make sure the DataFrame isn't empty before trying to save.
+    Saves a DataFrame as a CSV or Excel file in the interim data folder,
+    depending on the original file extension.
 
     Args:
         df: The data you want to save.
         name: A short name for the dataset (used for the filename).
+        original_ext: The original file extension (like '.xls', '.xlsx', '.xpt', etc.).
     """
     if df is None or df.empty:
         print(f"No data to save for {name}")
         return
 
-    # Make sure the folder exists first
     INTERIM_DATA_DIR.mkdir(parents=True, exist_ok=True)
-    out_file = INTERIM_DATA_DIR / f"{name.lower()}_interim.csv"
 
-    try:
-        df.to_csv(out_file, index=False)
-        print(f"Saved interim CSV for {name} to {pretty_path(out_file)}")
-    except Exception as e:
-        print(f"Failed to save CSV for {name}: {e}")
+    ext = original_ext.lower()
 
+    if ext in ['.xls', '.xlsx']:
+        out_file = INTERIM_DATA_DIR / f"{name.lower()}_interim.xlsx"
+        try:
+            df.to_excel(out_file, index=False)
+            print(f"Saved interim Excel file for {name} to {pretty_path(out_file)}")
+        except Exception as e:
+            print(f"Failed to save Excel file for {name}: {e}")
+    else:
+        # Default to CSV for other types
+        out_file = INTERIM_DATA_DIR / f"{name.lower()}_interim.csv"
+        try:
+            df.to_csv(out_file, index=False)
+            print(f"Saved interim CSV for {name} to {pretty_path(out_file)}")
+        except Exception as e:
+            print(f"Failed to save CSV for {name}: {e}")
+            
 
-# 3. function for validate_and_prepare_datasets
+# 3. function for loading data from config file
 def process_datasets(dataset_config: Dict[str, dict] = datasets) -> Dict[str, pd.DataFrame]:
     """
     Goes through all datasets in the config:
@@ -122,9 +136,11 @@ def process_datasets(dataset_config: Dict[str, dict] = datasets) -> Dict[str, pd
 
     for name, info in dataset_config.items():
         print(f"\nLoading dataset: {name}")
-        df = load_dataset(info["file_path"], info.get("columns"))
+        sheet_name = info.get("sheet_name")  # <-- NEW
+        df = load_dataset(info["file_path"], info.get("columns"), sheet_name=sheet_name)
         if df is not None:
-            save_interim_csv(df, name)
+            file_ext = Path(info["file_path"]).suffix.lower()
+            save_interim_file(df, name, file_ext)
             loaded_dfs[name] = df
         else:
             print(f"Skipping {name} due to loading failure or missing columns.")
