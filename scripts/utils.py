@@ -17,39 +17,55 @@ from typing import Dict, List, Optional, Union
 # 1. function for validate_and_read_xpt_files
 def validate_xpt_files(datasets: Dict[str, Dict[str, str]]) -> Dict[str, str]:
     """
-    For each dataset, this function looks for the file at the specified path.
-    If the file exists, it tries to read it first with pandas, and if that fails,
-    it tries with pyreadstat. If both fail, or the file is missing, the dataset name
-    and error message are recorded.
+    Validates datasets by trying to read the files with appropriate readers
+    based on file extension.
 
     Args:
-        datasets (dict): A dictionary where keys are dataset names and values are
-                         dictionaries containing at least a 'file_path' key with the
-                         file location as a string.
+        datasets (dict): Dataset info with 'file_path' keys.
 
     Returns:
-        dict: A dictionary with dataset names as keys and error messages as values
-              for files that are missing or couldn't be read.
+        dict: Mapping dataset names to error messages for failures.
     """
     failed_files = {}
+
     for name, info in datasets.items():
         file_path = Path(info["file_path"])
-        if file_path.exists():
-            print(f"File found for: {name}")
-            try:
-                data = pd.read_sas(file_path, format="xport")
-                print(f"Successfully read {name} with pandas. Rows: {len(data)}")
-            except Exception as e:
-                print(f"Could not read {name} with pandas due to: {e}")
-                try:
-                    data, meta = pyreadstat.read_sas7bdat(str(file_path))
-                    print(f"Successfully read {name} with pyreadstat. Rows: {len(data)}")
-                except Exception as e:
-                    print(f"Failed to read {name} due to: {e}")
-                    failed_files[name] = f"Error reading file: {e}"
-        else:
+        if not file_path.exists():
             print(f"File not found for: {name}")
             failed_files[name] = "File missing"
+            continue
+
+        print(f"File found for: {name}")
+
+        ext = file_path.suffix.lower()
+
+        try:
+            if ext == ".xpt":
+                # Try pandas first for .xpt files
+                try:
+                    data = pd.read_sas(file_path, format="xport")
+                    print(f"Successfully read {name} as .xpt with pandas. Rows: {len(data)}")
+                except Exception as e1:
+                    print(f"pandas read_sas failed for {name}: {e1}, trying pyreadstat...")
+                    data, meta = pyreadstat.read_sas7bdat(str(file_path))
+                    print(f"Successfully read {name} as .xpt with pyreadstat. Rows: {len(data)}")
+
+            elif ext in [".xls", ".xlsx"]:
+                # Use pandas for Excel files
+                data = pd.read_excel(file_path)
+                print(f"Successfully read {name} as Excel file. Rows: {len(data)}")
+
+            else:
+                # Unsupported file extension for this validation
+                msg = f"Unsupported file extension: {ext}"
+                print(msg)
+                failed_files[name] = msg
+                continue
+
+        except Exception as e:
+            print(f"Failed to read {name} due to: {e}")
+            failed_files[name] = f"Error reading file: {e}"
+
     return failed_files
 
 # 2. function for format_path
