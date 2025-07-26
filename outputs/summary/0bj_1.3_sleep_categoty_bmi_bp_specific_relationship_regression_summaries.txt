@@ -4,8 +4,8 @@
 Dep. Variable:                    bmi   R-squared:                       0.039
 Model:                            WLS   Adj. R-squared:                  0.038
 Method:                 Least Squares   F-statistic:                     31.02
-Date:                Fri, 25 Jul 2025   Prob (F-statistic):           1.40e-53
-Time:                        22:47:51   Log-Likelihood:                -20608.
+Date:                Sat, 26 Jul 2025   Prob (F-statistic):           1.40e-53
+Time:                        14:28:32   Log-Likelihood:                -20608.
 No. Observations:                5897   AIC:                         4.124e+04
 Df Residuals:                    5887   BIC:                         4.130e+04
 Df Model:                           9                                         
@@ -39,8 +39,8 @@ Notes:
 Dep. Variable:           systolic_avg   R-squared:                       0.202
 Model:                            WLS   Adj. R-squared:                  0.201
 Method:                 Least Squares   F-statistic:                     131.1
-Date:                Fri, 25 Jul 2025   Prob (F-statistic):          1.80e-225
-Time:                        22:47:51   Log-Likelihood:                -24613.
+Date:                Sat, 26 Jul 2025   Prob (F-statistic):          1.80e-225
+Time:                        14:28:32   Log-Likelihood:                -24613.
 No. Observations:                5790   AIC:                         4.925e+04
 Df Residuals:                    5780   BIC:                         4.931e+04
 Df Model:                           9                                         
@@ -74,8 +74,8 @@ Notes:
 Dep. Variable:          diastolic_avg   R-squared:                       0.026
 Model:                            WLS   Adj. R-squared:                  0.024
 Method:                 Least Squares   F-statistic:                     11.43
-Date:                Fri, 25 Jul 2025   Prob (F-statistic):           6.02e-18
-Time:                        22:47:51   Log-Likelihood:                -22573.
+Date:                Sat, 26 Jul 2025   Prob (F-statistic):           6.02e-18
+Time:                        14:28:32   Log-Likelihood:                -22573.
 No. Observations:                5790   AIC:                         4.517e+04
 Df Residuals:                    5780   BIC:                         4.523e+04
 Df Model:                           9                                         
