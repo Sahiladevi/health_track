@@ -3,8 +3,8 @@
 Dep. Variable:     fasting_glucose_mg_dl   R-squared:                       0.103
 Model:                               WLS   Adj. R-squared:                  0.094
 Method:                    Least Squares   F-statistic:                     10.30
-Date:                   Fri, 25 Jul 2025   Prob (F-statistic):           7.79e-27
-Time:                           22:45:51   Log-Likelihood:                -9131.7
+Date:                   Sat, 26 Jul 2025   Prob (F-statistic):           7.79e-27
+Time:                           14:28:11   Log-Likelihood:                -9131.7
 No. Observations:                   1830   AIC:                         1.830e+04
 Df Residuals:                       1812   BIC:                         1.840e+04
 Df Model:                             17                                         
