@@ -80,7 +80,7 @@ You can check the Data Dictionary section below for a full list of the variables
 |          | WTMEC2YR   | MEC exam weight (used for physical/lab data) | Weight to produce nationally representative estimates for exam data |
 |          | SDMVSTRA   | Stratification variable                  | Used to account for survey design strata in analysis |
 |          | SDMVPSU    | PSU variable                            | Primary sampling units to account for clustering in survey design |
-| DR1TOT_L | WTDR1D     | Dietary recall Day 1 weight              | Weight for Day 1 dietary recall data   |
+| DR1TOT_L | WTDRD1     | Dietary recall Day 1 weight              | Weight for Day 1 dietary recall data   |
 | DR1IFF_L | WTDRD1     | Dietary sample weight                    | Weight for Day 1 dietary recall data    |
 | GLU_L    | WTSAF2YR   | Fasting subsample weight                 | Weight for fasting subsample lab data  |
 
@@ -243,7 +243,7 @@ xlrd
 ---
 ## Project Overview: What This Project Does
 
-This project explores how different lifestyle habits—like diet, sleep, exercise—and social factors—like income and education—are connected to people's health across the U.S.
+This project explores how different lifestyle habits like diet, sleep, exercise—and social factors—like income and education are connected to people's health across the U.S.
 
 I used national health data collected by two government groups:
 
@@ -251,7 +251,7 @@ I used national health data collected by two government groups:
 
 - USDA ARS FPED: A dataset that helps explain what types of foods people ate.
 
-The goal? To see how things like diet and lifestyle affect health outcomes, and to turn messy, raw data into clean, meaningful insights.
+The goal? To see how things like socio-economic factors and lifestyle affect health outcomes, and to turn messy, raw data into clean, meaningful insights.
 
 ### What I Did
 
@@ -285,13 +285,13 @@ The data was messy and spread across many files. So, I wrote 15 small Python scr
 
 #### 3. Running the Scripts for data loading, cleaning and wrangling
 
-To bring it all together, I used a Jupyter Notebook called data_ingestion_and_cleaning.ipynb. Think of this notebook as the “master controller” — it runs all the scripts in the correct order:
+To bring it all together, I used a Jupyter Notebook called data_ingestion_and_cleaning.ipynb. Think of this notebook as the “master controller”, it runs all the scripts in the correct order:
 
 - Loads all the raw datasets with the required fields and save it in a folder "data/interim".
 
 - Cleans each dataset (e.g., diet, exercise, sleep, etc.) and save it in a folder "data/clean".
 
-- I added new columns to these clean datasets—like grouped income levels, physical activity categories, and other meaningful metrics. This gave me the processed data (to make the data more useful) and save it in a folder "data/processed".
+- I added new columns to these clean datasets like grouped income levels, physical activity categories, and other meaningful metrics. This gave me the processed data (to make the data more useful) and save it in a folder "data/processed".
 
 - I also merged a few of the food and diet-related files and used them to calculate a **Healthy Eating Index (HEI)** score, which gives insight into how balanced a person’s diet is. That final score was saved too for further analysis and saved this data in a folder "data/processed".
 
@@ -347,13 +347,13 @@ I used six Jupyter Notebooks for different analysis goals. Each one looked at a 
 
 #### 6. Survey Design Wasn’t Working—Here’s the Fix I Used
 
-The NHANES health data is collected using something called a complex survey design. That just means the people who took the survey weren’t picked totally at random—some groups, like older adults or specific communities, were intentionally included more often. Plus, not everyone answered every question.
+The NHANES health data is collected using something called a complex survey design. That just means the people who took the survey weren’t picked totally at random - some groups, like older adults or specific communities, were intentionally included more often. Plus, not everyone answered every question.
 
 To make sure the results still represent the entire U.S. population, NHANES gives us special weights to apply during analysis.
 
 Now, here’s where things got tricky.
 
-The tools I used in Python—mainly the statsmodels library—don’t fully support this kind of complex design. The PSU values (which help group people by area) only had two options in the dataset, which isn’t enough to use properly. And when I tried including the strata (which split people into subgroups), the model threw multicollinearity errors—basically, the variables were overlapping too much and confusing the analysis.
+The tools I used in Python mainly the statsmodels library don’t fully support this kind of complex design. The PSU values (which help group people by area) only had two options in the dataset, which isn’t enough to use properly. And when I tried including the strata (which split people into subgroups), the model threw multicollinearity errors basically, the variables were overlapping too much and confusing the analysis.
 
 So I had to make a call.
 
@@ -361,21 +361,22 @@ I still used the survey weights to make sure my results reflect the U.S. populat
 
 I ran my regressions using either Weighted Least Squares (WLS) with a solid correction method called HC3, or GLM (Generalized Linear Models) with HC3. This correction helps handle variance issues and keeps the estimates reliable.
 
-It’s not a perfect substitute for full survey methods, but it’s a strong and trustworthy workaround—and it allowed me to still draw meaningful insights from the data without running into errors.
+It’s not a perfect substitute for full survey methods, but it’s a strong and trustworthy workaround and it allowed me to still draw meaningful insights from the data without running into errors.
 
 ---
 
 ## Technology Stack
 
-| What I Used         | Tools / Programs             | How I Used It                                                     |
-| ------------------- | ---------------------------- | ----------------------------------------------------------------- |
-| Programming         | Python (version 3.13.1)      | I wrote all the code for the project using Python.                |
-| Handling Data       | Pandas, NumPy                | I used these to organize and work with the data.                  |
-| Making Graphs       | Seaborn, Matplotlib, Plotly  | I created charts and graphs to help explain my results.           |
-| Statistics          | Statsmodels (for regression) | I analyzed data patterns and relationships with this.             |
-| Storing Data        | SQLite                       | I saved and managed the data using this database.                 |
-| Writing and Sharing | Jupyter Notebooks            | I combined my code and notes in one interactive file.             |
-| Project Setup       | Virtualenv                   | I kept all the project’s tools and packages separate from others. |
+| What I Used              | Tools / Programs             | How I Used It                                                     |
+|--------------------------|------------------------------|-------------------------------------------------------------------|
+| Programming              | Python (version 3.13.1)      | I wrote all the code for the project using Python.                |
+| Handling Data            | Pandas, NumPy                | I used these to organize and work with the data.                  |
+| Making Graphs            | Seaborn, Matplotlib, Plotly  | I created charts and graphs to help explain my results.           |
+| Statistics               | Statsmodels (for regression) | I analyzed data patterns and relationships with this.             |
+| Storing Data             | SQLite                       | I saved and managed the data using this database.                 |
+| Writing and Sharing      | Jupyter Notebooks            | I combined my code and notes in one interactive file.             |
+| Project Setup            | Virtualenv                   | I kept all the project’s tools and packages separate from others. |
+| Version Control & Hosting| GitHub                       | I tracked changes, collaborated, and shared the full project online. |
 
 ---
 
@@ -428,6 +429,12 @@ project-root/
 ├── README.md                   # Project overview
 ├── requirements.txt            # Python dependencies
 ```
+
+---
+
+**Additional Information**
+
+For a detailed overview of the project's problem statement, goals, pupose, objectives, scope and analysis plan,research questions explored, features, project timeline, risks and mitigation strategies, and test and evaluation plan, please refer to the `docs/project_plan.md` file in this repository.
 
 ---
 
