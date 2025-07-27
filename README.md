@@ -1,94 +1,154 @@
 # Analyzing the Impact of Lifestyle, Socioeconomic Status, and Healthcare Access on Chronic Health Conditions Among U.S. Adults
 
-##  NHANES 2021–2023 Data Analysis Project - health_track
----
-##  Project Objective
-
-This project looks at how lifestyle habits, socioeconomic status, and access to healthcare affect chronic health conditions in U.S. adults, using data from the 2021–2023 NHANES survey. It focuses on conditions like obesity, high blood pressure, diabetes, and high cholesterol. The main goals are to understand how behaviors like diet, exercise, and sleep relate to these diseases; to see how factors like income, education, and health insurance influence overall health; to explore health differences across gender and racial/ethnic groups; and to help inform smarter, evidence-based public health policies.
-
----
-##  Project Overview
-
-This analysis uses nationally representative NHANES data, combining information from demographics, diet, physical activity, lab results, and questionnaires. I used a mix of traditional statistical methods and exploratory visualizations to explore how different lifestyle and socioeconomic factors relate to health outcomes among U.S. adults.
----
-## Features
-
-- I started by importing NHANES data from local .XPT files and converted them to .CSV for easier handling.
-- Then, I cleaned and merged all the datasets using Pandas to prepare them for analysis.
-- To make sure the findings represent the U.S. population accurately, I used survey-weighted regression models with NHANES sample weights. I ran these models using Python’s statsmodels library—mostly WLS (Weighted Least Squares) and GLM—because they’re more appropriate for survey data than tools like scikit-learn or numpy, which don’t directly handle sample weights.
-- For visualizations, I used Seaborn, Matplotlib, and Plotly to bring out key patterns in the data.
-- I also created an SQLite database so I could query the cleaned dataset efficiently.
-- (Optional) I experimented with machine learning techniques like clustering and regression to explore deeper patterns.
-- (Optional) I built a basic Streamlit app to make the visualizations interactive and easier to explore.
+## NHANES 2021–2023 Data Analysis Project - health_track
 
 ---
 
-## Technology Stack
-| Component          | Tool / Library                          |
-|-------------------|------------------------------------------|
-| Programming       | Python (3.13.1)                            |
-| Data Handling     | Pandas, NumPy                            |
-| Visualization     | Seaborn, Matplotlib, Plotly              |
-| Statistical Models| Statsmodels (Model based)                |
-| Database          | SQLite                                   |
-| Notebooks         | Jupyter                                  |
-| Optional ML       | scikit-learn                             |
-| Environment       | Virtualenv                               |
-| Deployment        | (Optional) Streamlit                     |
+## Project Objective
+
+This project looks at how daily habits, income, and access to healthcare affect common health problems in U.S. adults. It uses data from the 2021–2023 NHANES survey and focuses on issues like obesity, high blood pressure, diabetes, and high cholesterol. The goal is to see how things like what people eat, how much they move, and how well they sleep are linked to these conditions. It also looks at how money, education, and health insurance play a role in people’s health, and how health can differ between men and women and across different racial and ethnic groups. The findings can help create better public health policies based on real evidence.
 
 ---
-## Data Source
 
-Data from the **National Health and Nutrition Examination Survey (NHANES)**, a program of studies designed to assess the health and nutritional status of adults and children in the United States.
-
-- [NHANES 2021–2023](https://wwwn.cdc.gov/nchs/nhanes/continuousnhanes/default.aspx?Cycle=2021-2023)
-- Documentation: [NHANES Data Documentation](https://wwwn.cdc.gov/nchs/nhanes/default.aspx)
-
----
 ## Data Selection
 
-For this project, I used a smaller, more focused selection of variables from the NHANES 2021–2023 datasets. I only kept the columns that were actually needed to explore things like BMI, lifestyle habits, and chronic disease risk.
+For this project, I used a smaller, more focused selection of variables from the NHANES 2021–2023 datasets. I only kept the columns that were actually needed to explore things like BMI, lifestyle habits, and chronic disease risk and FPED datas from USDA ARS.
 
-From DEMO_L.XPT, I pulled just the basics—demographics, education level, income, and weight.
-From BMX_L.XPT, I only used the BMI (BMXBMI) column since that’s all I needed from there.
-All the datasets were then joined together using the SEQN ID, which links each participant across files.
+- From DEMO_L.XPT, I pulled just the basics—demographics, education level, income (poverty to income ratio), and weight.
+- From BMX_L.XPT, I only used the BMI (BMXBMI) column since that’s all I needed from there.
+- From FPED_1720.xls, I pulled the required nutrient food columns required to calculate HEI score (Healthy Eating Index score.)
+
+All the datasets were then joined together using the SEQN ID, which links each participant across files.  
+
 You can check the Data Dictionary section below for a full list of the variables I used and what each one means.
 
 ---
+
 ## NHANES 2021–2023 Data Dictionary with Definitions
 
-### Step 1: lifestyle behaviors (physical activity, sleep duration, diet quality) and socioeconomic indicators (income, education, health insurance coverage)
+### Lifestyle behaviors (physical activity, sleep duration, diet quality) and socioeconomic indicators (income, education, health insurance coverage)
 
-| Dataset | Variable     | Description                                   | Definition |
-|---------|--------------|-----------------------------------------------|------------|
-| DEMO_L  | SEQN         | Unique respondent ID                          | Participant’s unique survey identifier |
-|         | RIAGENDR     | Gender (1 = Male, 2 = Female)                 | Biological sex reported by participant |
-|         | RIDAGEYR     | Age in years                                  | Participant’s age at time of exam |
-|         | RIDRETH3     | Race/ethnicity                                | Race/ethnic group categories defined by NHANES |
-|         | DMDEDUC2     | Education level                               | Highest education completed (categories) |
-|         | INDFMPIR     | Income-to-poverty ratio                       | Ratio of family income to poverty threshold |
-|         | WTINT2YR     | Interview sample weight                       | Weight for interview data to represent US population |
-|         | WTMEC2YR     | MEC exam sample weight                        | Weight for physical exam and lab data |
-|         | SDMVSTRA     | Stratification variable for survey design     | Variable to account for survey design strata |
-|         | SDMVPSU      | PSU variable for survey design                | Variable to account for primary sampling units |
-| PAQ_L    | PAD680       | Minutes of moderate-intensity work activity/week| Self-reported weekly minutes of moderate physical activity |
-|          | PAD790Q      | Frequency of vigorous recreational activity     | How often participant engages in vigorous activities |
-|          | PAD790U      | Time unit for PAD790Q                           | Units for PAD790Q (e.g., times per week) |
-|          | PAD800       | Duration of vigorous activity                   | Average length of vigorous activity sessions |
-| SLQ_L    | SLD012       | Sleep hours on weekdays/workdays               | Self-reported average hours of sleep on workdays |
-|          | SLD013       | Sleep hours on weekends                        | Self-reported average hours of sleep on weekends |
-| DR1TOT_L | DR1TKCAL     | Total daily energy intake (kcal)               | Calories consumed on dietary recall day 1 |
-|          | DR1TSFAT     | Saturated fat intake (g)                       | Grams of saturated fat consumed day 1 |
-|          | DR1TSUGR     | Total sugars intake (g)                        | Grams of sugars consumed day 1 |
-|          | DR1TFIBE     | Total dietary fiber intake (g)                 | Grams of fiber consumed day 1 |
-|          | WTDR2D       | Dietary Day 1 sample weight                    | Weight for dietary recall day 1 data |
-| HIQ_L    | HIQ011       | Covered by health insurance                    | Has any health insurance coverage (Yes/No) |
+| Dataset  | Variable  | Description                                | Definition                               |
+|----------|-----------|--------------------------------------------|----------------------------------------|
+| DEMO_L   | SEQN      | Unique respondent ID                       | Participant’s unique survey identifier |
+|          | RIAGENDR  | Gender (1 = Male, 2 = Female)              | Biological sex reported by participant |
+|          | RIDAGEYR  | Age in years                               | Participant’s age at time of exam      |
+|          | RIDRETH3  | Race/ethnicity                             | Race/ethnic group categories defined by NHANES |
+|          | DMDEDUC2  | Education level                            | Highest education completed (categories) |
+|          | INDFMPIR  | Income-to-poverty ratio                    | Ratio of family income to poverty threshold |
+| PAQ_L    | PAD680    | Moderate-intensity work activity (min/week) | Weekly minutes of moderate activity    |
+|          | PAD790Q   | Frequency of vigorous activity            | How often participant does vigorous activities |
+|          | PAD790U   | Unit of PAD790Q                           | Time unit for frequency (e.g., times/week) |
+|          | PAD800    | Duration of vigorous activity             | Average time per session (minutes)     |
+| SLQ_L    | SLD012    | Weekday sleep duration                     | Average weekday/workday sleep in hours |
+|          | SLD013    | Weekend sleep duration                     | Average weekend sleep in hours         |
+| DR1TOT_L | DR1TKCAL  | Total energy intake (kcal)                 | Total kilocalories consumed on recall day 1 |
+|          | DR1TSFAT  | Saturated fat intake (g)                   | Grams of saturated fat consumed        |
+|          | DR1TSODI  | Sodium intake (mg)                         | Milligrams of sodium consumed           |
+|          | WTDRD1    | Dietary sample weight                      | Weight for Day 1 dietary recall data    |
+| DR1IFF_L | DR1IGRMS  | Food gram weight                           | Grams of individual food item consumed |
+|          | DR1IKCAL  | Energy from individual food (kcal)        | Calories from each food item            |
+|          | DR1IFDCD  | USDA food code                             | Food description code                   |
+| HIQ_L    | HIQ011    | Health insurance status                    | Covered by any health insurance (Yes/No) |
+
 ---
-### Step 2: Health outcomes (BMI, BP, cholesterol, glucose, chronic disease)
+
+### Health outcomes (BMI, BP, cholesterol, glucose, chronic disease)
 
 | Dataset  | Variable     | Description                                   | Definition |
 |----------|--------------|-----------------------------------------------|------------|
-| BMX_L   | BMXBMI       | Body Mass Index (kg/m²)                        |  indicator of body fat |
+| BMX_L    | BMXBMI       | Body Mass Index (kg/m²)                       | Indicator of body fat |
+| BPXO_L   | BPXOSY1-3    | Systolic BP readings 1–3                      | Three systolic blood pressure measurements |
+|          | BPXODI1-3    | Diastolic BP readings 1–3                     | Three diastolic blood pressure measurements |
+| TCHOL_L  | LBXTC        | Total cholesterol                             | Total blood cholesterol concentration |
+| GLU_L    | LBXGLU       | Fasting glucose                              | Blood glucose concentration after fasting |
+|          | LBDGLUSI     | Glucose (SI units)                            | Glucose in SI units |
+|          | WTSAF2YR     | Fasting sample weight                         | Weight for fasting blood sample data |
+| DIQ_L    | DIQ010       | Ever been told you have diabetes?             | Self-reported doctor diagnosis of diabetes (Yes/No) |
+| MCQ_L    | MCQ160B      | Ever told had congestive heart failure        | Self-reported CHF diagnosis (Yes/No) |
+|          | MCQ160C      | Coronary heart disease                        | Self-reported CHD diagnosis (Yes/No) |
+|          | MCQ160D      | Angina/angina pectoris                        | Self-reported angina diagnosis (Yes/No) |
+|          | MCQ160E      | Heart attack                                  | Self-reported heart attack diagnosis (Yes/No) |
+
+---
+
+### Modeling & Survey Design
+
+| Dataset  | Variable   | Description                               | Definition                               |
+|----------|------------|-------------------------------------------|----------------------------------------|
+| DEMO_L   | WTINT2YR   | Interview weight (used for questionnaire data) | Weight to produce nationally representative estimates for interview data |
+|          | WTMEC2YR   | MEC exam weight (used for physical/lab data) | Weight to produce nationally representative estimates for exam data |
+|          | SDMVSTRA   | Stratification variable                  | Used to account for survey design strata in analysis |
+|          | SDMVPSU    | PSU variable                            | Primary sampling units to account for clustering in survey design |
+| DR1TOT_L | WTDR1D     | Dietary recall Day 1 weight              | Weight for Day 1 dietary recall data   |
+| DR1IFF_L | WTDRD1     | Dietary sample weight                    | Weight for Day 1 dietary recall data    |
+| GLU_L    | WTSAF2YR   | Fasting subsample weight                 | Weight for fasting subsample lab data  |
+
+---
+
+### FPED Food Patterns Data
+
+| Dataset     | Variable           | Description                                   | Definition |
+|-------------|--------------------|-----------------------------------------------|------------|
+| FPED_1720   | FOODCODE           | USDA Food Code                                | Unique food item identifier |
+|             | DESCRIPTION        | Food name                                     | Text description of the food |
+|             | F_TOTAL            | Total fruits (cup eq)                         | All fruit servings including juice |
+|             | F_JUICE            | Fruit juice (cup eq)                          | 100% fruit juice servings |
+|             | F_CITMLB           | Citrus, melon, berries (cup eq)               | Citrus fruits, melons, and berries only |
+|             | F_OTHER            | Other fruits (cup eq)                         | Fruits not in citrus/melon/berry group |
+|             | V_TOTAL            | Total vegetables (cup eq)                     | All vegetable servings |
+|             | V_DRKGR            | Dark green vegetables (cup eq)                | Spinach, kale, broccoli, etc. |
+|             | V_LEGUMES          | Legumes (cup eq)                              | Beans and peas counted as vegetables |
+|             | G_WHOLE            | Whole grains (oz eq)                          | Ounces of whole grain intake |
+|             | G_REFINED          | Refined grains (oz eq)                        | Ounces of refined grain intake |
+|             | D_TOTAL            | Total dairy (cup eq)                          | Milk, cheese, yogurt, etc. |
+|             | D_MILK             | Milk (cup eq)                                 | Fluid milk and milk-based drinks |
+|             | D_YOGURT           | Yogurt (cup eq)                               | Yogurt servings |
+|             | D_CHEESE           | Cheese (cup eq)                               | Cheese and cheese-containing foods |
+|             | PF_TOTAL           | Total protein foods (oz eq)                   | Meat, poultry, seafood, nuts, seeds, soy |
+|             | PF_MPS_TOTAL       | Meat, poultry, seafood total (oz eq)          | All animal-based protein foods |
+|             | PF_SEAFD_HI        | High omega-3 seafood (oz eq)                  | Salmon, mackerel, trout, etc. |
+|             | PF_SEAFD_LOW       | Low omega-3 seafood (oz eq)                   | Shrimp, tilapia, cod, etc. |
+|             | SOLID_FATS         | Solid fats (g)                                | Butter, lard, beef fat, etc. |
+|             | ADD_SUGARS         | Added sugars (tsp eq)                         | Table sugar, syrups, sweeteners |
+|             | OILS               | Oils (g)                                      | Plant oils, fish oils, and soft fats |
+
+
+
+| Dataset   | Variable     | Description                                   | Definition |
+|-----------|--------------|-----------------------------------------------|------------|
+| DEMO_L    | SEQN         | Unique respondent ID                          | Participant’s unique survey identifier |
+|           | RIAGENDR     | Gender (1 = Male, 2 = Female)                 | Biological sex reported by participant |
+|           | RIDAGEYR     | Age in years                                  | Participant’s age at time of exam |
+|           | RIDRETH3     | Race/ethnicity                                | Race/ethnic group categories defined by NHANES |
+|           | DMDEDUC2     | Education level                               | Highest education completed (categories) |
+|           | INDFMPIR     | Income-to-poverty ratio                       | Ratio of family income to poverty threshold |
+|           | WTINT2YR     | Interview sample weight                       | Weight for interview data to represent US population |
+|           | WTMEC2YR     | MEC exam sample weight                        | Weight for physical exam and lab data |
+|           | SDMVSTRA     | Stratification variable                       | Used to account for survey design strata |
+|           | SDMVPSU      | PSU variable                                  | Primary sampling units to account for clustering |
+| PAQ_L     | PAD680       | Moderate-intensity work activity (min/week)  | Weekly minutes of moderate activity |
+|           | PAD790Q      | Frequency of vigorous activity               | How often participant does vigorous activities |
+|           | PAD790U      | Unit of PAD790Q                              | Time unit for frequency (e.g., times/week) |
+|           | PAD800       | Duration of vigorous activity                | Average time per session (minutes) |
+| SLQ_L     | SLD012       | Weekday sleep duration                       | Average weekday/workday sleep in hours |
+|           | SLD013       | Weekend sleep duration                       | Average weekend sleep in hours |
+| DR1TOT_L  | DR1TKCAL     | Total energy intake (kcal)                   | Total kilocalories consumed on recall day 1 |
+|           | DR1TSFAT     | Saturated fat intake (g)                     | Grams of saturated fat consumed |
+|           | DR1TSODI     | Sodium intake (mg)                           | Milligrams of sodium consumed |
+|           | WTDRD1       | Dietary sample weight                        | Weight for Day 1 dietary recall data |
+| DR1IFF_L  | DR1IGRMS     | Food gram weight                             | Grams of individual food item consumed |
+|           | DR1IKCAL     | Energy from individual food (kcal)          | Calories from each food item |
+|           | DR1IFDCD     | USDA food code                               | Food description code |
+|           | WTDRD1       | Dietary sample weight                        | Weight for Day 1 dietary recall data |
+| HIQ_L     | HIQ011       | Health insurance status                      | Covered by any health insurance (Yes/No) |
+
+---
+### Health outcomes (BMI, BP, cholesterol, glucose, chronic disease)
+
+| Dataset  | Variable     | Description                                   | Definition |
+|----------|--------------|-----------------------------------------------|------------|
+| BMX_L    | BMXBMI       | Body Mass Index (kg/m²)                       |  indicator of body fat |
 | BPXO_L   | BPXOSY1-3    | Systolic BP readings 1–3                      | Three systolic blood pressure measurements (mm Hg) |
 |          | BPXODI1-3    | Diastolic BP readings 1–3                     | Three diastolic blood pressure measurements (mm Hg) |
 | TCHOL_L  | LBXTC        | Total cholesterol (mg/dL)                     | Total blood cholesterol concentration |
@@ -102,7 +162,7 @@ You can check the Data Dictionary section below for a full list of the variables
 |          | MCQ160E      | Heart attack                                  | Self-reported heart attack diagnosis (Yes/No) |
 
 ---
-###  Step 3: Modeling & Survey Design
+### Modeling & Survey Design 
 
 | Dataset    | Variable      | Description                                           | Definition |
 |------------|---------------|-------------------------------------------------------|------------|
@@ -112,57 +172,70 @@ You can check the Data Dictionary section below for a full list of the variables
 |            | SDMVPSU       | PSU variable                                          | Primary sampling units to account for clustering in survey design |
 | DR1TOT_L   | WTDR2D        | Dietary recall Day 1 weight                           | Weight for Day 1 dietary recall data |
 | GLU_L | WTSAF2YR    | Fasting subsample weight                              | Weight for fasting subsample lab data |
----
-## Visualizations
-
-- Boxplots and histograms of BMI, glucose, cholesterol
-- Grouped bar plots by gender, income, or race
----
-##  Example Research Questions
-
-1. How do everyday habits like exercise, what people eat, and how much they sleep affect things like BMI, blood pressure, and blood sugar in adults across the U.S.?
-2. Does a person’s income, education, or whether they have health insurance change their chances of having conditions like obesity or diabetes or high blood pressure?
-3. Are there differences between men and women when it comes to how lifestyle and money affect their health?
-4. How do race and ethnicity influence the connection between lifestyle, access to healthcare, and chronic health problems?
-5. Do unhealthy habits together—like not exercising and eating poorly—make health problems worse than just one of those habits alone?
-6. Which groups seem to be at the highest risk for chronic diseases, and how can this info help create better health programs?
----
-## Why Use Survey Weights?
-
-Since NHANES uses a complex, multistage sampling design, we can’t just analyze the raw numbers like in a simple random sample because that would lead to biased or misleading results. To deal with this, NHANES provides survey weights that we have to use in our analysis. These weights help adjust for a few important things:
-
-- Not everyone has the same chance of being picked
-
-- Some groups, like minorities, are intentionally oversampled
-
-- Some people don’t respond, which could mess with the data
-
-By using these weights properly, our results better represent the whole U.S. population, not just the people who actually took part in the survey.
+| TCHOL_L  | WTPH2YR  | Phlebotomy 2 Year Weight                     | Weight for blood drawn exam |
 
 ---
-## Project Folder Structure
+### FPED Food Patterns Data
 
-```
-project-root/
-│
-├── data/
-      ├── raw      # Raw NHANES dataset in XPT format (downloaded)
-      ├── interim  # NHANES dataset with selected columns in csv format
-      ├── clean    # cleaned datas
-      ├── processed  # merged and processed data             
-├── notebooks/             # Jupyter Notebooks
-├── outputs/               # Visualizations and tables
-├── requirements.txt       # Python dependencies
-├── README.md
-├── .env              # Project readme 
-├── scripts/          # Data loading and cleaning and analysis scripts
-      ├──config.py
-      ├──utils.py 
-      ├──data_loading.py
-      ├──data_cleaning.py
-      ├── all individual data cleaning script           
-└── docs /                 # related to project documents
-```
+| Dataset     | Variable           | Description                                   | Definition |
+|-------------|--------------------|-----------------------------------------------|------------|
+| FPED_1720   | FOODCODE           | USDA Food Code                                | Unique food item identifier |
+|             | DESCRIPTION        | Food name                                     | Text description of the food |
+|             | F_TOTAL            | Total fruits (cup eq)                         | All fruit servings including juice |
+|             | F_JUICE            | Fruit juice (cup eq)                          | 100% fruit juice servings |
+|             | F_CITMLB           | Citrus, melon, berries (cup eq)               | Citrus fruits, melons, and berries only |
+|             | F_OTHER            | Other fruits (cup eq)                         | Fruits not in citrus/melon/berry group |
+|             | V_TOTAL            | Total vegetables (cup eq)                     | All vegetable servings |
+|             | V_DRKGR            | Dark green vegetables (cup eq)                | Spinach, kale, broccoli, etc. |
+|             | V_LEGUMES          | Legumes (cup eq)                              | Beans and peas counted as vegetables |
+|             | G_WHOLE            | Whole grains (oz eq)                          | Ounces of whole grain intake |
+|             | G_REFINED          | Refined grains (oz eq)                        | Ounces of refined grain intake |
+|             | D_TOTAL            | Total dairy (cup eq)                          | Milk, cheese, yogurt, etc. |
+|             | D_MILK             | Milk (cup eq)                                 | Fluid milk and milk-based drinks |
+|             | D_YOGURT           | Yogurt (cup eq)                               | Yogurt servings |
+|             | D_CHEESE           | Cheese (cup eq)                               | Cheese and cheese-containing foods |
+|             | PF_TOTAL           | Total protein foods (oz eq)                   | Meat, poultry, seafood, nuts, seeds, soy |
+|             | PF_MPS_TOTAL       | Meat, poultry, seafood total (oz eq)          | All animal-based protein foods |
+|             | PF_SEAFD_HI        | High omega-3 seafood (oz eq)                  | Salmon, mackerel, trout, etc. |
+|             | PF_SEAFD_LOW       | Low omega-3 seafood (oz eq)                   | Shrimp, tilapia, cod, etc. |
+|             | SOLID_FATS         | Solid fats (g)                                | Butter, lard, beef fat, etc. |
+|             | ADD_SUGARS         | Added sugars (tsp eq)                         | Table sugar, syrups, sweeteners |
+|             | OILS               | Oils (g)                                      | Plant oils, fish oils, and soft fats |
+
+--
+## Data Summary
+
+### What is this data about?
+
+It looks at how people live and their health. It includes:
+
+- **Lifestyle habits:** How much they exercise, sleep, and what they eat.
+- **Background:** Their age, gender, race, education, income, and if they have health insurance.
+- **Health:** Their weight, blood pressure, cholesterol, blood sugar, and if they have diseases like diabetes or heart problems.
+
+### Why is this important?
+
+- To see how lifestyle and money affect health.
+- To understand who might be at risk for health problems.
+- To help make better health policies for everyone.
+
+### How was the data collected?
+
+- People answered questions about their habits and health.
+- Their food intake and body measurements were recorded.
+- The survey is designed to fairly represent all people in the U.S.
+
+## Data Source
+
+### 1. [NHANES (2021–2023)](https://wwwn.cdc.gov/nchs/nhanes/continuousnhanes/default.aspx?Cycle=2021-2023)
+
+The **National Health and Nutrition Examination Survey (NHANES)**, a program of studies designed to assess the health and nutritional status of adults and children in the United States.
+[NHANES Documentation](https://wwwn.cdc.gov/nchs/nhanes/default.aspx)
+
+### 2. [USDA ARS FPED](https://www.ars.usda.gov/northeast-area/beltsville-md-bhnrc/beltsville-human-nutrition-research-center/food-surveys-research-group/docs/fped-databases/)
+
+The **USDA Agricultural Research Service (ARS) - Food Patterns Equivalents Database (FPED)** converts reported food and beverage intake into 37 standardized USDA Food Pattern components.  
+[FPED Documentation](https://www.ars.usda.gov/northeast-area/beltsville-md-bhnrc/beltsville-human-nutrition-research-center/food-surveys-research-group/docs/fped-overview/)
 
 ---
 ## Setup Instructions
@@ -170,37 +243,61 @@ project-root/
 ### 1. Clone This Repository
 
 ```bash
-git clone https://github.com/yourusername/project.git
-cd project
+git clone https://github.com/Sahiladevi/health_track.git
 ```
 
-### 2. Create & Activate Virtual Environment
+b. Navigate to the cloned directory
 
+Change your current directory to the cloned repository's directory (health_track)
+
+```bash
+cd health_track
+```
+
+### 2. Create Virtual Environment
+
+On Windows:
 ```bash
 # Create
 python -m venv venv
 
-# Activate (Windows)
-venv\Scripts\activate
+On macOS and Linux:
+python3 -m venv venv
+```
+This will create a new virtual environment named venv in your current directory
 
-# Activate (macOS/Linux)
+### 3. Activate Virtual Environment
+
+On Windows:
+```bash
+venv\Scripts\activate
+```
+On macOS and Linux:
+```bash
 source venv/bin/activate
 ```
+Your prompt should change to indicate that you are now operating within a Python virtual environment.
 
-### 3. Install Requirements
+### 4. Install Requirements
+Install the required packages by running the following command:
 
 ```bash
 pip install -r requirements.txt
 ```
+You're now ready to run the project!
 
-### 4. Run Jupyter Notebook
+### 5. Run Jupyter Notebook
 
 ```bash
 jupyter notebook
 ```
 
----
+### 6. To deactivate the virtual environment, after running the project
 
+```bash
+deactivate
+```
+---
 ## Requirements
 
 Contents of `requirements.txt`:
@@ -214,37 +311,212 @@ plotly
 statsmodels
 scikit-learn
 jupyter
+pyreadstat
+python-dotenv
+squarify
+xlsxwriter
+openpyxl
+xlrd
+
 ```
 
 > Only the necessary libraries are included to keep things clean and lightweight. A virtual environment was used to avoid any conflicts and keep the setup isolated from the rest of the system.
 
 ---
-##  Testing & Validation
+## Project Overview: What This Project Does
 
-- All the code runs smoothly in a clean environment without any errors. 
-- The notebooks are well-organized, with clear comments explaining each step. 
-- Model based weights were applied correctly during analysis to make sure results are nationally representative. 
-- I also tested the SQLite database with a few sample SQL queries to make sure everything was working as expected.
+This project explores how different lifestyle habits—like diet, sleep, exercise—and social factors—like income and education—are connected to people's health across the U.S.
+
+I used national health data collected by two government groups:
+
+- NHANES: A big health survey that asks people across the country questions and runs lab tests.
+
+- USDA ARS FPED: A dataset that helps explain what types of foods people ate.
+
+The goal? To see how things like diet and lifestyle affect health outcomes, and to turn messy, raw data into clean, meaningful insights.
+
+**What I Did**
+
+### 1. Getting the Data
+
+I downloaded all the data files I needed from official websites:
+
+- Health survey data (from 2021–2023) from [NHANES](https://wwwn.cdc.gov/nchs/nhanes/continuousnhanes/default.aspx?Cycle=2021-2023)
+
+- Food data from [USDA FPED](https://www.ars.usda.gov/northeast-area/beltsville-md-bhnrc/beltsville-human-nutrition-research-center/food-surveys-research-group/docs/fped-databases/)
+
+I saved everything neatly in a folder called data/raw.
+
+### 2. Cleaning and Organizing the Data
+
+The data was messy and spread across many files. So, I wrote 15 small Python scripts, each doing a specific job:
+
+- Some scripts cleaned different types of data (like diet, sleep, exercise, etc.)
+
+- One script calculated a Healthy Eating Index (HEI) score to see how healthy someone’s diet is.
+
+- Another script created new useful information from existing data—like turning income into categories or grouping exercise levels.
+
+**Here’s a simple example of what these scripts did:**
+
+- Turn messy food entries into clear diet scores.
+
+- Fix missing or inconsistent entries.
+
+- Organize everything so it’s easier to work with later.
+
+### 3. Running the Scripts for data loading, cleaning and wrangling
+
+To bring it all together, I used a Jupyter Notebook called data_ingestion_and_cleaning.ipynb. Think of this notebook as the “master controller” — it runs all the scripts in the correct order:
+
+- Loads all the raw datasets with the required fields and save it in a folder "data/interim".
+
+- Cleans each dataset (e.g., diet, exercise, sleep, etc.) and save it in a folder "data/clean".
+
+- I added new columns to these clean datasets—like grouped income levels, physical activity categories, and other meaningful metrics. This gave me the processed data (to make the data more useful) and save it in a folder "data/processed".
+
+- I also merged a few of the food and diet-related files and used them to calculate a **Healthy Eating Index (HEI)** score, which gives insight into how balanced a person’s diet is. That final score was saved too for further analysis and saved this data in a folder "data/processed".
+
+In short, the notebook automates the full journey from messy raw data to clean, structured, and ready-to-use health information.  
+
+At the end, I had clean, structured data that’s ready for Merging.
+
+
+### 4. Saving Processed Data in a Database - Used data_loading_database.ipynb notebook
+
+I saved the processed data into an SQLite database, where each part (diet, exercise, health, lifestyle, etc.) is stored as its own table.
+
+To make analysis easier, I also combined the relevant tables into two larger datasets:
+
+- One with lifestyle and social information
+
+- One with everything together (a full health dataset)
+
+These final combined datasets were then saved as .csv files in the data/final folder, ready to be used for analysis and modeling.
+
+For your reference, I am adding those python scripts detail below:
+ | No. | File                             | Description                                                                                             |
+|-----|----------------------------------|---------------------------------------------------------------------------------------------------------|
+| 1   | `config.py`                      | Establishes file system paths for data stages (raw, interim, clean, processed); maps datasets to paths and selected columns. |
+| 2   | `utils.py`                       | Common utility functions (e.g., `explore_data`, path formatting, data validation, cleaning helpers).   |
+| 3   | `db_utils.py`                    | Database utility functions (e.g., creating database, running queries, creating tables, closing connections). |
+| 4   | `data_loading.py`                | Loads, validates, and saves raw NHANES datasets to interim format.                                     |
+| 5   | `data_cleaning.py`              | Central hub to apply cleaning functions to each dataset; imports all individual cleaning modules.      |
+| 6   | `clean_demo.py`                  | Cleans `DEMO_L` dataset (Demographics file).                                                           |
+| 7   | `clean_clinical_exam.py`         | Cleans `BMX_L`, `BPXO_L`, `TCHOL_L`, and `GLU_L` datasets (Clinical exam and laboratory files).         |
+| 8   | `clean_sleep.py`                 | Cleans `SLQ_L` dataset (Sleep questionnaire file).                                                     |
+| 9   | `clean_diet.py`                  | Cleans `DR1TOT_L` and `DR1IFF_L` datasets (Dietary questionnaire files).                               |
+| 10  | `clean_fped.py`                  | Cleans `FPED_1720.xls` file (Food Patterns Equivalents file).                                          |
+| 11  | `calculating_usda_hei_score.py` | Cleans and computes USDA Healthy Eating Index (HEI) score.                                             |
+| 12  | `clean_physical.py`             | Cleans `PAQ_L` dataset (Physical activity questionnaire file).                                         |
+| 13  | `clean_healthcare_access.py`    | Cleans `HIQ_L` dataset (Insurance and healthcare access questionnaire file).                           |
+| 14  | `clean_chronic_disease.py`      | Cleans `DIQ_L` and `MCQ_L` datasets (Diabetes and medical condition files).                            |
+| 15  | `feature_engineering.py`        | Creates new features or categorizes variables from NHANES health survey data.                          |
+    |
+
+### 5. Analyzing the Data
+
+I used six Jupyter Notebooks for different analysis goals. Each one looked at a specific question:
+
+| Notebook Name            | What It Did                                                          |
+| ------------------------ | -------------------------------------------------------------------- |
+| `obj_1.1_analysis.ipynb` | Looked at how lifestyle and social habits are spread across the data |
+| `obj_1.2_analysis.ipynb` | Measured how these habits are linked to health outcomes              |
+| `obj_1.3_analysis.ipynb` | Explored specific connections between lifestyle factors and health   |
+| `obj_1.4_analysis.ipynb` | Studied how different factors work together to affect outcomes       |
+| `obj_2.1_analysis.ipynb` | Compared things like gender and race                                 |
+| `obj_2.2_analysis.ipynb` | Checked if gender/race changes how lifestyle affects health          |
+| `obj_2.3_analysis.ipynb` | Created simple health advice based on the data                       |
+
+### 6. Survey Design Wasn’t Working—Here’s the Fix I Used
+
+The NHANES health data is collected using something called a complex survey design. That just means the people who took the survey weren’t picked totally at random—some groups, like older adults or specific communities, were intentionally included more often. Plus, not everyone answered every question.
+
+To make sure the results still represent the entire U.S. population, NHANES gives us special weights to apply during analysis.
+
+Now, here’s where things got tricky.
+
+The tools I used in Python—mainly the statsmodels library—don’t fully support this kind of complex design. The PSU values (which help group people by area) only had two options in the dataset, which isn’t enough to use properly. And when I tried including the strata (which split people into subgroups), the model threw multicollinearity errors—basically, the variables were overlapping too much and confusing the analysis.
+
+So I had to make a call.
+
+I still used the survey weights to make sure my results reflect the U.S. population. But instead of using the full complex design, I used a more practical approach that’s commonly accepted when you hit these kinds of limits.
+
+I ran my regressions using either Weighted Least Squares (WLS) with a solid correction method called HC3, or GLM (Generalized Linear Models) with HC3. This correction helps handle variance issues and keeps the estimates reliable.
+
+It’s not a perfect substitute for full survey methods, but it’s a strong and trustworthy workaround—and it allowed me to still draw meaningful insights from the data without running into errors.
+
 ---
-##  Version Control
 
-- Tracked using the Git command line interface.
-- Minimum 10 commits
-- No files were uploaded through the GitHub web interface
-- The .gitignore file includes the venv folder.
+## Technology Stack
 
----
-## Risk Mitigation
-
-| **Potential Risk**              | **How I Plan to Handle It**      |
-|------------------------------------------------------------------------------------------------------------------|
-| **Large file sizes**            | If the files are too big to work with easily, I’ll either use a smaller subset of the data or convert them to a lighter format like SQLite. |
-| **Missing values**              | I’ll either fill in the missing data (impute) or remove the affected rows, depending on the situation. Whatever I do, I’ll make sure to clearly document the steps in my notebook. |
-| **Using weights incorrectly**   | I’ll carefully follow the official NHANES documentation to make sure I’m applying the sample weights properly. |
-| **Reproducibility issues**      | I’ll use a virtual environment and include a `requirements.txt` file so that everything can be re-run on another machine without issues. 
+| What I Used         | Tools / Programs             | How I Used It                                                     |
+| ------------------- | ---------------------------- | ----------------------------------------------------------------- |
+| Programming         | Python (version 3.13.1)      | I wrote all the code for the project using Python.                |
+| Handling Data       | Pandas, NumPy                | I used these to organize and work with the data.                  |
+| Making Graphs       | Seaborn, Matplotlib, Plotly  | I created charts and graphs to help explain my results.           |
+| Statistics          | Statsmodels (for regression) | I analyzed data patterns and relationships with this.             |
+| Storing Data        | SQLite                       | I saved and managed the data using this database.                 |
+| Writing and Sharing | Jupyter Notebooks            | I combined my code and notes in one interactive file.             |
+| Project Setup       | Virtualenv                   | I kept all the project’s tools and packages separate from others. |
 
 ---
+
+## Project Folder Structure
+
+```
+project-root/
+│
+├── data/
+      ├── raw           # Raw NHANES dataset in XPT format (downloaded) and Raw USDA ARS FPED dataset in xls format
+      ├── interim       # NHANES dataset with selected columns in csv format and FPED data in xlsx format
+      ├── clean         # cleaned datas
+      ├── processed     # processed data 
+      ├── final         # final merged data
+├── database/
+      ├── nhanes_2021_2023.db  # SQLite database
+├── docs/                # related to project documents  
+      ├── final_report.md      # final analysis report
+      ├── project_plan.md      # Details about project objective,goals and analysis plan
+
+├── notebooks/          # Jupyter Notebooks
+      ├── data_ingestion_and_cleaning.ipynb # data loading, cleaning and wrangling
+      ├── data_loading_database # data loading to sqlite database and final merge of data for further analysis
+      ├── obj_1.1_analysis.ipynb # Characterize distributions of lifestyle behaviors and socioeconomic indicators
+      ├── obj_1.2_analysis.ipynb # Quantify associations 
+      ├── obj_1.3_analysis.ipynb # Explore specific relationships 
+      ├── obj_1.4_analysis.ipynb # Assess the combined effects 
+      ├── obj_2.1_analysis.ipynb # Compare distributions across gender and racial/ethnic groups.
+      ├── obj_2.2_analysis.ipynb # gender or race/ethnicity modifies the associations 
+      ├── obj_2.3_analysis.ipynb # Develop data-driven recommendations  
+
+├── outputs/   # Visualizations and Summary
+      ├── plots/          # contains all output visualization plots
+      ├── summary/       # summary about analysis     
+├── scripts/          # configuration, Data loading and cleaning and helper scripts
+      ├── config.py
+      ├── utils.py         
+      ├── db.utils.py
+      ├── data_loading.py
+      ├── data_cleaning.py
+      ├── feature_engineering.py
+      ├── calculating_usda_hei_score.py
+      ├── all individual data cleaning script 
+├── venv/             # Virtual environment folder (hidden) 
+├── .env            # store environment variables  
+├── README.md       # Project readme     
+├── requirements.txt       # Python dependencies
+
+```
+---
+
 ## Contact
 
-**Sahiladevi Deenadayalu**  
+- **Sahiladevi Deenadayalu**  
 [sahiladevi2003@gmail.com](mailto:sahiladevi2003@gmail.com)
+
+- **Repository:** [https://github.com/Sahiladevi/health_track](https://github.com/Sahiladevi/health_track) 
+
+---
+
+*End of README File*
