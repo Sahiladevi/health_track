@@ -300,7 +300,7 @@ In short, the notebook automates the full journey from messy raw data to clean, 
 At the end, I had clean, structured data that’s ready for Merging.
 
 
-#### 4. Saving Processed Data in a Database - Used data_loading_database.ipynb notebook
+#### 4. Saving Processed Data in a Database - Using data_loading_database.ipynb notebook
 
 I saved the processed data into an SQLite database, where each part (diet, exercise, health, lifestyle, etc.) is stored as its own table.
 
@@ -330,7 +330,6 @@ For your reference, I am adding those python scripts detail below:
 | 13  | `clean_healthcare_access.py`    | Cleans `HIQ_L` dataset (Insurance and healthcare access questionnaire file).                           |
 | 14  | `clean_chronic_disease.py`      | Cleans `DIQ_L` and `MCQ_L` datasets (Diabetes and medical condition files).                            |
 | 15  | `feature_engineering.py`        | Creates new features or categorizes variables from NHANES health survey data.                          |
-    |
 
 #### 5. Analyzing the Data
 
