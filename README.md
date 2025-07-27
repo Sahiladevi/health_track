@@ -113,96 +113,8 @@ You can check the Data Dictionary section below for a full list of the variables
 |             | ADD_SUGARS         | Added sugars (tsp eq)                         | Table sugar, syrups, sweeteners |
 |             | OILS               | Oils (g)                                      | Plant oils, fish oils, and soft fats |
 
-
-
-| Dataset   | Variable     | Description                                   | Definition |
-|-----------|--------------|-----------------------------------------------|------------|
-| DEMO_L    | SEQN         | Unique respondent ID                          | Participant’s unique survey identifier |
-|           | RIAGENDR     | Gender (1 = Male, 2 = Female)                 | Biological sex reported by participant |
-|           | RIDAGEYR     | Age in years                                  | Participant’s age at time of exam |
-|           | RIDRETH3     | Race/ethnicity                                | Race/ethnic group categories defined by NHANES |
-|           | DMDEDUC2     | Education level                               | Highest education completed (categories) |
-|           | INDFMPIR     | Income-to-poverty ratio                       | Ratio of family income to poverty threshold |
-|           | WTINT2YR     | Interview sample weight                       | Weight for interview data to represent US population |
-|           | WTMEC2YR     | MEC exam sample weight                        | Weight for physical exam and lab data |
-|           | SDMVSTRA     | Stratification variable                       | Used to account for survey design strata |
-|           | SDMVPSU      | PSU variable                                  | Primary sampling units to account for clustering |
-| PAQ_L     | PAD680       | Moderate-intensity work activity (min/week)  | Weekly minutes of moderate activity |
-|           | PAD790Q      | Frequency of vigorous activity               | How often participant does vigorous activities |
-|           | PAD790U      | Unit of PAD790Q                              | Time unit for frequency (e.g., times/week) |
-|           | PAD800       | Duration of vigorous activity                | Average time per session (minutes) |
-| SLQ_L     | SLD012       | Weekday sleep duration                       | Average weekday/workday sleep in hours |
-|           | SLD013       | Weekend sleep duration                       | Average weekend sleep in hours |
-| DR1TOT_L  | DR1TKCAL     | Total energy intake (kcal)                   | Total kilocalories consumed on recall day 1 |
-|           | DR1TSFAT     | Saturated fat intake (g)                     | Grams of saturated fat consumed |
-|           | DR1TSODI     | Sodium intake (mg)                           | Milligrams of sodium consumed |
-|           | WTDRD1       | Dietary sample weight                        | Weight for Day 1 dietary recall data |
-| DR1IFF_L  | DR1IGRMS     | Food gram weight                             | Grams of individual food item consumed |
-|           | DR1IKCAL     | Energy from individual food (kcal)          | Calories from each food item |
-|           | DR1IFDCD     | USDA food code                               | Food description code |
-|           | WTDRD1       | Dietary sample weight                        | Weight for Day 1 dietary recall data |
-| HIQ_L     | HIQ011       | Health insurance status                      | Covered by any health insurance (Yes/No) |
-
 ---
-### Health outcomes (BMI, BP, cholesterol, glucose, chronic disease)
 
-| Dataset  | Variable     | Description                                   | Definition |
-|----------|--------------|-----------------------------------------------|------------|
-| BMX_L    | BMXBMI       | Body Mass Index (kg/m²)                       |  indicator of body fat |
-| BPXO_L   | BPXOSY1-3    | Systolic BP readings 1–3                      | Three systolic blood pressure measurements (mm Hg) |
-|          | BPXODI1-3    | Diastolic BP readings 1–3                     | Three diastolic blood pressure measurements (mm Hg) |
-| TCHOL_L  | LBXTC        | Total cholesterol (mg/dL)                     | Total blood cholesterol concentration |
-| GLU_L    | LBXGLU       | Fasting glucose (mg/dL)                       | Blood glucose concentration after fasting |
-|          | LBDGLUSI     | Glucose (SI units)                            | Glucose in SI units (mmol/L) |
-|          | WTSAF2YR     | Fasting sample weight                         | Weight for fasting blood sample data |
-| DIQ_L    | DIQ010       | Ever been told you have diabetes?             | Self-reported doctor diagnosis of diabetes (Yes/No) |
-| MCQ_L    | MCQ160B      | Ever told had congestive heart failure        | Self-reported CHF diagnosis (Yes/No) |
-|          | MCQ160C      | Coronary heart disease                        | Self-reported CHD diagnosis (Yes/No) |
-|          | MCQ160D      | Angina/angina pectoris                        | Self-reported angina diagnosis (Yes/No) |
-|          | MCQ160E      | Heart attack                                  | Self-reported heart attack diagnosis (Yes/No) |
-
----
-### Modeling & Survey Design 
-
-| Dataset    | Variable      | Description                                           | Definition |
-|------------|---------------|-------------------------------------------------------|------------|
-| DEMO_L     | WTINT2YR      | Interview weight (used for questionnaire data)        | Weight to produce nationally representative estimates for interview data |
-|            | WTMEC2YR      | MEC exam weight (used for physical/lab data)          | Weight to produce nationally representative estimates for exam data |
-|            | SDMVSTRA      | Stratification variable                               | Used to account for survey design strata in analysis |
-|            | SDMVPSU       | PSU variable                                          | Primary sampling units to account for clustering in survey design |
-| DR1TOT_L   | WTDR2D        | Dietary recall Day 1 weight                           | Weight for Day 1 dietary recall data |
-| GLU_L | WTSAF2YR    | Fasting subsample weight                              | Weight for fasting subsample lab data |
-| TCHOL_L  | WTPH2YR  | Phlebotomy 2 Year Weight                     | Weight for blood drawn exam |
-
----
-### FPED Food Patterns Data
-
-| Dataset     | Variable           | Description                                   | Definition |
-|-------------|--------------------|-----------------------------------------------|------------|
-| FPED_1720   | FOODCODE           | USDA Food Code                                | Unique food item identifier |
-|             | DESCRIPTION        | Food name                                     | Text description of the food |
-|             | F_TOTAL            | Total fruits (cup eq)                         | All fruit servings including juice |
-|             | F_JUICE            | Fruit juice (cup eq)                          | 100% fruit juice servings |
-|             | F_CITMLB           | Citrus, melon, berries (cup eq)               | Citrus fruits, melons, and berries only |
-|             | F_OTHER            | Other fruits (cup eq)                         | Fruits not in citrus/melon/berry group |
-|             | V_TOTAL            | Total vegetables (cup eq)                     | All vegetable servings |
-|             | V_DRKGR            | Dark green vegetables (cup eq)                | Spinach, kale, broccoli, etc. |
-|             | V_LEGUMES          | Legumes (cup eq)                              | Beans and peas counted as vegetables |
-|             | G_WHOLE            | Whole grains (oz eq)                          | Ounces of whole grain intake |
-|             | G_REFINED          | Refined grains (oz eq)                        | Ounces of refined grain intake |
-|             | D_TOTAL            | Total dairy (cup eq)                          | Milk, cheese, yogurt, etc. |
-|             | D_MILK             | Milk (cup eq)                                 | Fluid milk and milk-based drinks |
-|             | D_YOGURT           | Yogurt (cup eq)                               | Yogurt servings |
-|             | D_CHEESE           | Cheese (cup eq)                               | Cheese and cheese-containing foods |
-|             | PF_TOTAL           | Total protein foods (oz eq)                   | Meat, poultry, seafood, nuts, seeds, soy |
-|             | PF_MPS_TOTAL       | Meat, poultry, seafood total (oz eq)          | All animal-based protein foods |
-|             | PF_SEAFD_HI        | High omega-3 seafood (oz eq)                  | Salmon, mackerel, trout, etc. |
-|             | PF_SEAFD_LOW       | Low omega-3 seafood (oz eq)                   | Shrimp, tilapia, cod, etc. |
-|             | SOLID_FATS         | Solid fats (g)                                | Butter, lard, beef fat, etc. |
-|             | ADD_SUGARS         | Added sugars (tsp eq)                         | Table sugar, syrups, sweeteners |
-|             | OILS               | Oils (g)                                      | Plant oils, fish oils, and soft fats |
-
---
 ## Data Summary
 
 ### What is this data about?
@@ -224,6 +136,8 @@ It looks at how people live and their health. It includes:
 - People answered questions about their habits and health.
 - Their food intake and body measurements were recorded.
 - The survey is designed to fairly represent all people in the U.S.
+
+---
 
 ## Data Source
 
@@ -258,12 +172,14 @@ cd health_track
 
 On Windows:
 ```bash
-# Create
 python -m venv venv
+```
 
 On macOS and Linux:
+```bash
 python3 -m venv venv
 ```
+
 This will create a new virtual environment named venv in your current directory
 
 ### 3. Activate Virtual Environment
@@ -279,11 +195,13 @@ source venv/bin/activate
 Your prompt should change to indicate that you are now operating within a Python virtual environment.
 
 ### 4. Install Requirements
+
 Install the required packages by running the following command:
 
 ```bash
 pip install -r requirements.txt
 ```
+
 You're now ready to run the project!
 
 ### 5. Run Jupyter Notebook
@@ -335,9 +253,9 @@ I used national health data collected by two government groups:
 
 The goal? To see how things like diet and lifestyle affect health outcomes, and to turn messy, raw data into clean, meaningful insights.
 
-**What I Did**
+### What I Did
 
-### 1. Getting the Data
+#### 1. Getting the Data
 
 I downloaded all the data files I needed from official websites:
 
@@ -347,7 +265,7 @@ I downloaded all the data files I needed from official websites:
 
 I saved everything neatly in a folder called data/raw.
 
-### 2. Cleaning and Organizing the Data
+#### 2. Cleaning and Organizing the Data
 
 The data was messy and spread across many files. So, I wrote 15 small Python scripts, each doing a specific job:
 
@@ -365,7 +283,7 @@ The data was messy and spread across many files. So, I wrote 15 small Python scr
 
 - Organize everything so it’s easier to work with later.
 
-### 3. Running the Scripts for data loading, cleaning and wrangling
+#### 3. Running the Scripts for data loading, cleaning and wrangling
 
 To bring it all together, I used a Jupyter Notebook called data_ingestion_and_cleaning.ipynb. Think of this notebook as the “master controller” — it runs all the scripts in the correct order:
 
@@ -382,7 +300,7 @@ In short, the notebook automates the full journey from messy raw data to clean, 
 At the end, I had clean, structured data that’s ready for Merging.
 
 
-### 4. Saving Processed Data in a Database - Used data_loading_database.ipynb notebook
+#### 4. Saving Processed Data in a Database - Used data_loading_database.ipynb notebook
 
 I saved the processed data into an SQLite database, where each part (diet, exercise, health, lifestyle, etc.) is stored as its own table.
 
@@ -414,7 +332,7 @@ For your reference, I am adding those python scripts detail below:
 | 15  | `feature_engineering.py`        | Creates new features or categorizes variables from NHANES health survey data.                          |
     |
 
-### 5. Analyzing the Data
+#### 5. Analyzing the Data
 
 I used six Jupyter Notebooks for different analysis goals. Each one looked at a specific question:
 
@@ -428,7 +346,7 @@ I used six Jupyter Notebooks for different analysis goals. Each one looked at a 
 | `obj_2.2_analysis.ipynb` | Checked if gender/race changes how lifestyle affects health          |
 | `obj_2.3_analysis.ipynb` | Created simple health advice based on the data                       |
 
-### 6. Survey Design Wasn’t Working—Here’s the Fix I Used
+#### 6. Survey Design Wasn’t Working—Here’s the Fix I Used
 
 The NHANES health data is collected using something called a complex survey design. That just means the people who took the survey weren’t picked totally at random—some groups, like older adults or specific communities, were intentionally included more often. Plus, not everyone answered every question.
 
