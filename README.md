@@ -6,7 +6,7 @@
 
 ## Project Objective
 
-This project looks at how daily habits, income, and access to healthcare affect common health problems in U.S. adults. It uses data from the 2021–2023 NHANES survey and focuses on issues like obesity, high blood pressure, diabetes, and high cholesterol. The goal is to see how things like what people eat, how much they move, and how well they sleep are linked to these conditions. It also looks at how money, education, and health insurance play a role in people’s health, and how health can differ between men and women and across different racial and ethnic groups. The findings can help create better public health policies based on real evidence.
+This project looks at how daily habits, income, and access to healthcare affect common health problems in U.S. adults. It uses national data from the 2021–2023 NHANES survey, which includes health interviews, physical exams, and lab results. To better understand what people eat, I also used data from the USDA ARS FPED (Food Patterns Equivalents Database)—this helps break down complex food intake into clear diet components, like how many fruits, veggies, or added sugars someone eats. The project focuses on key health issues like obesity, high blood pressure, diabetes, and high cholesterol. The goal is to see how lifestyle factors—like diet, physical activity, and sleep—are linked to these conditions. It also looks at how income, education, and health insurance shape health outcomes, and how these patterns differ between men and women, and across racial and ethnic groups. In the end, the hope is to turn these insights into useful ideas for improving public health policies.
 
 ---
 
