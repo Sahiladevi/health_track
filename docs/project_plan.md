@@ -119,73 +119,74 @@ Finally, I pulled together the important findings to help understand what lifest
 ## Architecture Overview
 
 1. **Set Up Environment**  
+   
    Start by creating a virtual Python environment and installing all required libraries from `requirements.txt`. This ensures everything runs smoothly and stays consistent.
 
 2. **Getting the Raw Data**  
 
-Download raw datasets from official government websites.
+   Download raw datasets from official government websites.
 
-- NHANES (2021–2023): A big national health survey with data on diet, exercise, sleep, medical conditions, etc.
+   - NHANES (2021–2023): A big national health survey with data on diet, exercise, sleep, medical conditions, etc.
 
-- USDA FPED: A dataset that breaks down the types of foods people ate.
+   - USDA FPED: A dataset that breaks down the types of foods people ate.
 
-Save all files in a structured folder: data/raw.
+   Save all files in a structured folder: data/raw.
 
 3. **Data Cleaning and Organization**  
    
-Write Python scripts to:
+   Write Python scripts to:
 
-- Clean and prepare each dataset (e.g., diet, sleep, exercise, etc.).
+   - Clean and prepare each dataset (e.g., diet, sleep, exercise, etc.).
 
-- Fix missing or messy entries.
+   - Fix missing or messy entries.
 
-- Standardize columns and formats.
+   - Standardize columns and formats.
 
-- Calculate a Healthy Eating Index (HEI) score.
+   - Calculate a Healthy Eating Index (HEI) score.
 
-- Engineer new features (e.g., group income levels, categorize physical activity).
+   - Engineer new features (e.g., group income levels, categorize physical activity).
 
-Organize this cleaned data into:
+   Organize this cleaned data into:
 
-- data/interim for lightly cleaned files
+   - data/interim for lightly cleaned files
 
-- data/clean for cleaned individual datasets
+   - data/clean for cleaned individual datasets
 
-- data/processed for fully prepared datasets with features
+   - data/processed for fully prepared datasets with features
 
-Use a central notebook (data_ingestion_and_cleaning.ipynb) to run all scripts in the correct order.
+   Use a central notebook (data_ingestion_and_cleaning.ipynb) to run all scripts in the correct order.
 
 4. **Save into a Database**
 
-Use an SQLite database to store all processed data in separate tables (diet, exercise, etc.).
+   Use an SQLite database to store all processed data in separate tables (diet, exercise, etc.).
 
-Create two combined datasets:
+   Create two combined datasets:
 
-- One for lifestyle + social factors
+   - One for lifestyle + social factors
 
-- One full dataset for complete analysis
+   - One full dataset for complete analysis
 
-Export final files into data/final as .csv files.
+   Export final files into data/final as .csv files.
 
 5. **Data Analysis Plan**
 
-Use Jupyter Notebooks to analyze the processed data. Key goals:
+   Use Jupyter Notebooks to analyze the processed data. Key goals:
 
-- Understand distribution of lifestyle and social factors.
+   - Understand distribution of lifestyle and social factors.
 
-- Find how these factors relate to health outcomes.
+   - Find how these factors relate to health outcomes.
 
-- Explore how different groups (e.g., gender, race) compare.
+   - Explore how different groups (e.g., gender, race) compare.
 
-- Create simple, data-backed health insights.
+   - Create simple, data-backed health insights.
 
 6. **Handling Survey Design**
 
-Use NHANES-provided survey weights to make results representative of the U.S. population.
+   Use NHANES-provided survey weights to make results representative of the U.S. population.
 
-Since full complex survey methods have limitations in Python:
+   Since full complex survey methods have limitations in Python:
 
-- Use Weighted Least Squares (WLS) and Generalized Linear Models (GLM) with HC3 correction to produce reliable estimates.
+   - Use Weighted Least Squares (WLS) and Generalized Linear Models (GLM) with HC3 correction to produce reliable estimates.
 
 ---
 
@@ -213,13 +214,13 @@ Since full complex survey methods have limitations in Python:
 
 8. **Final Deliverables**
 
-Clean and well-structured datasets (.csv and SQLite)
+   Clean and well-structured datasets (.csv and SQLite)
 
-Insightful analysis notebooks
+   Insightful analysis notebooks
 
-Clear findings about how lifestyle and social factors affect health
+   Clear findings about how lifestyle and social factors affect health
 
-Practical data-based health suggestions
+   Practical data-based health suggestions
 
 ---
 ## Project Timeline (10 Weeks)
@@ -243,33 +244,33 @@ Practical data-based health suggestions
 
 1. **Data Quality and Completeness**
 
-Risk: The health and food data from NHANES and USDA FPED could have missing or inconsistent entries, which might affect the accuracy of the analysis.
-Mitigation: I carefully cleaned the data using custom Python scripts to fix missing values, correct errors, and standardize the format. This helped make the data more reliable and easier to work with.
+   Risk: The health and food data from NHANES and USDA FPED could have missing or inconsistent entries, which might affect the accuracy of the analysis.
+   Mitigation: I carefully cleaned the data using custom Python scripts to fix missing values, correct errors, and standardize the format. This helped make the data more reliable and easier to work with.
 
 2. **Complex Survey Design Limitations**
 
-Risk: NHANES uses a complex survey design with weights and strata to represent the U.S. population, but the analysis tools in Python don’t fully support this complexity, which could lead to biased or incorrect results.
-Mitigation: I applied the survey weights to adjust for population representation and used Weighted Least Squares (WLS) and Generalized Linear Models (GLM) with robust correction methods. This is a widely accepted approach when full complex design modeling isn’t possible, ensuring the results remain trustworthy.
+   Risk: NHANES uses a complex survey design with weights and strata to represent the U.S. population, but the analysis tools in Python don’t fully support this complexity, which could lead to biased or incorrect results.
+   Mitigation: I applied the survey weights to adjust for population representation and used Weighted Least Squares (WLS) and Generalized Linear Models (GLM) with robust correction methods. This is a widely accepted approach when full complex design modeling isn’t possible, ensuring the results remain trustworthy.
 
 3. **Data Integration Challenges**
 
-Risk: Combining multiple datasets from different sources and formats can cause mismatches or loss of information.
-Mitigation: I organized the data step-by-step, saving intermediate cleaned and processed versions in clearly labeled folders. This made it easier to track changes and ensured smooth merging of datasets into a final, unified format.
+   Risk: Combining multiple datasets from different sources and formats can cause mismatches or loss of information.
+   Mitigation: I organized the data step-by-step, saving intermediate cleaned and processed versions in clearly labeled folders. This made it easier to track changes and ensured smooth merging of datasets into a final, unified format.
 
 4. **Script Errors or Workflow Breakdowns**
 
-Risk: Running multiple scripts and notebooks increases the chance of errors or disruptions in the workflow.
-Mitigation: I designed the data processing to be modular, with each script doing one specific job. I also used a master Jupyter Notebook to run scripts in the right order, helping catch issues early and keeping the process organized.
+   Risk: Running multiple scripts and notebooks increases the chance of errors or disruptions in the workflow.
+   Mitigation: I designed the data processing to be modular, with each script doing one specific job. I also used a master Jupyter Notebook to run scripts in the right order, helping catch issues early and keeping the process organized.
 
-5.**Overfitting or Misinterpretation in Analysis**
+5. **Overfitting or Misinterpretation in Analysis**
 
-Risk: Drawing incorrect conclusions from the data because of overlapping variables or statistical challenges.
-Mitigation: I carefully checked for multicollinearity and used robust statistical methods to avoid confusing overlapping effects. I also focused on interpreting results within the context of the data and methods used, highlighting limitations openly.
+   Risk: Drawing incorrect conclusions from the data because of overlapping variables or statistical challenges.
+   Mitigation: I carefully checked for multicollinearity and used robust statistical methods to avoid confusing overlapping effects. I also focused on interpreting results within the context of the data and methods used, highlighting limitations openly.
 
-6.**Data Security and Privacy**
+6. **Data Security and Privacy**
 
-Risk: Handling sensitive health data could raise privacy concerns.
-Mitigation: I only used publicly available, anonymized government datasets and kept all data securely stored locally. No personal identifiers were used or shared at any point.
+   Risk: Handling sensitive health data could raise privacy concerns.
+   Mitigation: I only used publicly available, anonymized government datasets and kept all data securely stored locally. No personal identifiers were used or shared at any point.
 
 ---
 
@@ -277,26 +278,27 @@ Mitigation: I only used publicly available, anonymized government datasets and k
 
 1. **Check the Data**
 
-Make sure the data doesn’t have missing or weird values. I’ll look for blanks, errors, or strange numbers to be sure the data is good to use.
+   Make sure the data doesn’t have missing or weird values. I’ll look for blanks, errors, or strange numbers to be sure the data is good to use.
 
 2. **Test the Scripts**
 
-Run each cleaning and processing script one by one to see if they do what they’re supposed to do. I’ll check the results to make sure everything is working right.
+   Run each cleaning and processing script one by one to see if they do what they’re supposed to do. I’ll check the results to make sure everything is working right.
 
 3. **Check Data Merging**
 
-After combining different data files, I’ll double-check that nothing got lost or mixed up. I’ll compare before and after merging to be sure all info is still correct.
+   After combining different data files, I’ll double-check that nothing got lost or mixed up. I’ll compare before and after merging to be sure all info is still correct.
 
 4. **Validate the Analysis**
 
-I’ll look at the statistical models and results carefully, making sure they make sense and follow the right methods. If something looks off, I’ll review and fix it.
+   I’ll look at the statistical models and results carefully, making sure they make sense and follow the right methods. If something looks off, I’ll review and fix it.
 
 5. **Review Final Results**
-Look over the final cleaned data and scores to confirm they are clear, accurate, and useful.
+   Look over the final cleaned data and scores to confirm they are clear, accurate, and useful.
 
 6. **Repeat the Process**
 
-Run the whole process again from start to finish to make sure it works smoothly every time, so others can do it too.
+   Run the whole process again from start to finish to make sure it works smoothly every time, so others can do it too.
+
 ---
 ## Contact 
 
