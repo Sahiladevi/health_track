@@ -385,46 +385,50 @@ It’s not a perfect substitute for full survey methods, but it’s a strong and
 project-root/
 │
 ├── data/
-      ├── raw           # Raw NHANES dataset in XPT format (downloaded) and Raw USDA ARS FPED dataset in xls format
-      ├── interim       # NHANES dataset with selected columns in csv format and FPED data in xlsx format
-      ├── clean         # cleaned datas
-      ├── processed     # processed data 
-      ├── final         # final merged data
+│   ├── raw/               # Raw NHANES dataset in XPT format (downloaded) and Raw USDA ARS FPED dataset in xls format
+│   ├── interim/           # NHANES dataset with selected columns in CSV format and FPED data in XLSX format
+│   ├── clean/             # Cleaned data
+│   ├── processed/         # Processed data
+│   ├── final/             # Final merged data
+│
 ├── database/
-      ├── nhanes_2021_2023.db  # SQLite database
-├── docs/                # related to project documents  
-      ├── final_report.md      # final analysis report
-      ├── project_plan.md      # Details about project objective,goals and analysis plan
-
-├── notebooks/          # Jupyter Notebooks
-      ├── data_ingestion_and_cleaning.ipynb # data loading, cleaning and wrangling
-      ├── data_loading_database # data loading to sqlite database and final merge of data for further analysis
-      ├── obj_1.1_analysis.ipynb # Characterize distributions of lifestyle behaviors and socioeconomic indicators
-      ├── obj_1.2_analysis.ipynb # Quantify associations 
-      ├── obj_1.3_analysis.ipynb # Explore specific relationships 
-      ├── obj_1.4_analysis.ipynb # Assess the combined effects 
-      ├── obj_2.1_analysis.ipynb # Compare distributions across gender and racial/ethnic groups.
-      ├── obj_2.2_analysis.ipynb # gender or race/ethnicity modifies the associations 
-      ├── obj_2.3_analysis.ipynb # Develop data-driven recommendations  
-
-├── outputs/   # Visualizations and Summary
-      ├── plots/          # contains all output visualization plots
-      ├── summary/       # summary about analysis     
-├── scripts/          # configuration, Data loading and cleaning and helper scripts
-      ├── config.py
-      ├── utils.py         
-      ├── db.utils.py
-      ├── data_loading.py
-      ├── data_cleaning.py
-      ├── feature_engineering.py
-      ├── calculating_usda_hei_score.py
-      ├── all individual data cleaning script 
-├── venv/             # Virtual environment folder (hidden) 
-├── .env            # store environment variables  
-├── README.md       # Project readme     
-├── requirements.txt       # Python dependencies
-
+│   └── nhanes_2021_2023.db      # SQLite database
+│
+├── docs/                       # Project documents  
+│   ├── final_report.md         # Final analysis report
+│   └── project_plan.md         # Project objective, goals, and analysis plan
+│
+├── notebooks/                  # Jupyter Notebooks
+│   ├── data_ingestion_and_cleaning.ipynb      # Data loading, cleaning and wrangling
+│   ├── data_loading_database.ipynb            # Load to SQLite & final merge
+│   ├── obj_1.1_analysis.ipynb                  # Characterize distributions of lifestyle behaviors and socioeconomic indicators
+│   ├── obj_1.2_analysis.ipynb                  # Quantify associations
+│   ├── obj_1.3_analysis.ipynb                  # Explore specific relationships
+│   ├── obj_1.4_analysis.ipynb                  # Assess combined effects
+│   ├── obj_2.1_analysis.ipynb                  # Compare across gender and racial/ethnic groups
+│   ├── obj_2.2_analysis.ipynb                  # Effect modification by gender/race
+│   └── obj_2.3_analysis.ipynb                  # Data-driven recommendations
+│
+├── outputs/                    # Visualizations and Summary
+│   ├── plots/                  # Output visualization plots
+│   └── summary/                # Summary reports about analysis
+│
+├── scripts/                    # Scripts for config, cleaning, feature engineering
+│   ├── config.py
+│   ├── utils.py         
+│   ├── db.utils.py
+│   ├── data_loading.py
+│   ├── data_cleaning.py
+│   ├── feature_engineering.py
+│   ├── calculating_usda_hei_score.py
+│   └── [individual cleaning scripts...]
+│
+├── venv/                       # Virtual environment (hidden)
+├── .env                        # Environment variables
+├── README.md                   # Project overview
+├── requirements.txt            # Python dependencies
 ```
+
 ---
 
 ## Contact
