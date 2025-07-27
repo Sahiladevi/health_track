@@ -9,7 +9,7 @@
 
 ## Project Overview
 
-This project looks at how daily habits, income, and access to healthcare affect common health problems in U.S. adults. It uses national data from the 2021–2023 NHANES survey, which includes health interviews, physical exams, and lab results. To better understand what people eat, I also used data from the USDA ARS FPED (Food Patterns Equivalents Database)—this helps break down complex food intake into clear diet components, like how many fruits, veggies, or added sugars someone eats. The project focuses on key health issues like obesity, high blood pressure, diabetes, and high cholesterol. The goal is to see how lifestyle factors—like diet, physical activity, and sleep—are linked to these conditions. It also looks at how income, education, and health insurance shape health outcomes, and how these patterns differ between men and women, and across racial and ethnic groups. In the end, the hope is to turn these insights into useful ideas for improving public health policies.
+This project looks at how daily habits, income, and access to healthcare affect common health problems in U.S. adults. It uses national data from the 2021–2023 NHANES survey, which includes health interviews, physical exams, and lab results. To better understand what people eat, I also used data from the USDA ARS FPED (Food Patterns Equivalents Database), this helps break down complex food intake into clear diet components, like how many fruits, veggies, or added sugars someone eats. The project focuses on key health issues like obesity, high blood pressure, diabetes, and high cholesterol. The goal is to see how lifestyle factors—like diet, physical activity, and sleep are linked to these conditions. It also looks at how income, education, and health insurance shape health outcomes, and how these patterns differ between men and women, and across racial and ethnic groups. In the end, the hope is to turn these insights into useful ideas for improving public health policies.
 
 ---
 
@@ -23,7 +23,7 @@ By studying these links, I want to uncover patterns and inequalities—especiall
 
 ## Scope 
 
-This project is all about looking at how everyday habits—like what people eat, how much they exercise, and how well they sleep—along with things like income, education, and healthcare access, affect health problems in adults across the U.S.
+This project is all about looking at how everyday habits—like what people eat, how much they exercise, and how well they sleep along with things like income, education, and healthcare access, affect health problems in adults across the U.S.
 
 I’m focusing on common issues like obesity, high blood pressure, diabetes, and high cholesterol.
 
@@ -39,7 +39,7 @@ I started by cleaning up all the messy data, putting it in order, and creating n
 
 **Looking at the Basics**
 
-I checked how lifestyle habits and social factors are spread out in the data—like who exercises more, who eats healthier, and how income and education look across the group.
+I checked how lifestyle habits and social factors are spread out in the data like who exercises more, who eats healthier, and how income and education look across the group.
 
 **Finding Connections**
 
@@ -66,7 +66,7 @@ Finally, I pulled together the important findings to help understand what lifest
 
 - Then, I’ll look at how these factors relate to key health measures like body weight (BMI), blood pressure, cholesterol, blood sugar, and common health problems like diabetes, obesity, and high blood pressure.
 
-- I’ll also zoom in on specific connections—for example, how the amount of sleep someone gets might affect their body weight.
+- I’ll also zoom in on specific connections, for example, how the amount of sleep someone gets might affect their body weight.
 
 - Plus, I want to see how different habits work together, like diet and exercise, to impact health.
 
@@ -82,23 +82,23 @@ Finally, I pulled together the important findings to help understand what lifest
 
 ## Features
 
-- Cleaned and Combined Data: Took multiple messy NHANES and USDA FPED files and cleaned them up using Python scripts, making the data easy to understand and work with.
+- **Cleaned and Combined Data:** Took multiple messy NHANES and USDA FPED files and cleaned them up using Python scripts, making the data easy to understand and work with.
 
-- Organized Data in Steps: Saved the data at different stages—raw, interim, clean, and processed—so everything is well-organized and easy to track.
+- **Organized Data in Steps:** Saved the data at different stages — raw, interim, clean, and processed, so everything is well-organized and easy to track.
 
-- Created New Useful Info: Added new columns like income groups, physical activity levels, and a Healthy Eating Index score to better understand diet quality and lifestyle.
+- **Created New Useful Info:** Added new columns like income groups, physical activity levels, and a Healthy Eating Index score to better understand diet quality and lifestyle.
 
-- Automated Data Processing: Used a master Jupyter Notebook to run all the cleaning and organizing scripts in the right order, turning raw data into clean, ready-to-use datasets.
+- **Automated Data Processing:** Used a master Jupyter Notebook to run all the cleaning and organizing scripts in the right order, turning raw data into clean, ready-to-use datasets.
 
-- Stored Data in a Database: Put the cleaned and processed data into an SQLite database, loading it into their tables by topic (like diet, exercise, health) for easy access.
+- **Stored Data in a Database:** Put the cleaned and processed data into an SQLite database, loading it into their tables by topic (like diet, exercise, health) for easy access.
 
-- Merged Data for Analysis: Combined tables into larger datasets—one focusing on lifestyle and social factors, and another with all health info—saved as CSV files for further study.
+- **Merged Data for Analysis:** Combined tables into larger datasets, one focusing on lifestyle and social factors, and another with all health info—saved as CSV files for further study.
 
-- Used Survey Weights: Applied NHANES survey weights during analysis to make sure the results represent the whole U.S. population, even though the survey design is complex.
+- **Used Survey Weights:** Applied NHANES survey weights during analysis to make sure the results represent the whole U.S. population, even though the survey design is complex.
 
-- Handled Complex Survey Challenges: Since some Python tools don’t fully support NHANES’s survey design, used trusted workarounds like Weighted Least Squares and Generalized Linear Models with HC3 correction to get reliable results.
+- **Handled Complex Survey Challenges:** Since some Python tools don’t fully support NHANES’s survey design, used trusted workarounds like Weighted Least Squares and Generalized Linear Models with HC3 correction to get reliable results.
 
-- Analyzed Data with Multiple Notebooks: Ran focused analyses using different Jupyter Notebooks, looking at lifestyle habits, health outcomes, and differences across gender and race.
+- **Analyzed Data with Multiple Notebooks:** Ran focused analyses using different Jupyter Notebooks, looking at lifestyle habits, health outcomes, and differences across gender and race.
 
 ---
 
@@ -220,7 +220,7 @@ Finally, I pulled together the important findings to help understand what lifest
 
    Clear findings about how lifestyle and social factors affect health
 
-   Practical data-based health suggestions
+   Practical data based health suggestions
 
 ---
 ## Project Timeline (10 Weeks)
