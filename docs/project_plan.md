@@ -7,6 +7,14 @@
 
 ---
 
+## Problem Statement
+
+Chronic health conditions such as obesity, diabetes, high blood pressure, high cholesterol and heart diseases continue to rise among U.S. adults. While medical advances have helped manage these conditions, less attention has been paid to the root causes like poor diet, physical inactivity, inadequate sleep, and limited access to healthcare. These lifestyle and social factors are deeply interconnected, and they don’t affect everyone equally. People from lower-income backgrounds or certain racial and ethnic groups often face greater barriers to staying healthy.
+
+Despite the availability of large national health surveys, we still lack a clear, up-to-date understanding of how these everyday factors combine to shape health outcomes. This project aims to fill that gap using recent NHANES and USDA data to explore how lifestyle and social variables are tied to health—offering insights that can inform public health efforts and personalized health advice.
+
+---
+
 ## Project Overview
 
 This project looks at how daily habits, income, and access to healthcare affect common health problems in U.S. adults. It uses national data from the 2021–2023 NHANES survey, which includes health interviews, physical exams, and lab results. To better understand what people eat, I also used data from the USDA ARS FPED (Food Patterns Equivalents Database), this helps break down complex food intake into clear diet components, like how many fruits, veggies, or added sugars someone eats. The project focuses on key health issues like obesity, high blood pressure, diabetes, and high cholesterol. The goal is to see how lifestyle factors—like diet, physical activity, and sleep are linked to these conditions. It also looks at how income, education, and health insurance shape health outcomes, and how these patterns differ between men and women, and across racial and ethnic groups. In the end, the hope is to turn these insights into useful ideas for improving public health policies.
@@ -21,9 +29,25 @@ By studying these links, I want to uncover patterns and inequalities—especiall
 
 ---
 
+## Research Questions Explored
+
+As I worked through the project, these were the core questions that kept guiding my decisions, from how I cleaned and prepared the data to how I approached the analysis:
+
+- How do everyday habits like diet, exercise, and sleep affect health indicators such as BMI, blood pressure, and blood sugar?
+
+- What role do social factors like income, education, and health insurance—play in the risk of chronic conditions like obesity, diabetes, and hypertension?
+
+- Are there meaningful differences across gender or race in how lifestyle and social factors influence health?
+
+- What happens when multiple unhealthy behaviors stack up, do they compound the risk of chronic disease?
+
+These aren’t just abstract questions, they reflect real-world health challenges faced by millions of adults in the U.S. By exploring them, I hope to find meaningful patterns that can support better health outcomes.
+
+---
+
 ## Scope 
 
-This project is all about looking at how everyday habits—like what people eat, how much they exercise, and how well they sleep along with things like income, education, and healthcare access, affect health problems in adults across the U.S.
+This project is all about looking at how everyday habits like what people eat, how much they exercise, and how well they sleep along with things like income, education, and healthcare access, affect health problems in adults across the U.S.
 
 I’m focusing on common issues like obesity, high blood pressure, diabetes, and high cholesterol.
 
@@ -101,18 +125,18 @@ Finally, I pulled together the important findings to help understand what lifest
 - **Analyzed Data with Multiple Notebooks:** Ran focused analyses using different Jupyter Notebooks, looking at lifestyle habits, health outcomes, and differences across gender and race.
 
 ---
-
 ## Technologies
 
-| What I Used         | Tools / Programs             | How I Used It                                                     |
-| ------------------- | ---------------------------- | ----------------------------------------------------------------- |
-| Programming         | Python (version 3.13.1)      | I wrote all the code for the project using Python.                |
-| Handling Data       | Pandas, NumPy                | I used these to organize and work with the data.                  |
-| Making Graphs       | Seaborn, Matplotlib, Plotly  | I created charts and graphs to help explain my results.           |
-| Statistics          | Statsmodels (for regression) | I analyzed data patterns and relationships with this.             |
-| Storing Data        | SQLite                       | I saved and managed the data using this database.                 |
-| Writing and Sharing | Jupyter Notebooks            | I combined my code and notes in one interactive file.             |
-| Project Setup       | Virtualenv                   | I kept all the project’s tools and packages separate from others. |
+| What I Used              | Tools / Programs             | How I Used It                                                     |
+|--------------------------|------------------------------|-------------------------------------------------------------------|
+| Programming              | Python (version 3.13.1)      | I wrote all the code for the project using Python.                |
+| Handling Data            | Pandas, NumPy                | I used these to organize and work with the data.                  |
+| Making Graphs            | Seaborn, Matplotlib, Plotly  | I created charts and graphs to help explain my results.           |
+| Statistics               | Statsmodels (for regression) | I analyzed data patterns and relationships with this.             |
+| Storing Data             | SQLite                       | I saved and managed the data using this database.                 |
+| Writing and Sharing      | Jupyter Notebooks            | I combined my code and notes in one interactive file.             |
+| Project Setup            | Virtualenv                   | I kept all the project’s tools and packages separate from others. |
+| Version Control & Hosting| GitHub                       | I tracked changes, collaborated, and shared the full project online. |
 
 ---
 
@@ -162,7 +186,7 @@ Finally, I pulled together the important findings to help understand what lifest
 
    Create two combined datasets:
 
-   - One for lifestyle + social factors
+   - One for lifestyle and social factors
 
    - One full dataset for complete analysis
 
