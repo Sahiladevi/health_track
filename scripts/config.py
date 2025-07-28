@@ -25,6 +25,8 @@ FINAL_DATA_DIR =  BASE_PATH / 'data' / 'final'
 # Path to SQLite database
 DATABASE_PATH = BASE_PATH / "database" / "nhanes_2021_2023.db"
 
+INSIGHT_DIR = BASE_PATH / 'dashboard' / 'insights'
+
 
 OUTPUTS_DIR = BASE_PATH / 'outputs'
 PLOTS_DIR = OUTPUTS_DIR / 'plots'
