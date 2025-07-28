@@ -3,8 +3,8 @@
 Dep. Variable:           systolic_avg   R-squared:                       0.001
 Model:                            WLS   Adj. R-squared:                  0.001
 Method:                 Least Squares   F-statistic:                     4.364
-Date:                Sat, 26 Jul 2025   Prob (F-statistic):             0.0368
-Time:                        14:28:27   Log-Likelihood:                -25013.
+Date:                Mon, 28 Jul 2025   Prob (F-statistic):             0.0368
+Time:                        15:39:15   Log-Likelihood:                -25013.
 No. Observations:                5735   AIC:                         5.003e+04
 Df Residuals:                    5733   BIC:                         5.004e+04
 Df Model:                           1                                         
