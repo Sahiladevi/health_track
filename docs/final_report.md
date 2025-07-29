@@ -6,7 +6,7 @@
 
 Chronic health conditions such as obesity, diabetes, high blood pressure, high cholesterol and heart diseases continue to rise among U.S. adults. While medical advances have helped manage these conditions, less attention has been paid to the root causes like poor diet, physical inactivity, inadequate sleep, and limited access to healthcare. These lifestyle and social factors are deeply interconnected, and they don’t affect everyone equally. People from lower-income backgrounds or certain racial and ethnic groups often face greater barriers to staying healthy.
 
-Despite the availability of large national health surveys, we still lack a clear, up-to-date understanding of how these everyday factors combine to shape health outcomes. This project aims to fill that gap using recent NHANES and USDA data to explore how lifestyle and social variables are tied to health—offering insights that can inform public health efforts and personalized health advice.
+Despite the availability of large national health surveys, we still lack a clear, up-to-date understanding of how these everyday factors combine to shape health outcomes. This project aims to fill that gap using recent NHANES and USDA data to explore how lifestyle and social variables are tied to health offering insights that can inform public health efforts and personalized health advice.
 
 ---
 
@@ -40,7 +40,7 @@ The weighted results give a better national picture, so I mainly focused on thos
 
 Even in the raw (unweighted) data, about 80% eat poorly.
 
-[Plot: Diet Score Distribution]
+***Plot: Diet Score Distribution***
 Most people are not eating healthy diets. The chart shows a heavy tilt toward low scores.
 
 #### Physical Activity
@@ -49,7 +49,7 @@ Over half (52%) of adults are low active.
 
 Only about 1 in 4 are getting enough exercise.
 
-[Plot: Weekly Activity & Activity Levels]
+***Plot: Weekly Activity & Activity Levels***
 The chart clearly shows that many people aren't moving enough.
 
 #### Sleep Duration
@@ -60,7 +60,7 @@ The chart clearly shows that many people aren't moving enough.
 
 13.2% sleep more than 9 hours.
 
-[Plot: Sleep Duration Histogram]
+***Plot: Sleep Duration Histogram***
 Most are sleeping fine, but some get too little or too much sleep.
 
 #### Health Insurance
@@ -69,7 +69,7 @@ Most are sleeping fine, but some get too little or too much sleep.
 
 About 9% do not.
 
-[Plot: Insurance Coverage Pie Chart]
+***Plot: Insurance Coverage Pie Chart***
 Even though most people are covered, millions still don’t have insurance.
 
 #### Education
@@ -78,7 +78,7 @@ Even though most people are covered, millions still don’t have insurance.
 
 About 36% have a college degree or higher.
 
-[Plot: Education Levels]
+***Plot: Education Levels***
 Many people started college but didn’t finish. A smaller group finished college or beyond.
 
 #### Income (Poverty Ratio - PIR)
@@ -87,7 +87,7 @@ The average poverty ratio is 3.06 (weighted).
 
 The unweighted average is slightly lower, at 2.91.
 
-[Plot: PIR Distribution]
+***Plot: PIR Distribution***
 A lot of people are living near or below the poverty line.
 
 #### Race & Ethnicity
@@ -95,7 +95,7 @@ A lot of people are living near or below the poverty line.
 
 Followed by Black (10.5%), Hispanic, Asian, and Multiracial groups.
 
-[Plot: Race/Ethnicity Chart]
+***Plot: Race/Ethnicity Chart***
 The data shows that the U.S. is very diverse, which matters when making health programs that work for everyone.
 
 **What Can Be Done?**
@@ -145,7 +145,7 @@ Non-Hispanic Asian adults had much lower BMI than all other groups.
 
 Age and income didn’t seem to make a big difference here.
 
-***Plot: Lifestyle + Demographics → BMI (Regression Coefficient Plot: Factors Predicting BMI)***
+***Plot: Lifestyle and Socio-economic → BMI (Regression Coefficient Plot: Factors Predicting BMI)***
 
 The chart shows which traits push BMI higher or lower. It's a quick way to see what really matters.
 
@@ -165,7 +165,7 @@ People who slept more had slightly lower diastolic BP.
 
 So blood pressure is heavily influenced by age, gender, activity, and race.
 
-***Plot: Lifestyle + Demographics → Blood Pressure (Coefficient Plots for Systolic & Diastolic BP)***
+***Plot: Lifestyle and Socio-economic → Blood Pressure (Coefficient Plots for Systolic & Diastolic BP)***
 
 The charts show how each factor pushes BP up or down—making it easy to spot key contributors.
 
@@ -183,7 +183,7 @@ Being inactive may raise cholesterol a bit, but results weren’t very strong.
 
 Overall, we didn’t find strong patterns here—cholesterol may depend more on genetics, medication, or other factors not measured.
 
-***Plot: Lifestyle + Demographics → Cholesterol (Coefficient Plot for Total Cholesterol)***
+***Plot: Lifestyle and Socio-economic → Cholesterol (Coefficient Plot for Total Cholesterol)***
 
 The graph shows small shifts in cholesterol, but no dramatic changes based on lifestyle alone.
 
@@ -201,7 +201,7 @@ Better diet and being Non-Hispanic Asian were linked to lower glucose levels.
 
 Again, activity didn’t have a huge impact here.
 
-***Plot: Lifestyle + Demographics → Glucose (Predicted Fasting Glucose by Factors)***
+***Plot: Lifestyle and Socio-economic → Glucose (Predicted Fasting Glucose by Factors)***
 
 The graph helps visualize how blood sugar varies across groups.
 
@@ -221,7 +221,7 @@ Non-Hispanic White and Asian adults had the lowest risk.
 
 Having health insurance was linked to higher diagnosis—probably because more people got tested.
 
-***Plot: Lifestyle + Demographics → Diabetes Risk (Odds Ratios for Each Risk Factor)***
+***Plot: Lifestyle and Socio-economic → Diabetes Risk (Odds Ratios for Each Risk Factor)***
 
 The chart shows how much each factor increases or lowers the odds of having diabetes.
 
@@ -239,7 +239,7 @@ People with short sleep or bad cholesterol had higher odds of heart problems.
 
 This model combined a wide mix of health and lifestyle factors to give a fuller picture.
 
-***Plot: Lifestyle + Clinical Factors → Heart Disease (Odds Ratio Plot for CVD Risk)***
+***Plot: Lifestyle and Clinical Factors → Heart Disease (Odds Ratio Plot for CVD Risk)***
 
 This chart shows which factors matter most when it comes to heart health.
 
@@ -604,9 +604,36 @@ So yes—eating healthier helps reduce diabetes risk, especially for women.
 ***Plot: Diet × Gender → Diabetes Risk (Predicted Probability of Diabetes by HEI Score and Gender):*** 
 
 The graph shows how the chances of having diabetes go down as diet gets better, with separate lines for men and women.
+---
 
 ### Objective 2.3: Data-Driven Recommendations
 
-- Summary of Key Findings
-- Actionable Insights
-- Supporting Visuals & Tables
+ ***Summary of Key Findings***
+
+  Based on the analysis, we found that health disparities are influenced by a combination of lifestyle behaviors, socioeconomic factors, and demographic differences like gender and race/ethnicity. Some groups face more barriers to healthy living, which affects outcomes like BMI, blood pressure, and cholesterol.
+
+***Actionable Insights***
+
+To reduce these health gaps, it is important to:
+
+- Improve access to healthy food, safe exercise spaces, and quality sleep resources for all communities.
+
+- Design health programs that address the specific needs of different groups, recognizing that one size does not fit all.
+
+- Focus efforts on populations most at risk, informed by the data on income, education, and lifestyle behaviors.
+
+***Summary Table of Recommendations***
+
+The table below summarizes key recommendations based on the analysis:
+
+| Recommendation Area                                | Key Actions / Details                                                                                                                                                                                              | Target Groups / Notes                                                                                                          |
+| -------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------ |
+| **Make Healthy Living Easier for Everyone**        | - Support community programs for better diet, exercise, and sleep<br>- Invest in safe parks, walking paths, and free fitness programs<br>- Provide sleep education and mental health support                       | Focus on underserved neighborhoods, especially Non-Hispanic Black and Hispanic families<br>Men report less sleep across groups |
+| **Improve Access to Healthcare**                   | - Expand insurance coverage and simplify enrollment<br>- Offer screenings and preventive care via mobile clinics, schools, churches<br>- Support local outreach programs                                           | Especially important for Non-Hispanic Black and Hispanic communities                                                           |
+| **Talk About Health in Ways That Respect Culture** | - Share health info in multiple languages<br>- Address differences in how men and women respond to diet, sleep, stress<br>- Build trust through community leaders and culturally relevant messages                 | Black men had lowest diet quality; focus on trusted messengers                                                                 |
+| **Tackle the Bigger Picture**                      | - Increase grocery stores and affordable produce in low-income areas<br>- Pass policies addressing health gaps linked to race, income, and gender<br>- Support schools and workplaces with healthy habits programs | Emphasize long-term investments beyond individual choices                                                                      |
+
+---
+
+*End of final_report File*
+
