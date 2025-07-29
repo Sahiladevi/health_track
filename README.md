@@ -383,11 +383,12 @@ It’s not a perfect substitute for full survey methods, but it’s a strong and
 ## Project Folder Structure
 
 ```
-project-root/
+health_track/
 │
 ├── dashboard/             # for interactactive web app
 │   ├── insights/          # Key findings summary
-│   ├── health_track_app.py # Streamlit python script            
+│   ├── health_track_app.py # Streamlit python script
+|            
 ├── data/
 │   ├── raw/               # Raw NHANES dataset in XPT format (downloaded) and Raw USDA ARS FPED dataset in xls format
 │   ├── interim/           # NHANES dataset with selected columns in CSV format and FPED data in XLSX format
