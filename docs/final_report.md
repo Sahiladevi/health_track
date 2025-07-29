@@ -586,8 +586,7 @@ So, diet didn’t seem to have a strong link to cholesterol here. That doesn’t
 
 The graph shows cholesterol levels for men and women across different diet scores. It’s a nice visual to see trends, even if the differences weren’t huge.
 
-#### 4
-. Does a Healthy Diet Lower Diabetes Risk More for Women?
+#### 4. Does a Healthy Diet Lower Diabetes Risk More for Women?
 
 Lastly, I looked at how diet affects the chances of having diabetes, and if that link is different for men and women.
 
@@ -602,8 +601,8 @@ A healthy diet seems to protect women a little more than men.
 So yes—eating healthier helps reduce diabetes risk, especially for women.
 
 ***Plot: Diet × Gender → Diabetes Risk (Predicted Probability of Diabetes by HEI Score and Gender):*** 
-
 The graph shows how the chances of having diabetes go down as diet gets better, with separate lines for men and women.
+
 ---
 
 ### Objective 2.3: Data-Driven Recommendations
