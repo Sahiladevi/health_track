@@ -385,6 +385,9 @@ It’s not a perfect substitute for full survey methods, but it’s a strong and
 ```
 project-root/
 │
+├── dashboard/             # for interactactive web app
+│   ├── insights/          # Key findings summary
+│   ├── health_track_app.py # Streamlit python script            
 ├── data/
 │   ├── raw/               # Raw NHANES dataset in XPT format (downloaded) and Raw USDA ARS FPED dataset in xls format
 │   ├── interim/           # NHANES dataset with selected columns in CSV format and FPED data in XLSX format
@@ -397,7 +400,8 @@ project-root/
 │
 ├── docs/                       # Project documents  
 │   ├── final_report.md         # Final analysis report
-│   └── project_plan.md         # Project objective, goals, and analysis plan
+│   ├── project_plan.md         # Project objective, goals, and analysis plan
+|   ├── project_summary.md      # Project final summary     
 │
 ├── notebooks/                  # Jupyter Notebooks
 │   ├── data_ingestion_and_cleaning.ipynb      # Data loading, cleaning and wrangling
