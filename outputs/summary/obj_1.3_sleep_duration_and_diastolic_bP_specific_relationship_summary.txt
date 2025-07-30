@@ -3,8 +3,8 @@
 Dep. Variable:          diastolic_avg   R-squared:                       0.006
 Model:                            WLS   Adj. R-squared:                  0.006
 Method:                 Least Squares   F-statistic:                     23.07
-Date:                Mon, 28 Jul 2025   Prob (F-statistic):           1.60e-06
-Time:                        15:39:15   Log-Likelihood:                -22406.
+Date:                Tue, 29 Jul 2025   Prob (F-statistic):           1.60e-06
+Time:                        20:45:10   Log-Likelihood:                -22406.
 No. Observations:                5735   AIC:                         4.482e+04
 Df Residuals:                    5733   BIC:                         4.483e+04
 Df Model:                           1                                         
