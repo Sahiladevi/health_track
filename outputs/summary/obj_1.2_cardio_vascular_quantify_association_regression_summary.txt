@@ -5,8 +5,8 @@ Model:                            GLM   Df Residuals:              54059321.11
 Model Family:                Binomial   Df Model:                           29
 Link Function:                  Logit   Scale:                          1.0000
 Method:                          IRLS   Log-Likelihood:            -8.7703e+06
-Date:                Sat, 26 Jul 2025   Deviance:                   1.7541e+07
-Time:                        14:28:14   Pearson chi2:                 1.65e+08
+Date:                Tue, 29 Jul 2025   Deviance:                   1.7541e+07
+Time:                        20:44:47   Pearson chi2:                 1.65e+08
 No. Iterations:                     8   Pseudo R-squ. (CS):              1.000
 Covariance Type:                  HC3                                         
 ================================================================================================================
