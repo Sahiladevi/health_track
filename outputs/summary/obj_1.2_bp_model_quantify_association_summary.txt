@@ -4,8 +4,8 @@ Systolic BP Model:
 Dep. Variable:           systolic_avg   R-squared:                       0.205
 Model:                            WLS   Adj. R-squared:                  0.201
 Method:                 Least Squares   F-statistic:                     43.16
-Date:                Sat, 26 Jul 2025   Prob (F-statistic):          9.36e-131
-Time:                        14:28:07   Log-Likelihood:                -14620.
+Date:                Tue, 29 Jul 2025   Prob (F-statistic):          9.36e-131
+Time:                        20:44:41   Log-Likelihood:                -14620.
 No. Observations:                3478   AIC:                         2.928e+04
 Df Residuals:                    3460   BIC:                         2.939e+04
 Df Model:                          17                                         
@@ -47,8 +47,8 @@ Diastolic BP Model:
 Dep. Variable:          diastolic_avg   R-squared:                       0.041
 Model:                            WLS   Adj. R-squared:                  0.036
 Method:                 Least Squares   F-statistic:                     5.214
-Date:                Sat, 26 Jul 2025   Prob (F-statistic):           1.59e-11
-Time:                        14:28:07   Log-Likelihood:                -13345.
+Date:                Tue, 29 Jul 2025   Prob (F-statistic):           1.59e-11
+Time:                        20:44:41   Log-Likelihood:                -13345.
 No. Observations:                3478   AIC:                         2.673e+04
 Df Residuals:                    3460   BIC:                         2.684e+04
 Df Model:                          17                                         
