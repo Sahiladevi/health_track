@@ -3,8 +3,8 @@
 Dep. Variable:                    bmi   R-squared:                       0.083
 Model:                            WLS   Adj. R-squared:                  0.079
 Method:                 Least Squares   F-statistic:                     15.69
-Date:                Sat, 26 Jul 2025   Prob (F-statistic):           5.94e-45
-Time:                        14:28:03   Log-Likelihood:                -12103.
+Date:                Tue, 29 Jul 2025   Prob (F-statistic):           5.94e-45
+Time:                        20:44:38   Log-Likelihood:                -12103.
 No. Observations:                3523   AIC:                         2.424e+04
 Df Residuals:                    3505   BIC:                         2.435e+04
 Df Model:                          17                                         
