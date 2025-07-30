@@ -1,0 +1,19 @@
+                 Generalized Linear Model Regression Results                  
+==============================================================================
+Dep. Variable:        diabetes_binary   No. Observations:                 4793
+Model:                            GLM   Df Residuals:             145395234.74
+Model Family:                Binomial   Df Model:                            3
+Link Function:                  Logit   Scale:                          1.0000
+Method:                          IRLS   Log-Likelihood:            -5.6595e+07
+Date:                Tue, 29 Jul 2025   Deviance:                   1.1319e+08
+Time:                        20:47:13   Pearson chi2:                 1.45e+08
+No. Iterations:                     6   Pseudo R-squ. (CS):              1.000
+Covariance Type:                  HC3                                         
+============================================================================================
+                               coef    std err          z      P>|z|      [0.025      0.975]
+--------------------------------------------------------------------------------------------
+Intercept                   -1.2765      0.001  -1005.339      0.000      -1.279      -1.274
+gender[T.Male]               0.2817      0.002    156.754      0.000       0.278       0.285
+hei_score                   -0.0147    2.6e-05   -563.884      0.000      -0.015      -0.015
+hei_score:gender[T.Male]    -0.0021   3.76e-05    -55.580      0.000      -0.002      -0.002
+============================================================================================
