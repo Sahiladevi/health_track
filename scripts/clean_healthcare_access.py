@@ -3,12 +3,19 @@ scripts\\clean_healthcare_access.py
 Cleans the HIQ_L dataset, which contains information about health insurance coverage.
 
 """
+import sys
+from pathlib import Path
+
+# Add project root to sys.path 
+project_root = Path(__file__).parent.parent.resolve()
+if str(project_root) not in sys.path:
+    sys.path.insert(0, str(project_root))
+
 import pandas as pd
 import numpy as np
-from config import CLEAN_DATA_DIR, datasets
-from data_loading import load_dataset
-from utils import rename_columns, show_missing, drop_missing, pretty_path
-
+from scripts.config import CLEAN_DATA_DIR, datasets
+from scripts.data_loading import load_dataset
+from scripts.utils import rename_columns, show_missing, drop_missing, pretty_path
 
 def clean_insurance_coverage(df: pd.DataFrame) -> pd.DataFrame:
     """

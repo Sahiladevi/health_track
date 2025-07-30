@@ -7,18 +7,25 @@ Cleans raw NHANES datasets using specific functions tailored for each dataset ty
 3. Explores the cleaned datasets using the shared explore_data utility.
 """
 
-from clean_demo import clean_demo
-from clean_clinical_exam import clean_bmi, clean_bp, clean_total_cholesterol, clean_glucose
-from clean_sleep import clean_sleep
-from clean_physical import clean_physical_activity
-from clean_diet import clean_individual_diet,clean_total_diet
-from clean_healthcare_access import clean_insurance_coverage
-from clean_chronic_disease import clean_diq, clean_mcq
-from clean_fped import clean_fped
-
+import sys
+from pathlib import Path
 import pandas as pd
 from typing import Dict
-from utils import explore_data
+
+# Add project root to sys.path 
+project_root = Path(__file__).parent.parent.resolve()
+if str(project_root) not in sys.path:
+    sys.path.insert(0, str(project_root))
+
+from scripts.clean_demo import clean_demo
+from scripts.clean_clinical_exam import clean_bmi, clean_bp, clean_total_cholesterol, clean_glucose
+from scripts.clean_sleep import clean_sleep
+from scripts.clean_physical import clean_physical_activity
+from scripts.clean_diet import clean_individual_diet,clean_total_diet
+from scripts.clean_healthcare_access import clean_insurance_coverage
+from scripts.clean_chronic_disease import clean_diq, clean_mcq
+from scripts.clean_fped import clean_fped
+from scripts.utils import explore_data
 
 
 def clean_datasets(raw_dfs: Dict[str, pd.DataFrame]) -> Dict[str, pd.DataFrame]:

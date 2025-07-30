@@ -107,18 +107,18 @@ datasets = {
 # function to ensure directory exists
 def ensure_directories() -> None:
     """
-    Make sure all the important folders for the project exist.
-    
-    This goes through a list of directories we need (like for raw data,
-    processed data, outputs, etc.) and creates them if they aren't already there.
-    It also prints out where the main project folder is, relative to where
-    you're running the script — or gives the full path if it can't figure that out.
+    Ensure all required project directories exist.
+
+    This function checks for the existence of all necessary folders 
+    (e.g., raw data, processed data, outputs) and creates them if 
+    they don't exist. It also prints a confirmation once the 
+    directories are set up.
     """
     for directory in [
         RAW_DATA_DIR, INTERIM_DATA_DIR, CLEAN_DATA_DIR,
         PROCESSED_DATA_DIR, FINAL_DATA_DIR,
         DATABASE_PATH.parent,
-        OUTPUTS_DIR, PLOTS_DIR, SUMMARY_DIR
+        OUTPUTS_DIR, PLOTS_DIR, SUMMARY_DIR, INSIGHT_DIR
     ]:
         # Create the directory if it doesn't exist (and create any parent folders too)
         directory.mkdir(parents=True, exist_ok=True)

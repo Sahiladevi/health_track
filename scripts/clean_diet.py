@@ -7,13 +7,20 @@ the individual diet dataset. Each function renames columns for clarity, handles
 corrupted or suspicious values, deals with missing or zero values appropriately,
 removes outliers, and saves the cleaned data to csv file.
 """
+import sys
+from pathlib import Path
 
+# Add project root to sys.path 
+project_root = Path(__file__).parent.parent.resolve()
+if str(project_root) not in sys.path:
+    sys.path.insert(0, str(project_root))
+    
 import pandas as pd
 import numpy as np
 
-from config import CLEAN_DATA_DIR, datasets
-from data_loading import load_dataset
-from utils import (
+from scripts.config import CLEAN_DATA_DIR, datasets
+from scripts.data_loading import load_dataset
+from scripts.utils import (
     rename_columns,
     show_missing,
     replace_zeros_with_nan,

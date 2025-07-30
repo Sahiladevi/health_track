@@ -1,10 +1,24 @@
+"""
+scripts\\calculating_usda_hei_score.py
+
+This script used to calculate Healthy Eating Index using dietary file from NHANES and Food Pattern Equivalent Database from USDA ARS
+
+"""
+import sys
+from pathlib import Path
+
+# Add project root to sys.path 
+project_root = Path(__file__).parent.parent.resolve()
+if str(project_root) not in sys.path:
+    sys.path.insert(0, str(project_root))
+
 import pandas as pd
 import numpy as np
 from pathlib import Path
 
-from config import (RAW_DATA_DIR, CLEAN_DATA_DIR, PROCESSED_DATA_DIR)
-from data_loading import load_dataset
-from utils import pretty_path, explore_data
+from scripts.config import (RAW_DATA_DIR, CLEAN_DATA_DIR, PROCESSED_DATA_DIR)
+from scripts.data_loading import load_dataset
+from scripts.utils import pretty_path, explore_data
 
 def calculate_hei_scores(
     clean_data_dir=CLEAN_DATA_DIR,
@@ -45,10 +59,7 @@ def calculate_hei_scores(
     # Merge NHANES Individual Foods with FPED on food code
     print("Merging NHANES Individual Foods with FPED using food codes...")
     merged = pd.merge(dr1iff, fped, left_on="food_code", right_on="FOODCODE", how="inner")
-
-    """# Clean FPED column names
-    merged.columns = merged.columns.str.replace(r"\s+\(.*\)", "", regex=True)"""
-    
+   
     nutrient_cols = [
         'F_TOTAL', 'F_JUICE', 'F_CITMLB', 'F_OTHER',
         'V_TOTAL', 'V_DRKGR', 'V_LEGUMES',
@@ -63,7 +74,7 @@ def calculate_hei_scores(
 
     merged["energy"] = merged["energy_kcal"]
 
-    print("\n------------Aggregate Nutrients and Energy by Participant------------------------\n")
+    print("\n Aggregate Nutrients and Energy by Participant \n")
 
     agg_cols = [col + "_TOT" for col in nutrient_cols] + ["energy"]
 

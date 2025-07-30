@@ -13,8 +13,15 @@ for the NHANES data analysis pipeline. It includes functions for:
 
 import pandas as pd
 import sqlite3
+import sys
 from pathlib import Path
-from utils import pretty_path
+
+# Add project root to sys.path 
+project_root = Path(__file__).parent.parent.resolve()
+if str(project_root) not in sys.path:
+    sys.path.insert(0, str(project_root))
+
+from scripts.utils import pretty_path
 
 # Database Connection Utilities
 def create_connection_from_script(relative_path_to_db: str) -> sqlite3.Connection | None:

@@ -6,13 +6,21 @@ This script cleans chronic disease data from NHANES.
 - Cardiovascular Conditions (MCQ)
 - saves the cleaned versions as CSV files.
 """
+import sys
+from pathlib import Path
+
+# Add project root to sys.path 
+project_root = Path(__file__).parent.parent.resolve()
+if str(project_root) not in sys.path:
+    sys.path.insert(0, str(project_root))
+
 import pandas as pd
 import numpy as np
-from config import CLEAN_DATA_DIR
-from data_loading import load_dataset  
-from config import datasets 
+from scripts.config import CLEAN_DATA_DIR
+from scripts.data_loading import load_dataset  
+from scripts.config import datasets 
 from typing import Optional, Dict
-from utils import pretty_path
+from scripts.utils import pretty_path
 
 # Mapping codes to binary Yes/No
 YES_NO_MAP = {1: 1, 2: 0}  # 1 = Yes, 2 = No

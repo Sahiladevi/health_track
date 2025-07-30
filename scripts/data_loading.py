@@ -10,9 +10,15 @@ from pathlib import Path
 from typing import Optional, List, Union, Dict
 import pandas as pd
 import pyreadstat
+import sys
 
-from config import datasets, INTERIM_DATA_DIR
-from utils import validate_xpt_and_excel_files, explore_data, pretty_path
+# Add project root to sys.path 
+project_root = Path(__file__).parent.parent.resolve()
+if str(project_root) not in sys.path:
+    sys.path.insert(0, str(project_root))
+
+from scripts.config import datasets, INTERIM_DATA_DIR
+from scripts.utils import validate_xpt_and_excel_files, explore_data, pretty_path
 
 # 1. function for load_file_as_dataframe 
 def load_dataset(

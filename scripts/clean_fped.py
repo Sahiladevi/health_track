@@ -10,12 +10,19 @@ This script cleans the NHANES FPED dataset (FPED_1720 sheet).
 - Replaces tiny float anomalies with NaN.
 - Saves the cleaned dataframe as CSV.
 """
+import sys
+from pathlib import Path
+
+# Add project root to sys.path 
+project_root = Path(__file__).parent.parent.resolve()
+if str(project_root) not in sys.path:
+    sys.path.insert(0, str(project_root))
 
 import pandas as pd
 import numpy as np
-from config import CLEAN_DATA_DIR, datasets
-from data_loading import load_dataset
-from utils import (
+from scripts.config import CLEAN_DATA_DIR, datasets
+from scripts.data_loading import load_dataset
+from scripts.utils import (
     drop_missing,
     replace_close_values_with_nan,
     pretty_path

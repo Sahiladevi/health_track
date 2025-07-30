@@ -17,7 +17,6 @@ import pandas as pd
 import numpy as np
 from typing import Optional
 
-
 # 1. Categorizes the poverty-income ratio
 def get_pir_category(pir: Optional[float]) -> str:
     """

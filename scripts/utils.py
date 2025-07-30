@@ -11,7 +11,7 @@ import pandas as pd
 import numpy as np
 from pathlib import Path
 import pyreadstat
-from config import BASE_PATH  
+from scripts.config import BASE_PATH
 from typing import Dict, List, Optional, Union
 
 # 1. function for validate_and_read_xpt_and_xls/xlsx files
