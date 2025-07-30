@@ -3,8 +3,8 @@
 Dep. Variable:      total_cholesterol   R-squared:                       0.033
 Model:                            WLS   Adj. R-squared:                  0.028
 Method:                 Least Squares   F-statistic:                     4.693
-Date:                Sat, 26 Jul 2025   Prob (F-statistic):           5.76e-10
-Time:                        14:28:09   Log-Likelihood:                -17191.
+Date:                Tue, 29 Jul 2025   Prob (F-statistic):           5.76e-10
+Time:                        20:44:42   Log-Likelihood:                -17191.
 No. Observations:                3285   AIC:                         3.442e+04
 Df Residuals:                    3267   BIC:                         3.453e+04
 Df Model:                          17                                         
