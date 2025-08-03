@@ -157,6 +157,7 @@ The **USDA Agricultural Research Service (ARS) - Food Patterns Equivalents Datab
 [FPED Documentation](https://www.ars.usda.gov/northeast-area/beltsville-md-bhnrc/beltsville-human-nutrition-research-center/food-surveys-research-group/docs/fped-overview/)
 
 ---
+
 ## Setup Instructions
 
 ### 1. Clone This Repository
@@ -252,6 +253,7 @@ openpyxl
 xlrd
 pywin32==310; sys_platform == "win32"
 pywinpty==2.0.15; sys_platform == "win32"
+streamlit
 
 ```
 
@@ -392,6 +394,7 @@ It’s not a perfect substitute for full survey methods, but it’s a strong and
 | Statistics               | Statsmodels (for regression) | I analyzed data patterns and relationships with this.             |
 | Storing Data             | SQLite                       | I saved and managed the data using this database.                 |
 | Writing and Sharing      | Jupyter Notebooks            | I combined my code and notes in one interactive file.             |
+| Web App / Interface      | Streamlit                    | I built an interactive app to showcase the key findings and recommendations. |
 | Project Setup            | Virtualenv                   | I kept all the project’s tools and packages separate from others. |
 | Version Control & Hosting| GitHub                       | I tracked changes, collaborated, and shared the full project online. |
 
@@ -402,9 +405,9 @@ It’s not a perfect substitute for full survey methods, but it’s a strong and
 ```
 health_track/
 │
-├── dashboard/             # for interactactive web app
+├── dashboard/             # for interactive web app
 │   ├── insights/          # Key findings summary
-│   ├── health_track_app.py # Streamlit python script
+│   ├── health_track_app.py # Streamlit app script
 |            
 ├── data/
 │   ├── raw/               # Raw NHANES dataset in XPT format (downloaded) and Raw USDA ARS FPED dataset in xls format
@@ -454,6 +457,49 @@ health_track/
 
 ---
 
+## Streamlit App Implementation
+
+To make the project findings more accessible and interactive, I developed a Streamlit web application. The app allows users to explore objectives, view outcomes, and dive into key insights.
+
+### Core Functionality:
+
+- **Sidebar Objective Selector**: Users choose from a list of predefined objectives, each mapped to multiple outcomes.
+- **Dynamic Outcome Display**: Based on the selected objective, the app updates to show relevant outcomes using a sidebar dropdown.
+- **Tabbed Interface**: Each outcome has three tabs:
+  - **Plots**: Visualizations generated dynamically based on the selected data.
+  - **Summary Report**: Highlights and summaries for easier interpretation.
+  - **Key Findings**: A narrative-style section with conclusions or recommendations (rendered from a Markdown or text file).
+
+For specific objectives like "Objective 2.3," the app directly loads a dedicated recommendation report.
+
+All visuals, summaries, and insights are loaded based on structured dictionaries and helper functions, ensuring scalability and modularity.
+
+---
+
+## Running the Streamlit App
+
+Make sure dependencies are already installed in the setup environment.
+
+Then run the **Streamlit app locally**:
+
+```bash
+streamlit run dashboard/health_track_app.py
+```
+**Deploying the App Online (Optional)**
+
+To deploy the app on [Streamlit Cloud](https://streamlit.io/cloud):
+
+1. Push your project to a public GitHub repository.
+2. Go to [Streamlit Cloud](https://streamlit.io/cloud) and sign in with your GitHub account.
+3. Click on **"Create app"**.
+4. Choose the repository and the branch, then set the main file path: dashboard/health_track_app.py
+5. Add necessary environment variables or secrets if any.
+6. Click **"Deploy"** — your app will be live in seconds.
+
+>**Tip**: Make sure your `requirements.txt` is up to date with all dependencies.
+
+---
+
 ## Additional Information
 
 For a detailed overview of the project's problem statement, goals, purpose, objectives, scope and analysis plan, research questions explored, features, project timeline, risks and mitigation strategies, and test and evaluation plan, please refer to the `docs/project_plan.md` file in this repository. Additionally, the final report and project summary document can be found in the `docs/final_report.md` and `docs/project_summary.md` files, respectively.
@@ -477,4 +523,4 @@ You can view the full dashboard including **Key Findings and Recommendations** �
 
 ---
 
-**End of README File**
+***End of README File***
