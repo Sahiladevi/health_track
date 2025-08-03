@@ -206,6 +206,7 @@ Install the required packages by running the following command:
 ```bash
 pip install -r requirements.txt
 ```
+
 **Note:** Make sure ipykernel is included in the requirements.txt file. If not, install it manually:
 
 ```bash
