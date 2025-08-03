@@ -11,21 +11,21 @@
 
 Chronic health conditions such as obesity, diabetes, high blood pressure, high cholesterol and heart diseases continue to rise among U.S. adults. While medical advances have helped manage these conditions, less attention has been paid to the root causes like poor diet, physical inactivity, inadequate sleep, and limited access to healthcare. These lifestyle and social factors are deeply interconnected, and they don’t affect everyone equally. People from lower-income backgrounds or certain racial and ethnic groups often face greater barriers to staying healthy.
 
-Despite the availability of large national health surveys, we still lack a clear, up-to-date understanding of how these everyday factors combine to shape health outcomes. This project aims to fill that gap using recent NHANES and USDA data to explore how lifestyle and social variables are tied to health—offering insights that can inform public health efforts and personalized health advice.
+Despite the availability of large national health surveys, we still lack a clear, up-to-date understanding of how these everyday factors combine to shape health outcomes. This project aims to fill that gap using recent NHANES and USDA data to explore how lifestyle and social variables are tied to health offering insights that can inform public health efforts and personalized health advice.
 
 ---
 
 ## Project Overview
 
-This project looks at how daily habits, income, and access to healthcare affect common health problems in U.S. adults. It uses national data from the 2021–2023 NHANES survey, which includes health interviews, physical exams, and lab results. To better understand what people eat, I also used data from the USDA ARS FPED (Food Patterns Equivalents Database), this helps break down complex food intake into clear diet components, like how many fruits, veggies, or added sugars someone eats. The project focuses on key health issues like obesity, high blood pressure, diabetes, and high cholesterol. The goal is to see how lifestyle factors—like diet, physical activity, and sleep are linked to these conditions. It also looks at how income, education, and health insurance shape health outcomes, and how these patterns differ between men and women, and across racial and ethnic groups. In the end, the hope is to turn these insights into useful ideas for improving public health policies.
+This project looks at how daily habits, income, and access to healthcare affect common health problems in U.S. adults. It uses national data from the 2021–2023 NHANES survey, which includes health interviews, physical exams, and lab results. To better understand what people eat, I also used data from the USDA ARS FPED (Food Patterns Equivalents Database), this helps break down complex food intake into clear diet components, like how many fruits, veggies, or added sugars someone eats. The project focuses on key health issues like obesity, high blood pressure, diabetes, and high cholesterol. The goal is to see how lifestyle factors like diet, physical activity, and sleep are linked to these conditions. It also looks at how income, education, and health insurance shape health outcomes, and how these patterns differ between men and women, and across racial and ethnic groups. In the end, the hope is to turn these insights into useful ideas for improving public health policies.
 
 ---
 
 ## Purpose
 
-The purpose of this project is to explore how health conditions—like obesity, high blood pressure, diabetes, and high cholesterol—are influenced by everyday habits, income, education, and access to healthcare. Using the 2021–2023 NHANES survey data, along with detailed diet info from the USDA FPED database, I’m looking at how factors like sleep, physical activity, diet quality, income level, and insurance coverage all connect to health.
+The purpose of this project is to explore how health conditions like obesity, high blood pressure, diabetes, and high cholesterol—are influenced by everyday habits, income, education, and access to healthcare. Using the 2021–2023 NHANES survey data, along with detailed diet info from the USDA FPED database, I’m looking at how factors like sleep, physical activity, diet quality, income level, and insurance coverage all connect to health.
 
-By studying these links, I want to uncover patterns and inequalities—especially those that show up differently between men and women or across racial and ethnic groups. The goal is to use these insights to support better, more inclusive public health policies that are grounded in real-world evidence.
+By studying these links, I want to uncover patterns and inequalities, especially those that show up differently between men and women or across racial and ethnic groups. The goal is to use these insights to support better, more inclusive public health policies that are grounded in real world evidence.
 
 ---
 
@@ -35,13 +35,13 @@ As I worked through the project, these were the core questions that kept guiding
 
 - How do everyday habits like diet, exercise, and sleep affect health indicators such as BMI, blood pressure, and blood sugar?
 
-- What role do social factors like income, education, and health insurance—play in the risk of chronic conditions like obesity, diabetes, and hypertension?
+- What role do social factors like income, education, and health insurance play in the risk of chronic conditions like obesity, diabetes, and hypertension?
 
 - Are there meaningful differences across gender or race in how lifestyle and social factors influence health?
 
 - What happens when multiple unhealthy behaviors stack up, do they compound the risk of chronic disease?
 
-These aren’t just abstract questions, they reflect real-world health challenges faced by millions of adults in the U.S. By exploring them, I hope to find meaningful patterns that can support better health outcomes.
+These aren’t just abstract questions, they reflect real world health challenges faced by millions of adults in the U.S. By exploring them, I hope to find meaningful patterns that can support better health outcomes.
 
 ---
 
@@ -59,7 +59,7 @@ The big idea is to find out how these lifestyle and social factors work together
 
 **Getting the Data Ready**
 
-I started by cleaning up all the messy data, putting it in order, and creating new useful info—like scores that show how healthy someone’s diet is, or grouping incomes into categories. Everything is saved nicely so it’s easy to work with.
+I started by cleaning up all the messy data, putting it in order, and creating new useful info like scores that show how healthy someone’s diet is, or grouping incomes into categories. Everything is saved nicely so it’s easy to work with.
 
 **Looking at the Basics**
 
@@ -92,7 +92,7 @@ Finally, I pulled together the important findings to help understand what lifest
 
 - I’ll also zoom in on specific connections, for example, how the amount of sleep someone gets might affect their body weight.
 
-- Plus, I want to see how different habits work together, like diet and exercise, to impact health.
+- Also, I want to see how different habits work together, like diet and exercise, to impact health.
 
 **Goal 2: Understand Health Differences by Gender and Race**
 
@@ -135,6 +135,7 @@ Finally, I pulled together the important findings to help understand what lifest
 | Statistics               | Statsmodels (for regression) | I analyzed data patterns and relationships with this.             |
 | Storing Data             | SQLite                       | I saved and managed the data using this database.                 |
 | Writing and Sharing      | Jupyter Notebooks            | I combined my code and notes in one interactive file.             |
+| Web App / Interface      | Streamlit                    | I built an interactive app to showcase the key findings and recommendations. |
 | Project Setup            | Virtualenv                   | I kept all the project’s tools and packages separate from others. |
 | Version Control & Hosting| GitHub                       | I tracked changes, collaborated, and shared the full project online. |
 
@@ -332,4 +333,4 @@ Finally, I pulled together the important findings to help understand what lifest
 
 ---
 
-*End of Project Plan*
+***End of Project Plan***
