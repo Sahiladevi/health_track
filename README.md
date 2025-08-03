@@ -6,7 +6,7 @@
 
 ## Project Objective
 
-This project looks at how daily habits, income, and access to healthcare affect common health problems in U.S. adults. It uses national data from the 2021–2023 NHANES survey, which includes health interviews, physical exams, and lab results. To better understand what people eat, I also used data from the USDA ARS FPED (Food Patterns Equivalents Database)—this helps break down complex food intake into clear diet components, like how many fruits, veggies, or added sugars someone eats. The project focuses on key health issues like obesity, high blood pressure, diabetes, and high cholesterol. The goal is to see how lifestyle factors—like diet, physical activity, and sleep—are linked to these conditions. It also looks at how income, education, and health insurance shape health outcomes, and how these patterns differ between men and women, and across racial and ethnic groups. In the end, the hope is to turn these insights into useful ideas for improving public health policies.
+This project looks at how daily habits, income, and access to healthcare affect common health problems in U.S. adults. It uses national data from the 2021–2023 NHANES survey, which includes health interviews, physical exams, and lab results. To better understand what people eat, I also used data from the USDA ARS FPED (Food Patterns Equivalents Database), this helps break down complex food intake into clear diet components, like how many fruits, veggies, or added sugars someone eats. The project focuses on key health issues like obesity, high blood pressure, diabetes, and high cholesterol. The goal is to see how lifestyle factors like diet, physical activity, and sleep are linked to these conditions. It also looks at how income, education, and health insurance shape health outcomes, and how these patterns differ between men and women, and across racial and ethnic groups. In the end, the hope is to turn these insights into useful ideas for improving public health policies.
 
 ---
 
@@ -83,6 +83,7 @@ You can check the Data Dictionary section below for a full list of the variables
 | DR1TOT_L | WTDRD1     | Dietary recall Day 1 weight              | Weight for Day 1 dietary recall data   |
 | DR1IFF_L | WTDRD1     | Dietary sample weight                    | Weight for Day 1 dietary recall data    |
 | GLU_L    | WTSAF2YR   | Fasting subsample weight                 | Weight for fasting subsample lab data  |
+| TCHOL_L  | WTPH2YR    | Phlebotomy 2 Year Weight                 | weight for blood drawn sample data |
 
 ---
 
@@ -127,15 +128,19 @@ It looks at how people live and their health. It includes:
 
 ### Why is this important?
 
-- To see how lifestyle and money affect health.
-- To understand who might be at risk for health problems.
-- To help make better health policies for everyone.
+To see how lifestyle and money affect health.
+
+To understand who might be at risk for health problems.
+
+To help make better health policies for everyone.
 
 ### How was the data collected?
 
-- People answered questions about their habits and health.
-- Their food intake and body measurements were recorded.
-- The survey is designed to fairly represent all people in the U.S.
+People answered questions about their habits and health.
+
+Their food intake and body measurements were recorded.
+
+The survey is designed to fairly represent all people in the U.S.
 
 ---
 
@@ -160,7 +165,7 @@ The **USDA Agricultural Research Service (ARS) - Food Patterns Equivalents Datab
 git clone https://github.com/Sahiladevi/health_track.git
 ```
 
-b. Navigate to the cloned directory
+### 2. Navigate to the cloned directory
 
 Change your current directory to the cloned repository's directory (health_track)
 
@@ -168,7 +173,7 @@ Change your current directory to the cloned repository's directory (health_track
 cd health_track
 ```
 
-### 2. Create Virtual Environment
+### 3. Create Virtual Environment
 
 On Windows:
 ```bash
@@ -182,7 +187,7 @@ python3 -m venv venv
 
 This will create a new virtual environment named venv in your current directory
 
-### 3. Activate Virtual Environment
+### 4. Activate Virtual Environment
 
 On Windows:
 ```bash
@@ -194,23 +199,32 @@ source venv/bin/activate
 ```
 Your prompt should change to indicate that you are now operating within a Python virtual environment.
 
-### 4. Install Requirements
+### 5. Install Requirements
 
 Install the required packages by running the following command:
 
 ```bash
 pip install -r requirements.txt
 ```
+**Note:** Make sure ipykernel is included in the requirements.txt file. If not, install it manually:
 
-You're now ready to run the project!
+```bash
+pip install ipykernel
+```
+### 6. Register the Environment as a Jupyter Kernel
 
-### 5. Run Jupyter Notebook
+```bash
+python -m ipykernel install --user --name=venv --display-name "Python (health_track)"
+```
+This step lets you select this environment inside Jupyter.
+
+### 7. Run Jupyter Notebook
 
 ```bash
 jupyter notebook
 ```
 
-### 6. To deactivate the virtual environment, after running the project
+### 8. To deactivate the virtual environment, after running the project
 
 ```bash
 deactivate
@@ -235,10 +249,12 @@ squarify
 xlsxwriter
 openpyxl
 xlrd
+pywin32==310; sys_platform == "win32"
+pywinpty==2.0.15; sys_platform == "win32"
 
 ```
 
-> Only the necessary libraries are included to keep things clean and lightweight. A virtual environment was used to avoid any conflicts and keep the setup isolated from the rest of the system.
+> Only the necessary libraries are included to keep things clean and lightweight. A virtual environment was used to avoid any conflicts and keep the setup isolated from the rest of the system. Windows-specific packages like pywin32 and pywinpty were added using platform markers (e.g., sys_platform == "win32") so they are only installed on Windows systems during local development. These are automatically skipped during deployment on Streamlit Cloud (which runs on Linux).
 
 ---
 ## Project Overview: What This Project Does
@@ -437,9 +453,17 @@ health_track/
 
 ---
 
-**Additional Information**
+## Additional Information
 
-For a detailed overview of the project's problem statement, goals, pupose, objectives, scope and analysis plan,research questions explored, features, project timeline, risks and mitigation strategies, and test and evaluation plan, please refer to the `docs/project_plan.md` file in this repository.
+For a detailed overview of the project's problem statement, goals, purpose, objectives, scope and analysis plan, research questions explored, features, project timeline, risks and mitigation strategies, and test and evaluation plan, please refer to the `docs/project_plan.md` file in this repository. Additionally, the final report and project summary document can be found in the `docs/final_report.md` and `docs/project_summary.md` files, respectively.
+
+---
+
+## Project summary - Interactive Dashboard
+
+You can view the full dashboard including **Key Findings and Recommendations** — by clicking the link below:
+
+[health-track-dashboard.streamlit.app](https://health-track-dashboard.streamlit.app)
 
 ---
 
@@ -452,4 +476,4 @@ For a detailed overview of the project's problem statement, goals, pupose, objec
 
 ---
 
-*End of README File*
+**End of README File**
