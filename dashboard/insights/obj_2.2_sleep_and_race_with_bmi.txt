@@ -1,0 +1,61 @@
+### Sleep and Race/Ethnicity Influence on Body Weight (BMI) – Weighted (Population-Adjusted)
+
+This summary is based on weighted results, meaning it’s adjusted to reflect the U.S. adult population. It brings together what the statistical model found and what the plot visually shows, helping us connect the numbers to real-world meaning.
+
+I used weighted data from 5,897 adults to explore how sleep patterns and race or ethnicity affect body weight, measured using BMI.
+
+#### What the Weighted Model Tells Me
+
+In general, more sleep was linked to slightly lower BMI — but the effect was small.
+
+Non-Hispanic Asian adults had the lowest BMI overall, and sleep made the biggest difference for them — their BMI dropped more clearly as sleep increased.
+
+Non-Hispanic White adults also showed slightly lower BMI, with a small benefit from more sleep.
+
+Non-Hispanic Black adults had the highest BMI, and sleep didn’t seem to affect it much.
+
+For other groups (like Hispanic or multiracial adults), BMI didn’t change much based on sleep — the relationship was weaker.
+
+#### Plot 1: Predicted BMI by Sleep Duration & Race/Ethnicity
+
+All the lines slope slightly downward -> meaning more sleep is generally linked to lower BMI.
+
+The blue line (Non-Hispanic Asian) drops the most -> they benefit the most from extra sleep.
+
+The purple line (Non-Hispanic Black) is the highest and flattest -> their BMI stays high no matter how much sleep they get.
+
+Other groups show flatter lines → their BMI changes very little with more or less sleep.
+
+#### Plot 2: Predicted BMI by Race/Ethnicity (at Average Sleep)
+
+While the first plot shows how BMI changes with sleep across groups, this second plot looks at BMI differences between groups at typical sleep levels.
+
+This second plot shows the average predicted BMI for each racial and ethnic group, assuming typical sleep.
+
+Non-Hispanic Asian adults had the lowest BMI overall, even before considering sleep patterns.
+
+Non-Hispanic Black adults had the highest BMI, and this remained true even at average sleep duration.
+
+Other groups fell in between — showing that race and ethnicity alone relate to differences in body weight, regardless of sleep.
+
+#### Overall Takeaway
+
+##### What’s going well:
+
+There’s some evidence that more sleep may help support a healthier weight — especially for Non-Hispanic Asian adults.
+
+We can see clear differences in BMI across racial and ethnic groups, which helps guide targeted health efforts.
+
+##### What needs work:
+
+The effect of sleep on BMI is small overall — it’s just one part of the picture.
+
+Some groups, like Non-Hispanic Black adults, have higher BMI levels and may not benefit from sleep alone.
+
+##### What to focus on:
+
+Encourage healthy sleep as part of a broader approach to wellness.
+
+Look beyond sleep — and address things like food access, stress, physical activity, and healthcare barriers.
+
+Tailor weight and wellness support to the specific needs of different racial and ethnic communities.

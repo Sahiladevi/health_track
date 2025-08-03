@@ -1,0 +1,75 @@
+### Blood Pressure and Lifestyle Factors – Weighted (Population-Adjusted)
+
+This summary is based on weighted results, adjusted to reflect the U.S. population. It explains what the model found and what the plots show, giving a clear picture of how personal and lifestyle factors relate to systolic and diastolic blood pressure.
+
+Used data from 3,500 adults to study how factors like age, gender, race/ethnicity, education, sleep, activity, diet, and income relate to blood pressure levels.
+
+#### What the Weighted Models Tell Me
+
+**Systolic BP (Top Number)** - This is the pressure when your heart beats and pushes blood out.
+
+Men have significantly higher systolic BP than women — about 5.6 units more.
+
+Older age is linked to higher BP — increasing by 0.39 units per year.
+
+People with a college degree have slightly lower systolic BP (around 3.2 units less).
+
+Non-Hispanic Black individuals have notably higher systolic BP (about 6 units more).
+
+Lifestyle factors like sleep, physical activity, diet, and income did not show strong or significant effects on systolic BP.
+
+**Diastolic BP (Bottom Number)** - This is the pressure when your heart rests between beats.
+
+Men again show higher diastolic BP — about 1.85 units more than women.
+
+Less active individuals had slightly higher diastolic BP (~1.36 units).
+
+Non-Hispanic Black individuals had about 4.5 units higher diastolic BP.
+
+More sleep and better diet quality (HEI score) were linked to lower diastolic BP.
+
+Higher income was linked to slightly higher diastolic BP, but the effect was small.
+
+**In short: age, gender, and race show strong links to blood pressure, while sleep and diet have meaningful associations—especially for the bottom number (diastolic BP).**
+
+#### Plot 1: Model Fit – Predicted vs. Actual BP Values
+
+The scatter plots show how well the model predicts real blood pressure.
+
+Residuals (errors) are centered around zero and scattered randomly — this means the model fits the data fairly well.
+
+The fit is stronger for systolic BP (explains ~20% of variation), but weaker for diastolic BP (explains only 4%).
+
+#### Plot 2: Factor Effects on BP with Confidence Intervals
+
+Each dot shows how much a factor changes blood pressure, and the lines show the uncertainty.
+
+If a line crosses the red vertical line at zero, the effect may not be real (not statistically significant).
+
+Factors like gender, age, race/ethnicity, and education clearly stand out for systolic BP.
+
+For diastolic BP, the effects of sleep, diet, and physical activity are more visible.
+
+#### Overall Takeaway
+
+##### What’s going well:
+
+The models show clear, consistent patterns: blood pressure is higher in men, older adults, and Non-Hispanic Black individuals.
+
+**Systolic BP** is well explained by demographic factors.
+
+**Diastolic BP** is more influenced by lifestyle factors like sleep and diet.
+
+##### What needs work:
+
+The model for diastolic BP doesn’t explain much variation — more factors (like stress, medication, or genetics) may need to be considered.
+
+Income and insurance didn’t show strong effects, and physical activity was only weakly linked to BP.
+
+##### What to focus on:
+
+Consider targeting sleep habits and diet quality to help manage diastolic BP.
+
+Address racial and gender disparities in blood pressure through tailored health strategies.
+
+Continue exploring unmeasured factors (like sodium intake, stress, or access to healthcare) that might affect BP, especially for the diastolic measure.

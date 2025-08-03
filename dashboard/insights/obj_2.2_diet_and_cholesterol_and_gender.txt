@@ -1,0 +1,53 @@
+### Diet and Gender Influence on Total Cholesterol – Weighted (Population-Adjusted)
+
+This summary is based on weighted results, adjusted to reflect the U.S. population. It explains what the model found and what the plots show, giving a fuller picture of how diet quality and gender relate to cholesterol levels.
+
+Used data from 4,394 adults to study how HEI diet scores and gender interact to influence total cholesterol levels.
+
+#### What the Weighted Model Tells Me
+
+On average, men have lower total cholesterol than women.
+
+The overall effect of diet quality (HEI score) on cholesterol is very small and not statistically significant.
+
+There’s no meaningful interaction between diet and gender — meaning that better diets didn’t impact men’s or women’s cholesterol differently.
+
+**In short: gender matters more than diet in this model, but diet doesn’t show a strong or clear effect here.**
+
+#### Plot 1: Predicted Total Cholesterol by Diet Score & Gender
+
+The lines go slightly upward, but the slope is very shallow -> suggesting only a tiny increase in cholesterol with higher HEI scores (not expected or meaningful).
+
+The orange line (females) is above the green line (males) -> women have higher predicted cholesterol at all diet levels.
+
+The gap stays constant, showing no strong interaction.
+
+#### Plot 2: Scatter with Fit Lines and 95% CI
+
+Shows a cloud of points with a lot of variability in cholesterol levels.
+
+The trend lines for men and women are nearly flat -> very weak relationship between diet and cholesterol for both.
+
+Confidence bands overlap and stay narrow -> adds to the finding that gender has a consistent effect, but diet score doesn’t shift outcomes much.
+
+#### Overall Takeaway
+
+##### What’s going well:
+
+The model clearly shows that men have lower cholesterol than women on average.
+
+Results are stable across different levels of diet score.
+
+##### What needs work:
+
+Diet quality (as measured by HEI) doesn’t appear to have a strong link to cholesterol in this analysis.
+
+Other factors (like genetics, medications, or saturated fat intake) might play a bigger role than overall HEI diet score.
+
+##### What to focus on:
+
+Consider looking beyond overall diet score — maybe focus on specific nutrients or food patterns that directly affect cholesterol (e.g., fiber, saturated fats).
+
+Keep gender differences in mind when designing cholesterol-related health messaging.
+
+***Note: HEI Score - Healthy Eating Index Score***

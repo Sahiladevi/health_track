@@ -1,0 +1,43 @@
+### How Income and Education Affect Cholesterol – Adjusted for U.S. Population (Weighted)
+
+This summary is based on data adjusted to reflect the U.S. adult population, giving a more accurate national picture — not just the study sample.
+
+I analyzed data from 5,498 adults to explore how income (measured using the Poverty Income Ratio, or PIR) and education relate to total cholesterol levels.
+
+#### What the Study Shows
+
+People with college degrees had slightly higher total cholesterol, on average, than those with less education.
+
+Similarly, people in the highest income group showed a small increase in cholesterol compared to lower-income groups.
+
+Overall, income and education explain very little about cholesterol — group differences are small and overlapping.
+
+**A surprising result:** individuals with missing education data had notably lower cholesterol. This likely reflects a data artifact rather than a true health trend.
+
+#### Chart: Average Total Cholesterol by PIR and Education Level
+
+Cholesterol levels are fairly consistent across all income levels — income alone doesn’t appear to make a big difference.
+
+Within each income group, people with college degrees often have slightly higher average cholesterol than those with less education.
+
+However, the differences between education groups are modest, and the error bars (which show uncertainty) overlap widely.
+
+#### Key Takeaways
+
+##### What’s clear:
+
+Higher income and higher education are associated with slightly higher cholesterol — but the differences are small.
+
+Income and education are weak predictors of cholesterol levels.
+
+##### What to keep in mind:
+
+Cholesterol is influenced by many other factors: diet, age, physical activity, medication, genetics, etc.
+
+It’s important not to overinterpret small differences linked to socioeconomic status alone.
+
+##### What I recommend focusing on:
+
+Future research should explore lifestyle, clinical risk factors, and access to care — these likely play a much bigger role.
+
+Use this information to avoid assumptions: higher income or more education doesn’t automatically mean better heart health.

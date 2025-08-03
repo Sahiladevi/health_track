@@ -1,0 +1,77 @@
+### How Lifestyle and Background Affect Cholesterol – Adjusted for U.S. Population (Weighted)
+
+This summary is based on national data adjusted to reflect the U.S. population. It explains what I found when analyzing how everyday factors like sleep, diet, or income relate to total cholesterol levels in adults.
+
+I looked at 3,285 adults across the U.S. to see whether cholesterol levels are linked to things like:
+
+**Sleep hours, physical activity, diet quality, education, income, race or ethnicity, health insurance, age, and gender**
+
+#### What the Study Shows
+
+Most of these factors had very little effect on cholesterol.
+
+**Two things stood out:**
+
+- Men and Non-Hispanic Black adults tended to have lower cholesterol than others.
+
+- People with higher incomes had slightly higher cholesterol, but the difference was very small.
+
+Overall, all these factors together explained just 3% of why people’s cholesterol levels are different.
+
+**In short: Cholesterol is influenced by many things — and most of them aren’t covered by the lifestyle and background data in this study.**
+
+#### Chart 1 (Predicted vs Real Cholesterol)
+
+This chart shows how close the model’s predictions were to people’s actual cholesterol.
+
+In many cases, it was far off — sometimes by 30 to 50 points or more.
+
+That tells us that cholesterol is hard to predict just from sleep, income, or diet info.
+
+#### Chart 2 (How Wrong Were the Predictions?)
+
+This chart shows how much the model missed by.
+
+Some predictions were close, but many were way off — confirming that lifestyle and background alone don’t explain much about a person’s cholesterol.
+
+#### Chart 3 (What Factors Had the Most Impact?)
+
+This chart shows which things had the biggest effect on cholesterol after adjusting for everything else.
+
+**Here’s what stood out:**
+
+- Men had about 9 points lower cholesterol than women.
+
+- Non-Hispanic Black adults had about 10 points lower cholesterol than others.
+
+- Higher income was linked to slightly higher cholesterol — about 2 points more on average.
+
+- Sleep, diet score, exercise, education, and age didn’t have much of an impact.
+
+#### Key Takeaways
+
+##### What’s clear:
+
+Gender and race had the strongest link to cholesterol in this data.
+
+Men and Non-Hispanic Black adults tended to have slightly lower levels.
+
+##### What needs more attention:
+
+Things we often think of as important — like diet and sleep — didn’t show a strong effect here.
+
+That doesn’t mean they don’t matter — it just means they aren’t the main drivers of cholesterol differences in this study.
+
+##### What I recommend focusing on:
+
+Cholesterol is complex. A healthy lifestyle is still very important, but so are things like genetics, medications, and specific foods, which weren’t captured here.
+
+Encourage regular cholesterol checks and combine healthy habits with medical care and individual advice.
+
+##### What I Measured:
+
+Cholesterol was measured using blood test results.
+
+Lifestyle and background info (like sleep and income) came from survey answers.
+
+I used a model that adjusts the data to reflect the full U.S. adult population, so the trends represent the country as a whole.

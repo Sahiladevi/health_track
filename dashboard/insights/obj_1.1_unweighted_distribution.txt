@@ -1,0 +1,101 @@
+### Lifestyle and Background Summary -not population-adjusted (Unweighted)
+
+This summary shows the results from the actual study sample (not population-adjusted). 
+It also includes what the plots visually show for each category, helping you see both the data and the bigger picture.
+
+Looked at information from over 6,064 people ***(actual study sample - not population-adjusted)*** to get a sense of their daily habits, health, and backgrounds. Here's what we found:
+
+#### Gender
+
+Most were women (about 55%).
+The rest were men (about 45%).
+
+#### Race and Ethnicity
+
+Most people were Non-Hispanic White (59%).
+Others included Hispanic (16%), Non-Hispanic Black (12%), Asian (6%), and mixed or other backgrounds (6%).
+
+#### Education
+
+1 in 3 people had a college degree or higher.
+
+Many others had some college or finished high school.
+
+A smaller group didn’t finish high school.
+
+***Chart (Education Level Distrubution)*** shows most people had at least some higher education.
+
+#### Income
+
+People had different income levels:
+
+- Most were in the high or very high range.
+
+- Some were in the middle.
+
+- A smaller group had low income.
+
+***Treemap (Income Levels (PIR))*** shows most people doing okay financially, but some are struggling.
+
+#### Health Insurance
+
+Good news: 92% of people had health insurance.
+
+Only 8% did not.
+
+***Donut chart (Health Insurance Coverage)*** shows strong healthcare access for most.
+
+#### Sleep
+
+Most people slept about 7–8 hours a night, that’s healthy
+
+A few slept too much or too little.
+
+***Sleep chart (Distribution of Average Sleep Hours)*** shows most people are doing fine in this area.
+
+#### Physical Activity
+
+About half of the group didn’t exercise much.
+
+The rest were either somewhat active or very active.
+
+**Chart (Physical Activity Levels)** shows many people could benefit from more movement.
+
+#### Diet Quality
+
+Most people had poor diets.
+
+A smaller group needed to improve.
+
+Only a tiny number (68 out of 6,000+) had a truly healthy diet.
+
+***Diet charts (Distribution of Diet Quality Score and Diet Quality Categories)*** show healthy eating is a major issue.
+
+#### Overall Takeaway
+
+##### What’s going well:
+
+Most people sleep enough.
+
+Most have health insurance.
+
+Many are well-educated.
+
+A lot are in decent income ranges.
+
+##### What needs work:
+
+Most people don’t eat well.
+
+About half don’t get enough exercise.
+
+Some are still living with low income.
+
+##### What to focus on:
+
+Help people eat better.
+
+Encourage more physical activity.
+
+Support lower-income groups with health resources.
+

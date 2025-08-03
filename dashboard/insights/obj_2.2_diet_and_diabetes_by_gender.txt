@@ -1,0 +1,45 @@
+### Diet and Gender Influence on Diabetes Risk – Weighted (Population-Adjusted)
+
+This summary is based on weighted results, meaning it's adjusted to represent the U.S. population. It includes what the statistical model found and what the plot visually shows, helping connect the data to the bigger picture.
+
+I used weighted data from 4,793 adults to explore how diet quality (HEI score) and gender affect the chances of having diabetes.
+
+#### What the Weighted Model Tells Me
+
+People with healthier diets (higher HEI scores) are less likely to have diabetes.
+
+Men have a higher risk of diabetes than women, even when they eat the same way.
+
+Interestingly, men’s diabetes risk goes down a little more quickly as their diet improves — but they still stay at higher risk compared to women.
+
+So while eating well helps everyone, men may need extra attention in prevention efforts.
+
+#### Plot - Predicted Diabetes Risk by HEI Score & Gender
+
+Both lines slope downward  -> means that a better diet leads to lower diabetes risk.
+
+The blue line (men) stays above the orange line (women) across all HEI scores -> men consistently have a higher predicted risk.
+
+As HEI score rises, the gap between men and women gets smaller, but it doesn’t disappear.
+
+#### Overall Takeaway
+
+##### What’s going well:
+
+Healthy eating clearly reduces diabetes risk for both men and women.
+
+Men actually see a slightly stronger benefit from improving their diet.
+
+##### What needs work:
+
+Men are at greater risk overall, even with good diets.
+
+Many still have low or moderate diet quality, which raises their risk.
+
+##### What to focus on:
+
+Promote healthy eating to reduce diabetes across the population.
+
+Target men with extra support, since they face higher risk.
+
+Design prevention efforts that consider both gender and diet patterns.

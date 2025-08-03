@@ -1,0 +1,86 @@
+### How Lifestyle, Demographics & Sleep Relate to BMI – Adjusted for U.S. Population (Weighted)
+
+I looked at national health data from over 3,500 U.S. adults to see what kinds of things are linked to body weight, measured as BMI (Body Mass Index). I focused on things like how active people are, how much they sleep, what their eating habits are like, and background factors like race, education, income, and age.
+
+#### What I Found
+
+People who sleep more, are more active, or eat healthier tend to have slightly lower BMI.
+
+People with less education or who are less active tend to have higher BMI.
+
+Some racial/ethnic groups also showed clear differences. For example, Non-Hispanic Asians had much lower BMI compared to others.
+
+But even with all these factors combined, they only explain a small part of why people have different body weights. Most of the difference is due to other things not measured here, like genetics, detailed diet, stress, or medications.
+
+#### What the Charts Show
+
+**Chart 1 (Regression Coefficients with 95% Confidence Intervals"): What Each Factor Does to BMI**
+
+This chart shows which things are linked to higher or lower BMI, after taking everything else into account.
+
+Being less active or sleeping less is linked to higher BMI.
+
+Having a college degree, eating better, or being Non-Hispanic Asian is linked to lower BMI.
+
+**Chart 2 (Histogram of Residuals): How Well the Model Fits**
+
+This shows how close my predictions were to real BMI numbers.
+
+It did okay for most people, but didn’t work as well for those with very high or very low BMI.
+
+**Chart 3: Predicted vs Real BMI**
+
+Each dot is a person. The red line shows perfect prediction.
+
+You can see the model doesn't perfectly predict BMI, but it gives a general idea.
+
+**Chart 4 (Variable Importance (Absolute Coefficient)): Which Factors Matter Most**
+
+The biggest influences were:
+
+- Race/ethnicity
+
+- Physical activity
+
+- Education
+
+- Eating habits
+
+- Sleep
+
+**Chart 5: Sleep and BMI**
+
+People who sleep more tend to have slightly lower BMI.
+
+For each extra hour of sleep, BMI goes down by about 0.27 points.
+
+But the effect is very small — sleep isn’t a magic fix.
+
+#### The Big Picture
+
+##### What’s clear:
+
+Lifestyle matters, things like sleep, activity, and diet do have an effect on body weight.
+
+But they only explain a small part of the story.
+
+##### What this means:
+
+Getting more sleep and being more active can help, but they won’t make a big difference on their own.
+
+To improve weight and health, people need to focus on many things together — sleep, food, exercise, stress, and more.
+
+##### What I suggest:
+
+Encourage good sleep and healthy habits, but don’t expect them to work alone.
+
+Support people in making balanced, long-term lifestyle changes — not just quick fixes.
+
+##### How I Did It
+
+I used real health data, adjusted to reflect the U.S. adult population.
+
+I ran a type of model that looks at how different factors are connected to BMI.
+
+All measurements (like BMI and blood pressure) were based on real health exams, not self-reported.
+

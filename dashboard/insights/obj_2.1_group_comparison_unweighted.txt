@@ -1,0 +1,97 @@
+### Health, Diet & Obesity  Across Gender and Ethnicity Summary (not population-adjusted - Unweighted)
+
+This summary shows the results from the actual study sample (not population-adjusted). It also includes what the plots visually show for each category, helping you see both the data and the bigger picture.
+
+Looked at health-related info from over 6,000 people in the study sample to understand their weight, diet, and cholesterol levels across gender and racial/ethnic groups. Here's what we found:
+
+#### BMI (Body Mass Index)
+
+Who had higher body weight:
+
+- Non-Hispanic Black and Mexican American women had the highest average BMI.
+
+- Non-Hispanic Asians (both men and women) had the lowest BMI overall.
+
+***Chart (BMI Distribution by Gender and Race/Ethnicity)*** shows body weight tends to be higher for women in most groups, especially in Black and Hispanic groups.
+
+#### Cholesterol
+
+Who had higher cholesterol:
+
+- White women showed slightly higher cholesterol levels than others.
+
+- Black men and women had slightly lower levels.
+
+But overall, cholesterol didn’t vary a lot across groups.
+
+***Chart (Total Cholesterol by Gender and Race/Ethnicity)*** shows cholesterol is spread out fairly evenly, with wide variation in each group.
+
+#### Diet Quality
+
+How healthy is the food people eat?
+
+Most people had poor-quality diets, regardless of race.
+
+Non-Hispanic Asians had the best scores—more people in that group had “Good” or “Needs Improvement” diets.
+
+***Chart (Diet Category by Race/Ethnicity)*** shows poor diets are common across the board, but Asians stood out with better results.
+
+#### Diet Differences by Gender
+
+Asian men especially stood out with more “Good” diet scores.
+
+Most White and Black women had poor diets.
+
+Men in most other groups didn’t score much better.
+
+***Chart (Diet Quality by Race & Gender)*** highlights these group and gender differences clearly.
+
+#### Obesity Rates
+
+Highest obesity rates were seen in:
+
+- Non-Hispanic Black women – over 52% are obese
+
+- Mexican American and Hispanic women also had high rates
+
+Lowest obesity rates were in:
+
+- Non-Hispanic Asian men and women – only around 16–18%
+
+***Chart (Obesity Rates by Gender and Race/Ethnicity)*** shows big differences in obesity depending on both gender and racial/ethnic group.
+
+#### Additional Stats from the Summary Table
+
+BMI and cholesterol were generally higher in females.
+
+Non-Hispanic Asians had:
+
+- The best diet quality
+
+- The lowest obesity rates
+
+Groups with lower income (like Hispanic and Black participants) also showed worse diet scores and higher obesity.
+
+#### Overall Takeaway
+
+##### What’s going well:
+
+Non-Hispanic Asians show healthier eating and lower body weight.
+
+Some groups have cholesterol levels in a safer range.
+
+##### What needs work:
+
+Most people have poor diets.
+
+Obesity is common, especially among women in certain racial/ethnic groups.
+
+Differences in health often link back to income and access.
+
+##### What to focus on:
+
+Help people make healthier food choices
+
+Target support to groups with higher obesity risk
+
+Keep looking at how income and culture affect diet and weight

@@ -1,0 +1,82 @@
+### How Income and Education Relate to Diabetes Risk – Adjusted for U.S. Population (Weighted)
+
+This summary is based on national data adjusted to reflect the U.S. adult population. It explains what I found when looking at how income and education levels affect people’s chances of having diabetes.
+
+I analyzed data from 5,983 U.S. adults to see how likely different groups are to have diabetes, depending on:
+
+- Poverty-Income Ratio (PIR) – which shows how much someone earns relative to the poverty line (Low, Mid, High, Very High).
+
+- Education Level – ranging from less than 9th grade to college graduates.
+
+#### What the Study Shows
+
+People with lower income and less education are more likely to have diabetes.
+
+College graduates are far less likely to have diabetes — even when they have low income.
+
+The highest risk is for those who have both low income and low education.
+
+**In short: Education has a strong link to diabetes risk, even more than income in many cases.**
+
+#### Chart: Diabetes Risk by Income and Education
+
+In the Low-income group, people with less than a 9th-grade education had a 23% chance of having diabetes.
+But those who were college graduates had just a 10% chance.
+
+This pattern holds across all income levels — more education always lowers the risk.
+
+In the Very High-income group, diabetes risk is much lower overall, but still twice as high for those with low education compared to college grads.
+
+#### How Education Affects Diabetes Risk
+
+This table shows how likely different education levels are to be linked to diabetes, compared to those who only completed 9–11th grade (used as the baseline group):
+
+| Education Level              | Effect on Diabetes Risk | Is It Statistically Real? |
+|-----------------------------|--------------------------|----------------------------|
+| Less than 9th grade         | Slightly higher risk     |  Yes                     |
+| High school/GED             | Lower risk               |  Yes                     |
+| Some college or AA degree   | Lower risk               |  Yes                     |
+| College graduate or above   | Much lower risk          |  Yes                     |
+
+
+#### How Income Affects Diabetes Risk
+
+This table compares different income levels (PIR) to the "High" income group:
+
+| Income Level (PIR) | Effect on Diabetes Risk | Is It Statistically Real? |
+|--------------------|--------------------------|----------------------------|
+| Low                | Higher risk              |    Yes                     |
+| Mid                | Slightly higher risk     |    Yes                     |
+| Very High          | Lower risk               |    Yes                     |
+
+#### Key Takeaways
+
+##### What’s clear:
+
+Less education and lower income both raise the risk of diabetes.
+
+Education stands out — even people with low income are less likely to have diabetes if they’ve completed college.
+
+The most at-risk group? Those with both low income and low education.
+
+##### What needs more attention:
+
+These patterns suggest that social factors — like education access and financial stability — play a major role in diabetes risk.
+
+Risk isn’t just about personal health choices — it’s also shaped by opportunity, support, and awareness.
+
+##### What I recommend focusing on:
+
+Public health efforts should target groups with lower income and education — helping them get better access to health info, screenings, and care.
+
+Education is protective — so empowering people with knowledge can go a long way in reducing diabetes risk.
+
+##### What I Measured:
+
+Income was grouped into categories based on the Poverty-Income Ratio (PIR): Low, Mid, High, Very High.
+
+Education levels ranged from <9th grade up to college graduates.
+
+Diabetes status was based on clinical diagnosis or lab measures.
+
+I used weighted logistic regression to adjust for the U.S. population (age, sex, and race/ethnicity included), so the results reflect national trends.

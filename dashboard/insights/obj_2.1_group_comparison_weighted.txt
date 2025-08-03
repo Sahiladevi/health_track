@@ -1,0 +1,134 @@
+### Health, Lifestyle & Diet Across Gender and Ethnicity Summary – population-adjusted (weighted)
+
+This summary uses weighted data to represent the entire U.S. population more accurately (based on the NHANES sample). It includes what the charts show for each health category to help connect the numbers with the bigger picture.
+
+We looked at health, habits, and background across different race and gender groups to understand population-level differences. Here's what we found:
+
+#### BMI (Body Mass Index)
+
+Weight patterns across gender:
+
+- Women had slightly higher BMI than men overall.
+
+- Non-Hispanic Black and Mexican American women had the highest average BMI (~32–33).
+
+- Non-Hispanic Asians had the lowest BMI in both men and women (around 24–26).
+
+***Chart (Weighted BMI Density by Gender)*** shows most people fall between 25–35, with more women in the higher BMI range.
+
+#### Cholesterol
+
+Cholesterol levels were similar across groups, but:
+
+- White and Asian women had the highest levels (around 194 mg/dL).
+
+- Black individuals had slightly lower levels (closer to 178–181 mg/dL).
+
+***Chart (Weighted Total Cholesterol Density by Race/Ethnicity)*** shows overlapping curves, meaning most groups have similar cholesterol distributions.
+
+#### Diet Quality
+
+Most people have poor diets, even at the population level:
+
+- Non-Hispanic Asians still have the best diet scores, especially among men.
+
+- Non-Hispanic Black and White individuals had the largest share of poor diets.
+
+***Chart (Weighted Diet Category Counts by Race/Ethnicity)*** shows the “Poor” category dominates across all racial/ethnic groups.
+
+***Chart (Weighted Diet Quality by Race & Gender)*** shows that even men with slightly better diets still struggle overall. Only a small portion reached the “Good” category.
+
+#### Obesity
+
+Who is most affected?
+
+Black women again had the highest obesity rate (56.7%), followed by Hispanic women.
+
+Asian men and women had the lowest rates (17–18%).
+
+Men generally had lower obesity rates than women in all groups.
+
+***Chart (Weighted Obesity Rates by Gender and Race/Ethnicity)*** shows a sharp contrast between Asian populations and Black/Hispanic populations, especially among females.
+
+#### Physical Activity
+
+Activity levels vary by group:
+
+- Non-Hispanic Asians were the least physically active, with most in the “Low active” category.
+
+- Other groups had more balance across “Moderate” and “High” activity levels.
+
+***Chart (Weighted Activity Level by Race/Ethnicity)*** shows clear differences in how much people move day-to-day.
+
+#### Sleep
+
+Average sleep hours per night:
+
+- Most people sleep between 7.3–8.2 hours, which is within the healthy range.
+
+- Women sleep slightly more than men across all races.
+
+- Black men had the lowest average sleep (around 7.46 hours), while Mexican American women slept the most (~8.2 hours).
+
+***Chart (Weighted Average Sleep Hours by Gender and Race/Ethnicity)*** shows most groups are doing okay when it comes to sleep.
+
+#### Education
+
+White individuals are more likely to have a college degree or higher.
+
+Hispanic and Black populations have more people with lower education levels.
+
+***Chart (Weighted Education Level Distribution by Race/Ethnicity)*** shows education is not evenly spread across groups.
+
+#### Health Insurance
+
+Most people are insured, but not all:
+
+- White and Asian groups had the highest coverage rates (95%+).
+
+- Mexican American and Black populations had lower coverage (77–88%).
+
+***Chart (Weighted Health Insurance Coverage by Race/Ethnicity)*** shows who may still need support accessing healthcare.
+
+#### Poverty and Income
+
+Who has higher income:
+
+- White and Asian individuals had the highest poverty-income ratios (PIR), meaning higher income relative to poverty.
+
+- Black and Hispanic groups had lower PIR, indicating more people may be living closer to poverty.
+
+**What this means:** Economic background may play a role in diet quality, weight, and access to care.
+
+#### Overall Takeaway
+
+##### What’s going well:
+
+Most people sleep enough.
+
+A majority have health insurance.
+
+Some groups show higher education and income (especially White and Asian groups).
+
+A small number (mostly Asians) have better diet quality.
+
+##### What needs work:
+
+Poor diet quality is common in nearly every group.
+
+Obesity is a major issue, especially for Black and Hispanic women.
+
+Physical inactivity is a concern, particularly in Asian groups.
+
+Lower education and income still affect many people—especially in Black and Hispanic populations.
+
+##### What to focus on:
+
+Help all groups—especially vulnerable ones—eat healthier.
+
+Support physical activity programs in lower-activity communities.
+
+Improve access to education and economic opportunities.
+
+Ensure health insurance reaches more people, especially among Hispanic and Black groups.
+

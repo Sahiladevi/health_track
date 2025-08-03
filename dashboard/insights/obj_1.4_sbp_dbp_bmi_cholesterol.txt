@@ -1,0 +1,124 @@
+### How Diet and Physical Activity Affect BMI, Blood Pressure, and Cholesterol – Adjusted for U.S. Population(Weighted)
+
+This summary is based on national data adjusted to reflect the U.S. adult population. It explains what I found in my analysis and what the charts show, helping make sense of how diet quality and physical activity levels affect important health outcomes: body weight (BMI), blood pressure, and cholesterol.
+
+I used data from 3,232 U.S. adults to explore how **diet quality (good, needs improvement, or poor)** and **physical activity levels (active, moderately active, low active)** work together to influence health.
+
+#### What the Study Shows
+
+BMI is clearly affected by diet — people with poor diets have much higher body weight than those with good diets.
+
+Moderate physical activity helps offset poor diet, lowering BMI in people whose diet otherwise puts them at risk.
+
+Systolic blood pressure and cholesterol were less strongly linked to diet or activity in this analysis, though the patterns suggest that healthier habits may still help.
+
+The combination of a poor diet and low physical activity leads to the worst health outcomes, especially higher BMI.
+
+#### Chart 1a: Predicted BMI by Diet and Activity Level
+
+The highest BMI levels are seen in people with a poor diet and low physical activity.
+
+People with a good diet have lower BMI — but physical activity still makes a difference even with a healthy diet.
+
+Among those with “Needs Improvement” diets, people who were moderately active had a much lower BMI than those who weren’t active — showing that activity can help make up for a not-perfect diet.
+
+**In short: diet matters, and activity helps a lot — especially when diet isn’t ideal.**
+
+#### Table of Predicted BMI (Body Mass Index)
+
+| Diet Quality        | Active | Moderately Active | Low Active |
+|---------------------|--------|-------------------|------------|
+| Good                | 24.6   | 26.8              | 27.1       |
+| Needs Improvement   | 27.9   | 25.4              | 29.0       |
+| Poor                | 28.5   | 27.4              | 31.2       |
+
+***Note: Lower BMI is healthier. A BMI of 25 or higher is considered overweight.***
+
+#### Chart 1b :Predicted Systolic Blood Pressure by Diet and Activity Level
+
+No strong pattern was found between diet or activity and blood pressure in this analysis.
+
+Even people with poor diets or low activity didn’t show significantly higher average systolic blood pressure.
+
+This may mean other factors like age, medication, or stress play a bigger role.
+
+#### Chart 1c:  Predicted Total Cholesterol by Diet and Activity Level
+
+Like blood pressure, cholesterol levels didn’t change much based on diet or activity level in this dataset.
+
+However, there was a small pattern where people with poor diets and moderate activity had slightly higher cholesterol — possibly due to other underlying health issues.
+
+#### Chart 2: Combined Interaction Effects on Health Indicators (Weighted Means) tell us
+
+The chart shows average levels for BMI, Systolic BP, Diastolic BP, and Cholesterol across all 9 combinations of diet quality and activity level:
+
+***BMI (Green bars)***
+
+- Lowest BMI: Good diet + Highly active (24.6)
+
+- Highest BMI: Poor diet + Low active (31.2)
+
+- Moderate activity helped a lot—even among people whose diets “Need Improvement.”
+
+***Systolic Blood Pressure (Orange bars)***
+
+- Fairly consistent across groups, ranging from 119 to 127.
+
+- Slightly higher BP was seen in those with a Good diet but Low activity — likely due to other factors.
+
+***Diastolic Blood Pressure (Blue bars)***
+
+- Also steady across groups, generally ranging from 71 to 75.
+
+- Highest readings again appear in Poor diet + Low active group.
+
+***Cholesterol (Pink bars)***
+
+- Levels were high across the board (175–193).
+
+- Highest cholesterol was seen in the Poor diet + Low active and Poor + Low active groups.
+
+- People with good or improving diets and higher activity had slightly lower cholesterol.
+
+Simply,I can say that this combined chart shows the average BMI, systolic BP, diastolic BP, and cholesterol across all 9 combinations of diet and activity. Here's what it tells us:
+
+- Best overall health was seen in people with a good diet and high activity.
+
+- Worst outcomes were in people with a poor diet and low activity.
+
+- Being even moderately active helped — especially for people with diets that weren’t ideal.
+
+#### Key Takeaways
+
+##### What’s clear:
+
+Poor diet is strongly linked to higher body weight.
+
+Moderate physical activity can reduce BMI even if the diet isn’t great.
+
+##### What needs more attention:
+
+Physical activity has a powerful protective effect, especially for people with suboptimal diets.
+
+Blood pressure and cholesterol may be influenced by other medical or genetic factors beyond lifestyle alone — more research is needed here.
+
+##### What I recommend focusing on:
+
+Encourage healthy eating as a first-line way to reduce weight-related health risks.
+
+Promote regular physical activity, especially for people with room to improve their diet — it can make a big difference.
+
+Don’t just look at one health habit — the combination of poor diet and inactivity is where the most risk lies.
+
+Look at health holistically—especially since BP and cholesterol may need medical support or further research.
+
+#### What I Measured:
+
+Diet quality came from a national scoring system and was grouped into three categories.
+
+Physical activity was based on estimated weekly energy use.
+
+I focused on three main health indicators: BMI, blood pressure, and cholesterol.
+
+All results were adjusted to represent the U.S. adult population.
+

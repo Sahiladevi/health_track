@@ -1,0 +1,134 @@
+### Lifestyle and Background Summary – Weighted (Population-Adjusted)
+
+This summary reflects data adjusted to represent the U.S. population using NHANES weights.
+It also includes what the plots visually show, so you can connect the numbers with the bigger picture.
+
+Looked at data representing over 188 million U.S. adults (population-adjusted) to understand their health habits, access to care, and daily life. Here’s what we found:
+
+#### Gender
+
+Pretty even split:
+
+- About 51% were women
+
+- About 49% were men
+
+***Chart (Gender Distribution)*** shows this balance visually.
+
+#### Race and Ethnicity
+
+Most of the population is Non-Hispanic White (61%)
+
+Others include:
+
+- Non-Hispanic Black (11%)
+
+- Other Hispanic (10%)
+
+- Mexican American (7%)
+
+- Asian (6%)
+
+- Mixed or other groups (6%)
+
+***Chart (Race/Ethnicity Distribution)*** highlights the diversity across racial and ethnic lines.
+
+#### Education
+
+About 1 in 3 people finished college or more.
+
+Many completed high school or some college.
+
+A smaller group didn’t complete high school.
+
+***Chart (Education Level Distribution)*** shows most adults have some level of higher education.
+
+#### Income (Poverty Income Ratio)
+
+People’s financial situations vary:
+
+- The average person lives at 3x the poverty line
+
+- But there’s a wide range — some are well above, and some are below it
+
+***Bar & Histogram (PIR Summary and Weighted PIR Histogram)*** show that while many are doing okay, a good portion are at lower income levels and could use more support.
+
+#### Health Insurance
+
+Access is strong:
+
+- 91% of people have health insurance
+
+- Only 9% are uninsured
+
+***Chart (Health Insurance Coverage)*** shows most are covered, which is a positive sign.
+
+#### Sleep
+
+Most people get a healthy 7–8 hours of sleep.
+
+Smaller groups sleep too little or too much.
+
+- 79% get normal sleep
+
+- 13% get long sleep
+
+- 8% get short sleep
+
+***Chart (Sleep Duration Category)*** shows most people are on track, sleep-wise.
+
+#### Physical Activity
+
+Activity levels are mixed:
+
+- 52% are low active
+
+- About 24% are moderately active
+
+- The remaining 23% are highly active
+
+The average adult gets about 205 minutes of activity per week, but there’s a lot of variation.
+
+***Bar and Histogram (Physical Activity Mean ± Std, and Distribution)*** show a wide gap between the very active and those not moving much.
+
+#### Diet Quality
+
+This is where things really stand out:
+
+- 82% have a poor diet
+
+- 16% need improvement
+
+- Only 1% eat a truly healthy diet
+
+The average score is just under ***48 out of 100***, meaning most people aren’t meeting nutrition guidelines.
+
+***Charts (Diet Quality Category and Diet Score Summary)*** make it clear this is a widespread issue.
+
+#### Overall Takeaway
+
+##### What’s going well:
+
+Most adults have health insurance
+
+Many get enough sleep
+
+A good number have higher education
+
+A large portion of the population is financially stable
+
+##### What needs work:
+
+Most people eat poorly
+
+Over half don’t exercise enough
+
+Some still live with low income
+
+##### What to focus on:
+
+Help people improve their diets
+
+Encourage more regular physical activity
+
+Support low-income groups with resources and health access

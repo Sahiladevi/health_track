@@ -1,0 +1,94 @@
+### How Lifestyle and Background Affect Cardiovascular Disease Risk – Adjusted for U.S. Population (Weighted)
+
+This summary is based on national health data adjusted to reflect the adult U.S. population. It explores how lifestyle and background — including diet, sleep, income, education, race/ethnicity, and blood sugar, relate to the odds of having cardiovascular disease (CVD).
+
+I used data from 1,727 U.S. adults to examine how CVD risk is linked to:
+
+**Diet, sleep, income, education, age, gender, race/ethnicity, blood pressure, cholesterol, blood sugar, and physical activity**
+
+#### What the Study Shows
+
+Certain lifestyle and background factors strongly shape heart disease risk.
+
+Poor diet, low income, and low education were some of the biggest drivers of risk — often even more than cholesterol or blood pressure.
+
+**Surprisingly:** Having “normal” blood pressure didn’t reduce risk much. In some cases, it was actually linked to higher odds than mild hypertension.
+
+**Bottom line:** Heart disease risk is shaped by how you live — but also by your environment, access to good food, and socioeconomic opportunity.
+
+#### Chart: Odds of Heart Disease – What Raises or Lowers Risk?
+
+This chart shows how each factor is linked to the odds of cardiovascular disease — after adjusting for everything else.
+
+Here’s what stood out:
+
+**Groups with Lower CVD Risk:**
+
+- Normal blood sugar → 70% lower odds of CVD
+
+- Prediabetes -> Also much lower risk than diabetes
+
+- Very high income
+
+- College degree or higher
+
+- Multi-racial or “Other” ethnicity
+
+**Groups with Higher CVD Risk:**
+
+- Poor diet -> 6× higher odds — the strongest single risk factor
+
+- Diet needs improvement -> Over 5× higher odds
+
+- Less than 9th grade education -> 3.4× higher odds
+
+- Low income -> 3.3× higher odds
+
+- Non-Hispanic White, Black, and Asian adults had higher risk than Mexican Americans
+
+- Men -> Over 2× the odds compared to women
+
+- Short sleep (<6 hours) -> Increased risk
+
+- Overweight or obese -> Higher odds
+
+- Low or moderate physical activity -> Higher risk
+
+- High cholesterol and older age -> Also raised risk
+
+#### What I Take Away from This
+
+##### What’s clear:
+
+Diet quality is the biggest single factor for heart disease — far more than cholesterol or blood pressure alone.
+
+Income and education make a major difference. Poverty and low education dramatically increase risk.
+
+Being physically active and sleeping well seem protective, while short sleep and inactivity increase risk.
+
+##### What raises questions:
+
+“Normal” blood pressure was oddly linked to slightly higher risk than mild hypertension — possibly due to other hidden health issues or medication patterns.
+
+Ethnic differences in risk may reflect access to care, diet, and income — not just biology.
+
+##### What I recommend focusing on:
+
+Invest in diet education and food access, especially for low-income communities.
+
+Support programs for early education, especially targeting cardiovascular risk.
+
+Promote sleep health and physical activity, both of which play a meaningful role.
+
+**Remember:** CVD risk isn’t just about personal habits — it’s also shaped by environment, education, and access to good care and healthy food.
+
+##### What I Measured:
+
+Cardiovascular disease was based on medical records or reported diagnosis.
+
+Lifestyle and demographic data came from national health surveys.
+
+I used a weighted logistic regression model to reflect national patterns and adjust for overlapping factors.
+
+This helps highlight which groups are most at risk — and where we can act to reduce heart disease in the U.S.
+

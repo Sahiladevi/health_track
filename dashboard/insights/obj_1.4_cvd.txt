@@ -1,0 +1,72 @@
+### How Blood Sugar and Blood Pressure Affect Heart Disease Risk – Adjusted for U.S. Population
+
+This summary is based on national data adjusted to reflect the U.S. population. It explains what I found in my analysis and what the charts show, helping make sense of how blood sugar and blood pressure affect the chances of having heart disease.
+
+I used data from 4,394 U.S. adults to explore how blood sugar levels (normal, prediabetes, or diabetes) and blood pressure levels work together to affect the risk of cardiovascular disease (CVD).
+
+#### What the Study Shows
+
+People with diabetes have a much higher chance of heart disease, no matter what their blood pressure is.
+
+Higher blood pressure also raises the risk, especially for people with diabetes or prediabetes.
+
+The highest risk is when someone has both diabetes and high blood pressure.
+
+Even people with prediabetes (not yet diabetes) have higher risk if their blood pressure is very high.
+
+**In short: Diabetes makes heart disease more likely and high blood pressure makes it even worse.**
+
+#### Chart 1 (Heart Disease Risk by Blood Pressure and Blood Sugar)
+
+The blue line (diabetes) is always the highest — showing the greatest risk of heart disease.
+
+The green line (normal blood sugar) is lowest across all blood pressure levels.
+
+The orange line (prediabetes) is in the middle — but it rises fast with very high blood pressure.
+
+Even at healthy blood pressure, people with diabetes still had a 25% chance of heart disease.
+
+This tells me that both blood sugar and blood pressure matter a lot.
+
+#### Table of Risk Estimates (Predicted Chance of Heart Disease)
+
+| Blood Pressure Level        | Diabetes | Prediabetes | Normal Sugar |
+|----------------------------|----------|-------------|---------------|
+| Normal                     | 25%      | 9%          | 4%            |
+| Elevated                   | 24%      | 8%          | 7%            |
+| High (Stage 1)             | 24%      | 7%          | 2%            |
+| High (Stage 2)             | 29%      | 11%         | 8%            |
+| Emergency High (Crisis)    | —        | 22%         | 6%            |
+
+**Note: No data available for diabetes + emergency high BP in this sample.**
+
+#### Key Takeaways
+
+##### What’s clear:
+
+People with diabetes and high blood pressure are at the highest risk for heart disease.
+
+Even prediabetes can be risky if blood pressure is also high.
+
+##### What needs more attention:
+
+Many people with prediabetes may not realize they’re at risk — especially if their blood pressure is high.
+
+I couldn’t analyze cases where people had both diabetes and extremely high blood pressure because there weren’t enough of them in this sample.
+
+##### What I recommend focusing on:
+
+Help people with both high blood sugar and high blood pressure get early care — they’re at the most risk.
+
+Don’t ignore prediabetes — especially when blood pressure is also elevated.
+
+Encourage healthy habits like eating better, staying active, managing weight, and using medicine if needed to lower the risk.
+
+##### What I Measured:
+
+Blood sugar levels were based on lab test results (normal, prediabetes, diabetes).
+
+Blood pressure followed standard medical categories (normal, elevated, high, and crisis).
+
+I used a model that adjusts for the U.S. population to estimate heart disease risk.
+

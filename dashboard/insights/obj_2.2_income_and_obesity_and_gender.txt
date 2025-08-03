@@ -1,0 +1,62 @@
+### How Income and Gender Affect Obesity Risk - Weighted (Population-Adjusted)
+
+This summary is based on weighted data, which means it’s adjusted to reflect the adult population across the U.S. so the results give a more accurate picture.
+
+I looked at how income levels (measured by something called PIR: Poverty-Income Ratio) and gender are linked to a person’s chances of being obese.
+
+I used data from around 5,970 adults for this analysis.
+
+#### What the Data Tells Me
+
+Lower income is linked to a higher chance of obesity. As income goes up, the risk tends to go down.
+
+This pattern is much stronger for women.
+
+Women with lower income had the highest predicted risk of obesity.
+
+Their risk dropped a lot as income increased.
+
+For men, the risk of obesity didn’t change much across income levels — it stayed pretty steady.
+
+At the highest income levels, men actually had a slightly higher risk of obesity than women.
+
+So overall, income plays a big role, but it affects men and women differently.
+
+#### Plot 1: Obesity Risk by Income and Gender (Line Plot)
+
+For women, the line slopes downward — this shows that higher income is linked to lower obesity risk.
+
+For men, the line is much flatter — their obesity risk doesn’t shift much with income.
+
+At the very top income level, the lines cross — men end up with a slightly higher predicted risk than women.
+
+#### Plot 2: Obesity Risk by Income and Gender (Bar Chart)
+
+This chart shows a side-by-side view of men and women at each income level:
+
+In the lowest income group, women had noticeably higher obesity risk than men.
+
+In the middle income categories, the pattern was similar — women’s risk was still higher.
+
+At the highest income level, the pattern flipped — men’s obesity risk became slightly higher than women’s.
+
+#### What I Take Away from This
+
+##### What’s encouraging:
+
+Higher income is linked to lower obesity risk, especially for women.
+
+It’s clear that gender and income interact in meaningful ways when it comes to health.
+
+##### What’s concerning:
+
+Low-income women are at the greatest risk — they may face more barriers when it comes to healthy food, physical activity, and health care.
+
+Men’s risk staying steady means other factors could be influencing their weight, outside of income.
+
+##### What I’d focus on next:
+
+Make sure low-income women have better access to things that support a healthy lifestyle — like safe spaces to be active, affordable nutritious food, and health care.
+
+Look more closely at what affects men’s obesity risk, and create programs tailored to their needs.
+

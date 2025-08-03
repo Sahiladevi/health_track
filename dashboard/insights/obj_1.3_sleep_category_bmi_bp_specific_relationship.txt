@@ -1,0 +1,85 @@
+### How Sleep Categories Relate to BMI and Blood Pressure – Adjusted for U.S. Population (Weighted)
+
+This summary is based on national data adjusted to reflect the U.S. population. It explains what I found using sleep categories (Short, Normal, Long) instead of just hours, helping make sense of how different sleep patterns relate to body weight and blood pressure.
+
+I analyzed data from 5,735 U.S. adults to examine whether sleep duration categories are linked to:
+
+***BMI (Body Mass Index)***, ***Systolic Blood Pressure (top number)***, ***Diastolic Blood Pressure (bottom number)***
+
+#### What the Study Shows
+
+People who sleep less than average (Short Sleepers) tend to have higher BMI and slightly higher diastolic BP.
+
+People who sleep more than average (Long Sleepers) tend to have lower diastolic BP, but no change in BMI.
+
+Systolic BP is not meaningfully affected by sleep duration.
+
+**In short:** Short sleep may harm health more than long sleep helps, but overall, sleep category explains very little of the differences in BMI or blood pressure.
+
+#### Chart 1 (Sleep Category vs BMI)
+
+Short Sleepers have a significantly higher BMI than Normal Sleepers (+1.27 points on average).
+
+Long Sleepers have BMI very similar to Normal Sleepers.
+
+Sleep category explains only about 4% of the variation in BMI.
+
+So while Short Sleep shows a real effect, many other factors matter more.
+
+#### Chart 2 (Sleep Category vs Systolic Blood Pressure)
+
+No meaningful differences in systolic BP between Short, Normal, or Long Sleepers.
+
+Sleep category explains only 0.2% of the variation in systolic pressure.
+
+Age, sex, and race had much stronger effects on systolic BP than sleep.
+
+#### Chart 3 (Sleep Category vs Diastolic Blood Pressure)
+
+Long Sleepers have slightly lower diastolic BP than Normal Sleepers (−1.03 mmHg).
+
+Short Sleepers have slightly higher diastolic BP than Normal Sleepers (+1.25 mmHg), but this result was only borderline significant.
+
+Sleep explains about 2.6% of the variation in diastolic pressure — more than the other outcomes, but still modest.
+
+#### How Sleep Category Affects Health (Compared to Normal Sleepers)
+
+This summary shows the average differences for Short and Long Sleepers compared to people with Normal Sleep:
+
+| Health Measure                   | Short Sleepers vs Normal | Long Sleepers vs Normal | Is It Statistically Real?        |
+|----------------------------------|---------------------------|--------------------------|----------------------------------|
+| Body Weight (BMI)               | +1.27 points higher       | About the same           |  Yes (for Short Sleep)         |
+| Top Blood Pressure (Systolic)   | No difference             | No difference            |  No                            |
+| Bottom Blood Pressure (Diastolic) | +1.25 points higher       | −1.03 points lower        |  Yes (for Long Sleep)          |
+
+
+#### Key Takeaways
+
+##### What’s clear:
+
+Short Sleep is linked to higher BMI and possibly higher diastolic BP.
+
+Long Sleep is linked to lower diastolic BP.
+
+Systolic BP doesn’t appear to be affected by sleep category.
+
+##### What needs more attention:
+
+The effects are statistically significant but small — sleep is only one piece of a larger health puzzle.
+
+Other factors like diet, exercise, medications, stress, and age are much stronger predictors.
+
+##### What I recommend focusing on:
+
+Promote healthy sleep, especially avoiding too little sleep, as part of a broader lifestyle approach.
+
+Combine sleep guidance with strategies that support weight control and heart health, like nutrition and physical activity.
+
+##### What I Measured:
+
+Sleep was grouped into categories: Short (<6 hrs), Normal (6–8 hrs), Long (>8 hrs).
+
+BMI and blood pressure were based on measured clinical data.
+
+I used weighted regression models to adjust for U.S. population characteristics like age, gender, and race/ethnicity.
+

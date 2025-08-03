@@ -1,0 +1,88 @@
+### How Lifestyle and Background Affect Blood Sugar (Fasting Glucose) – Adjusted for U.S. Population (Weighted)
+
+This summary is based on national data adjusted to reflect the U.S. adult population. It shows what I found when analyzing how common factors like sleep, diet, activity, and background relate to fasting blood sugar (glucose levels when you haven't eaten for a while).
+
+I used data from 1,830 U.S. adults to see if blood sugar is linked to things like:
+
+**Sleep, diet quality, age, gender, race or ethnicity, income, education, activity level, and insurance status**
+
+#### What the Study Shows
+
+These factors only explained about 10% of the differences in fasting blood sugar between people.
+
+Some groups had noticeably higher or lower glucose levels on average — especially by gender and race/ethnicity.
+
+Lifestyle choices like sleep, diet, or exercise had much smaller effects than expected.
+
+**In short:** Blood sugar levels are influenced by many things, and most aren't captured by lifestyle or background alone.
+
+#### Chart 1 (Predicted vs Actual Fasting Glucose)
+
+The points are widely scattered, meaning the model often missed the mark.
+
+In some cases, predictions were off by 40–60 points or more.
+
+That shows the model can’t reliably predict blood sugar based on lifestyle and demographics alone.
+
+#### Chart 2 (Residuals Distribution – How Off Were Predictions?)
+
+The tallest bar is near zero, meaning some predictions were close.
+
+But there’s a long tail on the right — some people’s blood sugar was much higher than expected.
+
+That suggests other important factors — like genetics, medications, or undiagnosed conditions — play a big role.
+
+#### Chart 3 (Which Factors Had the Most Impact?)
+
+This chart shows which groups tended to have higher or lower fasting glucose, holding everything else constant.
+
+Here’s what stood out:
+
+- Men had blood sugar levels about 9.5 points higher than women.
+
+- Non-Hispanic Asians, White, Other Hispanic, and Multiracial adults all had lower glucose levels compared to the reference group.
+
+For example:
+
+- Non-Hispanic White adults averaged 17.5 points lower
+
+- Other Hispanic adults were about 16 points lower
+
+- Non-Hispanic Asian adults were 14.4 points lower
+
+Age had a small but steady effect — each year of age added about 0.3 points to blood sugar.
+
+People with higher-quality diets (higher HEI score) had slightly lower glucose, but the effect was small.
+
+Sleep, income, activity, and education showed no strong impact.
+
+#### Key Takeaways
+
+##### What’s clear:
+
+Gender and race had the biggest associations with fasting blood sugar.
+
+Men and some ethnic groups (especially Non-Hispanic Whites and Asians) showed clear differences.
+
+##### What needs more attention:
+
+Sleep, activity, and diet don’t explain much on their own.
+
+Blood sugar is complex — other major drivers (like insulin resistance, family history, stress, or medications) weren’t included in this model.
+
+##### What I recommend focusing on:
+
+Encourage regular blood sugar screening, especially for older adults and those at risk.
+
+Healthy habits like good nutrition and physical activity still matter — but they aren’t the whole story.
+
+Consider personalized care that looks beyond lifestyle — especially for blood sugar management.
+
+##### What I Measured:
+
+Fasting glucose was measured via blood tests.
+
+Lifestyle and background factors came from survey data.
+
+I used a model adjusted to reflect the U.S. population, so results show national-level patterns — but may still miss individual-level details.
+

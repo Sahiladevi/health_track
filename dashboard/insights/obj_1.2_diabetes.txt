@@ -1,0 +1,84 @@
+### How Lifestyle and Background Affect Diabetes Risk – Adjusted for U.S. Population (Weighted)
+
+This summary is based on national data adjusted to reflect the U.S. adult population. It shows what I found when analyzing how background and lifestyle factors — like sleep, diet, income, education, and race — relate to whether someone has been diagnosed with diabetes.
+
+I used data from 3,426 U.S. adults to explore how diabetes risk relates to:
+
+**Sleep, diet quality, age, gender, race/ethnicity, income, education, activity level, and insurance status**
+
+#### What the Study Shows
+
+Some groups had much higher or lower odds of diabetes, especially depending on race/ethnicity, education, and physical activity.
+
+Lifestyle factors like diet and exercise mattered — but background and access to care had just as much or more impact.
+
+**One surprise:** people with health insurance had twice the odds of having a diabetes diagnosis — likely because they’re more likely to be tested.
+
+**In short:** Diabetes risk is shaped by both who you are and how you live — but it’s also about who has access to healthcare.
+
+#### Chart 1 (Odds of Diabetes: Who's at Higher or Lower Risk?)
+
+This chart shows how each factor affects the odds of having diabetes, after adjusting for everything else.
+
+Here’s what stood out:
+
+**Groups with lower diabetes risk:**
+
+- Non-Hispanic White adults had 64% lower odds of diabetes compared to Mexican Americans.
+
+- College graduates had 57% lower odds than people with 9–11th grade education.
+
+- Non-Hispanic Asian adults had 47% lower odds.
+
+- Other/Multi-racial adults and people with some college also had significantly lower risk.
+
+- A higher-quality diet (HEI score), higher income, and being "highly active" were all linked to lower diabetes risk — though modestly.
+
+**Groups with higher diabetes risk:**
+
+- People who had health insurance were 2× more likely to have diabetes — likely because they’re more likely to be screened.
+
+- People who were low active had 72% higher odds, and moderately active had 32% higher odds than those who were highly active.
+
+- Men had a 70% higher risk than women.
+
+- Older adults and those sleeping more also showed slightly higher risk.
+
+- People with less than 9th-grade education had an 18% higher risk.
+
+#### What I Take Away from This
+
+##### What’s clear:
+
+Education, race/ethnicity, and physical activity play a strong role in diabetes risk.
+
+Non-Hispanic White and Asian adults have much lower odds than Mexican Americans.
+
+People with higher education and income levels are at lower risk.
+
+Being physically active is consistently protective.
+
+##### What raises questions:
+
+Health insurance is associated with higher diagnosed diabetes — which may mean access to care = more detection.
+
+Sleep duration showed a small increase in risk — possibly reflecting other underlying issues like stress or health problems.
+
+##### What I recommend focusing on:
+
+Improve access to diabetes screening and education, especially for those without insurance or with lower education.
+
+Promote physical activity, especially for people in the low or moderately active groups.
+
+**Remember:** Health equity matters — risk isn’t just about choices, it’s also about environment and opportunity.
+
+##### What I Measured:
+
+Diabetes diagnosis came from medical records or self-reported confirmation.
+
+Lifestyle and demographic factors came from survey responses.
+
+I used a weighted logistic regression model to reflect national-level trends and adjust for many overlapping influences.
+
+This helps us see which groups are most at risk — and where we can focus efforts to prevent or manage diabetes more effectively.
+

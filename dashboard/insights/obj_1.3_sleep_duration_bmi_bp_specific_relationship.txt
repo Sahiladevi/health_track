@@ -1,0 +1,76 @@
+### How Sleep Affects BMI and Blood Pressure – Adjusted for U.S. Population (Weighted)
+
+This summary is based on national data adjusted to reflect the U.S. population. It explains what I found in my analysis and what the charts show, helping make sense of how sleep patterns relate to body weight and blood pressure.
+
+I used data from 5,735 U.S. adults to explore whether the number of hours people sleep each night is related to:
+
+***BMI (Body Mass Index)***, ***Systolic Blood Pressure (top number)*** and ***Diastolic Blood Pressure (bottom number)***
+
+#### What the Study Shows
+
+People who sleep more tend to have slightly lower BMI and blood pressure.
+
+However, the size of the effect is very small — sleep alone doesn't explain much of the variation in BMI or blood pressure.
+
+The clearest relationship is between sleep and diastolic blood pressure, but even that effect is weak.
+
+**In short:** More sleep is linked to slightly better health outcomes, but it's only one small piece of a much bigger picture.
+
+#### Chart 1 (Sleep Hours vs BMI)
+
+Shows a small downward slope — BMI tends to go down a little as people sleep more.
+
+On average, each extra hour of sleep is linked to 0.3 points lower BMI.
+
+But sleep only explains 0.3% of BMI differences across people — so many other factors matter more.
+
+More sleep  tends to slightly lower BMI, but the change is minor.
+
+#### Chart 2 (Sleep Hours vs Systolic Blood Pressure)
+
+There's a tiny drop in systolic pressure with more sleep.
+
+Each extra hour of sleep is linked to about 0.4 mmHg lower systolic BP.
+
+Still, the overall pattern is weak — sleep explains just 0.1% of systolic pressure differences.
+
+Slight benefit, but not meaningful on its own.
+
+#### Chart 3 (Sleep Hours vs Diastolic Blood Pressure)
+
+This relationship is a little stronger.
+
+Each extra hour of sleep is linked to 0.6 mmHg lower diastolic BP.
+
+Sleep explains about 0.6% of variation in diastolic pressure.
+
+Most consistent trend in the analysis — but still a very small effect.
+
+#### Key Takeaways
+
+##### What’s clear:
+
+People who sleep more tend to have slightly lower BMI and blood pressure.
+
+The strongest link is with diastolic blood pressure.
+
+##### What needs more attention:
+
+The effects are statistically real but not practically large — sleep is important, but it doesn’t tell the whole story.
+
+Other factors (like diet, exercise, stress, and medication) are much stronger influences on BMI and blood pressure.
+
+##### What I recommend focusing on:
+
+Encourage better sleep as part of a broader healthy lifestyle, but don’t expect sleep alone to drive major changes in weight or blood pressure.
+
+Help people combine good sleep habits with nutrition, physical activity, and regular health checks.
+
+##### What I Measured:
+
+Sleep duration was reported as average hours of sleep per night.
+
+BMI and blood pressure were measured using clinical data.
+
+I used linear regression models adjusted to reflect the U.S. adult population and capture general trends.
+

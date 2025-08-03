@@ -1,0 +1,49 @@
+### How Income and Education Affect Obesity (Adjusted for U.S. Population - Weighted)
+
+This summary looks at data from nearly 6,000 U.S. adults, adjusted to reflect the whole U.S. population. It explores how income (PIR) and education level are related to obesity — defined here as having a BMI of 30 or higher.
+
+#### What the Data Shows
+
+Education matters a lot when it comes to obesity.
+
+- People with more education are less likely to be obese — and this pattern holds across all income levels.
+
+Income matters too, but not as strongly.
+
+- People with very high incomes tend to have lower obesity rates than others, but the differences are smaller.
+
+The most at-risk group?
+
+- Adults who didn’t finish high school — especially those in the low and high income brackets — have some of the highest obesity probabilities (close to 50%).
+
+- The group with the lowest obesity risk is adults with a college degree, especially those in the very high income group (around 31%).
+
+#### What the Chart Shows
+
+Across all income groups, people with less education are more likely to be obese.
+
+Even among the wealthy, if you didn’t finish high school, your obesity risk is higher than someone with a college degree.
+
+The education effect is stronger and more consistent than the income effect.
+
+#### What This Means
+
+##### What’s clear:
+
+Education plays a big role in obesity risk — more than income does in this dataset.
+
+People with less education tend to have higher obesity rates, regardless of how much money they make.
+
+##### What to keep in mind:
+
+These results show patterns, not causes.
+
+Obesity is affected by a mix of factors: food access, exercise, stress, work, family life, and healthcare access — not just income or school.
+
+##### What we should focus on:
+
+Support people with lower education levels — give them better tools, resources, and environments to make healthy choices.
+
+Avoid assumptions — not all wealthy people are healthy, and not all low-income people are unhealthy.
+
+Education stands out as a stronger predictor in this case.
