@@ -14,7 +14,7 @@ This project looks at how daily habits, income, and access to healthcare affect 
 
 For this project, I used a smaller, more focused selection of variables from the NHANES 2021–2023 datasets. I only kept the columns that were actually needed to explore things like BMI, lifestyle habits, and chronic disease risk and FPED datas from USDA ARS.
 
-- From DEMO_L.XPT, I pulled just the basics—demographics, education level, income (poverty to income ratio), and weight.
+- From DEMO_L.XPT, I pulled just the basics-demographics, education level, income (poverty to income ratio), and weight.
 - From BMX_L.XPT, I only used the BMI (BMXBMI) column since that’s all I needed from there.
 - From FPED_1720.xls, I pulled the required nutrient food columns required to calculate HEI score (Healthy Eating Index score.)
 
@@ -254,6 +254,7 @@ xlrd
 pywin32==310; sys_platform == "win32"
 pywinpty==2.0.15; sys_platform == "win32"
 streamlit
+Pillow
 
 ```
 
@@ -459,20 +460,47 @@ health_track/
 
 ## Streamlit App Implementation
 
-To make the project findings more accessible and interactive, I developed a Streamlit web application. The app allows users to explore objectives, view outcomes, and dive into key insights.
+To make the key findings from this project easier to explore and understand, I built an interactive dashboard using Streamlit.
 
-### Core Functionality:
+The app lets users explore different health-related objectives, see the results visually, and read clear summaries and key takeaways.
 
-- **Sidebar Objective Selector**: Users choose from a list of predefined objectives, each mapped to multiple outcomes.
-- **Dynamic Outcome Display**: Based on the selected objective, the app updates to show relevant outcomes using a sidebar dropdown.
-- **Tabbed Interface**: Each outcome has three tabs:
-  - **Plots**: Visualizations generated dynamically based on the selected data.
-  - **Summary Report**: Highlights and summaries for easier interpretation.
-  - **Key Findings**: A narrative-style section with conclusions or recommendations (rendered from a Markdown or text file).
+### How Things Are Organized
 
-For specific objectives like "Objective 2.3," the app directly loads a dedicated recommendation report.
+The main app file is: `dashboard/health_track_app.py`
 
-All visuals, summaries, and insights are loaded based on structured dictionaries and helper functions, ensuring scalability and modularity.
+Inside dashboard/insights/, I stored the key findings for each health objective.
+
+In a separate outputs/ folder (outside the dashboard folder):
+
+- outputs/plots/ contains the visualizations
+
+- outputs/summary/ holds the summary reports
+
+### How the App Works
+
+When you open the app, you can choose a health objective from a dropdown in the sidebar.
+
+If that objective is available:
+
+You’ll see another dropdown to choose a specific outcome.
+
+Based on your selection, the app displays:
+
+- A plot
+
+- A short summary
+
+- A key finding
+
+These appear in three tabs: Plots, Summary Report, and Key Findings
+
+A short description of the outcome (if available) is also shown
+
+For Objective 2.3, the app skips the dropdown and directly shows the data-driven recommendations.
+
+If there's no data available for an objective, the app shows a simple message letting the user know.
+
+This makes the dashboard easy to use — just pick a topic and instantly see the results, visual summaries, and insights, all in one place.
 
 ---
 
@@ -494,7 +522,7 @@ To deploy the app on [Streamlit Cloud](https://streamlit.io/cloud):
 3. Click on **"Create app"**.
 4. Choose the repository and the branch, then set the main file path: dashboard/health_track_app.py
 5. Add necessary environment variables or secrets if any.
-6. Click **"Deploy"** — your app will be live in seconds.
+6. Click **"Deploy"** — app will be live in seconds.
 
 >**Tip**: Make sure your `requirements.txt` is up to date with all dependencies.
 
