@@ -2,9 +2,9 @@
 
 **Title:** Analyzing the Impact of Lifestyle, Socioeconomic Status, and Healthcare Access on Chronic Health Conditions Among U.S. Adults
 
-***Author:*** Sahiladevi Deenadayalu
+***Prepared by:*** Sahiladevi Deenadayalu
 
-**Date:** July-27-2025
+**Date:** August-04-2025
 
 ---
 
