@@ -18,49 +18,27 @@ if not INSIGHT_DIR.exists():
 
 # Page setup
 st.set_page_config(page_title="Health Dashboard", layout="wide")
-st.title("Lifestyle, Socio-economic & Health Outcomes (NHANES 2021-2023)")
+st.title("NHANES 2021-2023: Lifestyle, Socioeconomic & Health Outcomes")
 
 # Project Overview and Scope
 st.markdown("""
 ### Project Overview
-This dashboard shares findings from the 2021-2023 NHANES survey, looking at how everyday habits and social conditions relate to health among U.S. adults. It brings together data on lifestyle, income, education, and  health insurance coverage to help us understand what shapes people's well-being.
+Explore how lifestyle habits, socioeconomic factors, and healthcare access relate to health outcomes among U.S. adults, including BMI, blood pressure, cholesterol, glucose, and chronic diseases. Differences by gender and race/ethnicity are also highlighted to support evidence-based interventions.
 
-### Purpose
-The goal of this project is to explore how health conditions like obesity, high blood pressure, diabetes, and high cholesterol are connected to how we live, what we eat, how much we move, and whether or not we have health insurance.
-
-To do this, I used the latest NHANES survey data along with detailed food and nutrition info from the USDA. I'm especially interested in how these connections might differ between men and women or across racial and ethnic groups.
-
-While access to healthcare includes many factors, this project uses health insurance status as a basic indicator of that access.
-
-By highlighting patterns and gaps, this project aims to support more inclusive, evidence-based public health solutions.
-
-### Key Questions This Dashboard Helps Answer
-- How do everyday habits like diet, exercise, and sleep affect health measures such as BMI, blood pressure, and blood sugar?
-
-- What role do social factors—such as income, education, and health insurance coverage—play in the risk of chronic conditions like obesity, diabetes, and hypertension?
-
-- Are there significant differences across gender or race in how lifestyle and social factors impact health?
-
--  How do multiple unhealthy behaviors combine—do they increase the risk of chronic disease more than any single factor alone?
-
-These questions reflect real-world health challenges faced by millions of U.S. adults, and by exploring them, this dashboard aims to uncover meaningful patterns that can support better health outcomes.
-          
-### Scope
-This dashboard allows you to:
-
-- Explore distributions of health and lifestyle factors in the U.S. adult population
-
-- Compare health outcomes across demographic groups (gender, race, income)
-
-- Analyze how lifestyle and social factors interact to influence health
-
-- View both raw and population-weighted data to understand patterns            
+### Sections
+- **Distribution:** Patterns of lifestyle and socioeconomic factors.
+- **Associations:** Links between these factors and health outcomes.
+- **Relationships:** Specific factor outcome connections (e.g., sleep → BMI).
+- **Interactions:** Combined effects of multiple factors.
+- **Disparities:** Differences across gender and racial/ethnic groups.
+- **Modifiers:** Effect modification by gender or race/ethnicity.
+- **Interventions:** Recommendations for reducing disparities and promoting health equity.
 """)
 
 # Sidebar: select objective
 objective = st.sidebar.selectbox("Select Objective", [
-    "Objective 1.1", "Objective 1.2", "Objective 1.3", "Objective 1.4",
-    "Objective 2.1", "Objective 2.2", "Objective 2.3"
+    "Distribution", "Associations", "Relationships", "Interactions",
+    "Disparities", "Modifiers", "Interventions"
 ])
 
 # Objective dictionaries (abbreviated for brevity; paste your full dicts here)
@@ -237,12 +215,12 @@ obj_2_3_outcomes = {
 
 # Map objectives to outcome dicts
 objective_outcomes_map = {
-    "Objective 1.1": obj_1_1_outcomes,
-    "Objective 1.2": obj_1_2_outcomes,
-    "Objective 1.3": obj_1_3_outcomes,
-    "Objective 1.4": obj_1_4_outcomes,
-    "Objective 2.1": obj_2_1_outcomes,
-    "Objective 2.2": obj_2_2_outcomes,
+    "Distribution": obj_1_1_outcomes,
+    "Associations": obj_1_2_outcomes,
+    "Relationships": obj_1_3_outcomes,
+    "Interactions": obj_1_4_outcomes,
+    "Disparities": obj_2_1_outcomes,
+    "Modifiers": obj_2_2_outcomes,
 }
 
 # --------- Helper Functions ---------
@@ -352,7 +330,7 @@ if objective in objective_outcomes_map:
         else:
             st.warning("Insight file not specified for this outcome.")
 
-elif objective == "Objective 2.3":
+elif objective == "Interventions":
     st.markdown("### Objective 2.3: Data-driven Recommendations")
     insight_file = obj_2_3_outcomes["Data-driven Recommendations"]["insight"]
     render_insight(insight_file)
